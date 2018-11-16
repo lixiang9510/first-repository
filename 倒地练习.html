@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 900px;
+			height: 700px;
+			margin-left: auto;
+			margin-right: auto;
+			border:1px solid contain;
+			background-image: url(../../img/tree.jpg);
+			background-size: cover;
+			overflow: hidden;
+			perspective: 1000px;
+		}
+		.son{
+			width: 250px;
+			margin: 294px 498px;
+
+		}
+		.son img{
+			width: 100%;
+			transform-origin: center bottom;
+			transition-property: all;
+			transition-duration: 1s;
+			transition-timing-function: ease-in;
+
+		}
+		.son:hover img{
+			transform: rotateX(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son">
+			<img src="../../img/beauty6.jpg" alt="">
+			
+		</div>
+	</div>
+</body>
+</html>

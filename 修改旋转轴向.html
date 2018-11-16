@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border:1px solid black;
+			position: relative;
+			margin: 100px auto;
+			perspective: 500px;
+		}
+		.father li{
+			list-style: none;
+			width: 200px;
+			height: 200px;
+		
+
+
+		}
+		li:nth-child(1){
+			background-color: yellow;
+			transform: rotatex(20deg);
+			z-index: 1;
+		}
+		li:nth-child(2){
+			background-color: red;
+			transform: rotatey(40deg);
+			z-index: 2;
+		}
+		li:nth-child(3){
+			background-color: blue;
+			transform: rotatez(60deg);
+			z-index: 3;
+		}
+	</style>
+</head>
+<body>
+	<div >
+		<ul class="father">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

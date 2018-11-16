@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father li{
+			list-style: none;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			border:1px solid black;
+			margin: 50px auto;
+		}
+		.son1{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			transform:rotate(80deg);
+		}
+		.son2{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			transform:translate(100px,100px);
+		}
+		.son3{
+			width: 100px;
+			height: 100px;
+			background-color: red  ;
+			transform:translate(50%,50%);
+		}
+</style>
+</head>
+<body>
+	<div class="father" >
+		<ul>
+			<li class="son1"></li>
+			<li class="son2"></li>
+			<li class="son3"></li>
+		</ul>
+	</div>
+</body>
+</html>

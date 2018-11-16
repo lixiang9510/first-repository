@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 380px;
+			height: 560px;
+			border:1px solid black;
+			border-radius: 5px;
+			perspective:500px;
+			margin: 50px auto;
+		}
+		.father img{
+			width: 380px;
+			height: 560px;
+			transform-origin: center bottom;
+			transition-property: transform;
+			transition-duration: 2s;
+		}
+		.father:hover img{
+			transform:rotateX(90deg);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<img src="../../img/beauty1.jpg" alt="">
+	</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 850px;
+			height: 650px;
+			border:1px solid black;
+			position: fixed;
+			top: 162px;
+			left: 387px;
+			transform-style: preserve-3d;
+		}
+		.father1{
+			/*animation: first;*/
+			
+		}
+		.father2{
+			transform-style: preserve-3d;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			animation: second 8s linear 2s 1 normal;
+			animation-fill-mode: forwards;
+			/*transform: rotateX(45deg) rotateY(-25deg) rotateZ(0deg);*/
+		}
+		@keyframes second{
+			0%{
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			25%{
+				transform: rotateX(45deg) rotateY(30deg);
+			}
+			75%{
+				transform: rotateX(45deg) rotateY(30deg);
+			}
+			100%{
+				transform: rotateX(45deg)rotateY(30deg);
+			}
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			
+		}
+		.son1{
+			position: absolute;
+			top: 200px;
+			left: 0px;
+			background-color: yellow;
+			animation: one 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center right;
+		}
+		@keyframes one{
+			from{
+				transform: rotateY(0deg);
+			}
+			to{
+				transform:rotateY(90deg);
+			}
+		}
+		.son2{
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			background-color: blue;
+			animation: two 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center bottom;
+
+		}
+		@keyframes two{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(-90deg);
+			}
+		}
+		.son3{
+			position: absolute;
+			top: 200px;
+			left: 200px;
+			background-color: red;
+			animation: one
+		}
+		.son4{
+			position: absolute;
+			top: 400px;
+			left: 200px;
+			background-color: green;
+			animation: four 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center top;
+		}
+		@keyframes four{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(90deg);
+			}
+		}
+		.son5{
+			position: absolute;
+			top: 200px;
+			left: 400px;
+			animation: five 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center left;
+		}
+		@keyframes five{
+			from{
+				transform: rotateY(0deg);
+			}
+			to{
+				transform: rotateY(-90deg);
+			}
+		}
+		.son51{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: blue;
+			/*animation: */
+		}
+		.son52{
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			background-color: orange;
+			animation: fivetwo 2s linear  6s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin: center left;
+		}
+		@keyframes fivetwo{
+			from{
+				transform: rotateY(0deg);
+			}
+			to{
+				transform: rotateY(-90deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father father1">
+		<div class="father father2">
+			<div class="son son1">1</div>
+			<div class="son son2">2</div>
+			<div class="son son3">3</div>
+			<div class="son son4">4</div>
+			<div class="son5">
+				<div class="son son51">5</div>
+				<div class="son son52">6</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

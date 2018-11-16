@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css" media="screen">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.grandfather{
+				border:1px solid white;
+				width: 800px;
+				height: 700px;
+				margin: 10px      auto;
+				padding: 0 50px;
+				box-sizing: border-box;
+			}
+			.clearfix:after{
+        		content: "";
+       			clear: both;
+        		display: block;
+       			height: 0px;
+        		visibility: hidden;
+   			}
+    		.clearfix{
+        		*zoom:1;
+   			}
+			.father2{
+				margin-top: 10px;
+			}
+			.boy1{
+				width: 100px;
+				height:100px;
+				background-color: red;
+				float: left;
+				/*overflow: hidden;*/
+			}
+			.boy2{
+				width:200px; 
+				height:50px;
+				background-color: grey;
+				float: right;
+			}
+			.boy3{
+				width: 500px;
+				height: 50px;
+				background-color:purple;
+				float: right; 
+			}
+			.boy4{
+				width: 400px;
+				height:235px;
+				background-color: yellow;
+				float: left;
+				overflow: hidden;
+				margin-bottom:10px; 
+			}
+			.boy5{
+				width: 140px;
+				height:530px;
+				background-color: rgb(0,100,255);
+				float: right;
+			}
+			.boy6{
+				width: 140px;
+				height:480px;
+				background-color: pink;
+				float: right;
+				margin-right: 10px;
+			}
+			.boy7{
+				width: 400px;
+				height:235px;
+				background-color: yellow;
+				float: left;
+				overflow: hidden;
+			}
+			.boy8{
+				width: 550px;
+				height:40px;
+				background-color:red;
+				margin-top:10px;
+				float: left;  
+			}
+			/*.son{
+				clear: both;
+			}*/
+			.father3{
+				margin-top: 10px;
+			}
+			.boy9{
+				width:700px; 
+				height:40px;
+				background-color: blue;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grandfather">
+			
+			
+			<div class="father1 clearfix">
+				<div class="boy1">1</div>
+				<div class="boy2">2</div>
+				<div class="boy3">3</div>
+			</div>
+			<!-- <div class="inset"></div> -->
+			<div class="father2 clearfix">
+				<div class="boy4">4</div>
+				<div class="boy5">5</div>
+				<div class="boy6">6</div>
+				<div class="boy7">7</div>
+				<div class="boy8">8</div>
+				<!-- <div class="son"></div> -->
+			</div>
+			<div class="father3 ">
+				<div class="boy9">9</div>
+			</div>
+		</div>
+	</body>
+	</html>
