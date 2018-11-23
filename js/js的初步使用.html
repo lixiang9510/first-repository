@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#one{
+			width: 30px;
+			height: 30px;
+			background-color: red;
+			margin:50px auto;
+		}
+		#two{
+			width: 50px;
+			height: 50px;
+			background-color: yellow;
+			margin:100px auto;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="one" 
+		onmouseover="document.getElementById('two').style.display='block'"
+		onmouseout="document.getElementById('two').style.display='none'"
+		></div>
+	<div id="two"></div>
+	
+</body>
+</html>

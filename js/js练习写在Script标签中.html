@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			height:200px;
+			background-color: red;
+			margin:200px auto;
+		}
+	</style>
+	<script>
+		function tobig(){
+			var tobig=document.getElementById('box').style;
+			tobig.width='300px';
+			tobig.height='300px';
+			tobig.backgroundColor='yellow';
+		}
+		function tosmall(){
+			var small=document.getElementById('box').style;
+			small.width='100px';
+			small.height='100px';
+			small.backgroundColor='red';
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box" onmouseover='tobig()' onmouseout='tosmall()'></div>
+</body>
+</html>
+<!-- 其中var是一个函数，是给var后的字符串赋值,无论赋什么值都可以，字符串和上面定义的名字没有什么联系。注意书写格式不要出错。 -->

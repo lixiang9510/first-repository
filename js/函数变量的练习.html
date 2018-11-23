@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin:100px auto;
+		}
+	</style>
+	<script>   // js引擎开始工作
+		function nameone(){
+			var aaaa=document.getElementById('box')
+			aaaa.style.width='300px';
+			aaaa.style.height='300px';
+			aaaa.style.backgroundColor='yellow';
+		}
+		function nametwo(){
+			var aaaa=document.getElementById('box')
+			aaaa.style.width='100px';
+			aaaa.style.height='100px';
+			aaaa.style.backgroundColor='red';
+		}
+	</script>
+</head>
+<body>
+	<div id="box" class="box"
+	 onmouseover="nameone()"
+	 onmouseout="nametwo()">
+	 	
+	 </div>
+</body>
+</html>
