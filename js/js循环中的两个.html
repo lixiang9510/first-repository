@@ -19,6 +19,8 @@
 			width: 100px;
 			height: 50px;
 			line-height: 50px;
+			cursor: pointer;
+			text-align: center;
 		}
 		.box2 li{
 			width: 400px;
@@ -27,22 +29,52 @@
 			font-size: 100px;
 			border:1px solid black;
 			text-align: center;
+			display: none;
+			margin-top: 10px;
 		}
+		.active{
+			display: block;
+			border-bottom:1px solid #ff6700;
+			color: #ff6700;
+		}
+
 	</style>
 </head>
 <body>
-	<ul class="box1">
-		<li>电视</li>
+	<ul class="box1" id="box1">
+		<li class="active">电视</li>
 		<li>手机</li>
 		<li>电脑</li>
 		<li>家居</li>
 	</ul>
-	<ul class="box2">
-		<li>1</li>
+	<ul class="box2" id="box2">
+		<li style="display:block;">1</li>
 		<li>2</li>
 		<li>3</li>
 		<li>4</li>
 	</ul>
+	<script>
+		var oBox1 = document.getElementById('box1');
+		var oBox2 = document.getElementById('box2');
+		// var oLi1 = oBox1.getElementsByTagName('li');
+		// var oLi1=document.querySelectorAll('#box1 li')
+		var oLi1=document.querySelectorAll('#box1 li')
+		var oLi2=document.querySelectorAll('#box2 li')
+		// console.log(oLi1);
+		// console.log(oLi2);
+		for(i=0;i<oLi1.length;i++){
+			oLi1[i].index=i;
+			oLi1[i].onclick=function(){
+				for(var j=0;j<oLi1.length;j++){
+					oLi1[j].className="";
+					oLi2[j].style.display='none';
+				}
+				this.className="active";
+				oLi2[this.index].style.display="block";
 
+			}
+		}	
+
+	</script>
 </body>
 </html>

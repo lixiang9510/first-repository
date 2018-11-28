@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.space{
+			display:  inline-block;
+			width: 20px;
+			height: 20px;
+		}
+		.margin{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	
+</body>
+	<script>
+		for(a=1;a<=5;a++){
+			for(c=5;c>a;c--){
+				document.write("<span class='space'></span>");
+			}
+			for(b=1;b<=a;b++){
+				document.write("<span class='margin'>*</span>");
+			}
+			document.write('<br>');
+		}
+		
+	</script>
+</html>
