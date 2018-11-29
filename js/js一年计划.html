@@ -43,12 +43,16 @@
 			padding-left: 20px;
 			box-sizing: border-box;
 		}
+		.active{
+			background-color: #fff;
+			color: #000;
+		}
 	</style>
 </head>
 <body>
 	<div class="box">
 		<ul class="month clearfix">
-			<li>1</li>
+			<li class="active">1</li>
 			<li>2</li>
 			<li>3</li>
 			<li>4</li>
@@ -62,13 +66,30 @@
 			<li>12</li>
 		</ul>
 		<div class="plan">
-			<h4>一月</h4>
-			<p>吃饭</p>
+	<!-- 		<h4>1月</h4>
+			<p>吃饭</p> -->
 		</div>
 	</div>
 </body>
 <script>
 	var aLi=document.getElementsByTagName('li');
-	var aPlan=document.querySelector()
+	var oPlan=document.querySelector('.plan');
+	var aPlan=["吃饭","睡觉","踏青","游泳","跑步","说话","吃饭","睡觉","踏青","游泳","跑步","说话"];
+	oPlan.innerHTML = "<h4>1月</h4><p>"+aPlan[0]+"</p>";
+	// aPlan.innerHTML='<h1>h1</h1>';
+	console.log(oPlan);
+	console.log(aPlan);
+	for(i=0;i<aLi.length;i++){
+		aLi[i].index=i;
+		aLi[i].onmouseover=function(){
+			// console.log('lll');
+			for(j=0;j<aLi.length;j++){
+				aLi[j].className='';
+			}
+			this.className='active';
+			console.log(this);
+			oPlan.innerHTML = "<h4>"+(this.index+1)+"月</h4><p>"+aPlan[this.index]+"</p>";
+		}
+	}
 </script>
 </html>

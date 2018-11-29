@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			margin:100px auto;
+		}
+		.box{
+			width: 200px;
+			height: 100px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变大</button>
+	<button id="btn2">变圆</button>
+	<button id="btn3">变色</button>
+	<button id="btn4">返回</button>
+	<div id="box""></div>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBtn4 = document.getElementById('btn4');
+	var oBox = document.getElementById('box');
+	function css(obj,attr,val){
+		obj.style[attr]=val;
+	}
+	oBtn1.onclick=function(){
+		css(oBox,"height","200px");
+		css(oBox,"width","200px");
+	}
+	oBtn2.onclick=function(){
+		css(oBox,'border-radius','50%');
+	}
+	oBtn3.onclick=function(){
+		css(oBox,'background','red');
+	}
+	oBtn4.onclick=function(){
+		css(oBox,"height","100px");
+		css(oBox,"width","100px");
+		css(oBox,'border-radius','0');
+		css(oBox,'background','white');
+	}
+
+
+</script>
+</html>
