@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a=2;
+	function fn(){
+		console.log("cs",a);
+		var a=3;
+		function fn1(){
+			console.log("fn1",a);
+		}
+		fn1();
+	}
+	console.log("fn",a);
+	fn();
+	console.log("fin",a);
+</script>
+</html>
