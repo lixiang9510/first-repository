@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin:50px auto;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变大</button>
+	<button id="btn2">获取样式</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn1 = document.querySelector('#btn1');
+	var oBtn2 = document.querySelector('#btn2');
+	var oBox = document.getElementById('box');
+	console.log(oBtn1);
+	console.log(oBtn2);
+	console.log(oBox);
+	oBox.innerHTML='我是一个盒子<p>我是另外加的p标签</p>'；
+	/*
+	function css(){
+		oBox.style.width='200px';
+		oBox.style.height='200px';
+	}
+	oBtn.onmouseover=css;
+	*/
+	
+	function css(name,arr1,arr2,cont){
+		name.style[arr1]=cont;
+		name.style[arr2]=cont;
+	}
+	oBtn1.onclick=function(){
+		css(oBox,'width','height','200px');
+	}
+	oBtn2.onclick=function(){
+		console.log(getComputedStyle(oBox,false)['width']);
+	}
+	
+</script>
+</html>

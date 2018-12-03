@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="box1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<input type="text" id="btn" value="按钮">
+	<ul id="box2"></ul>
+</body>
+<script>
+	var oBox1 = document.getElementById('box1');
+	var aLi = oBox1.getElementByTagName('li');
+	var oBox2 = document.getElementById('box2');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick=function(){
+	 var val=oBtn.value;
+	 
+	}
+</script>
+</html>

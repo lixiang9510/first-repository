@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div id="box1">ni</div>
+		<ul id="box2">
+			<li class="a1"></li>
+			<li class="a2"></li>
+			<li class="a3"></li>
+			<li class="a4"></li>
+			<li class="a5"></li>
+		</ul>
+	</div>
+	<script>
+		var oBox1 = document.getElementById('box1');
+		var oBox2 = document.getElementsByTagName('ul')[0];
+		var aLi = oBox2.getElementsByTagName('li');
+		var oli = document.querySelector('li');
+		var ali = document.querySelectorAll('li');
+		console.log(oBox1);
+		console.log(oBox2);
+		console.log(aLi);
+		console.log(oli);
+		console.log(ali);
+	</script>
+</body>
+</html>
