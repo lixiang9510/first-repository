@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+		}
+		.box{
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成</button>
+	<div id="box">
+		<div class="box"></div>
+	</div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var oBox1=document.querySelector('.box');
+	var aBox=oBox.children;
+	var iWidth=100;
+	var iHeight=100;
+	var iMragin=15;
+	var oColumn=10;
+	oBtn.onmouseover=function(){
+		var name1=oBox1.cloneNode(true);
+		oBox.appendChild(name1);
+		for(i=0;i<aBox.length;i++){
+		var ver=i%oColumn;
+		var row=parseInt(i/oColumn);
+		aBox[i].style.left=ver*(iWidth+iMragin)+'px';
+		aBox[i].style.top=row*(iHeight+iMragin)+'px';
+		}
+	}
+	
+</script>
+</html>
