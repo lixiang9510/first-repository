@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>hahah</li>
+			<li>dierge</li>
+			<li id="li3">nishuo</li>
+			<li class="name">disige</li>
+			<li>zuihou</li>
+		</ul>
+		<input type="button" id="btn" value="按钮">
+	</div>
+</body>
+<script>
+	var oBox = document.querySelector('div');
+	var oUl = document.getElementsByTagName('ul')[0];
+	var oLi3 = document.getElementById('li3');
+	var oBtn = document.getElementById('btn');
+	console.log(oUl);
+	console.log(oBox.nodeType);
+	var oLi1=document.querySelector('ul li:nth-child(1)');
+	console.log(oLi1.nodeType);
+	console.log(oUl.childNodes);
+	console.log(oUl.children);
+	console.log(oUl.firstChild);
+	console.log(oUl.lastChild);
+	console.log(oUl.firstElementChild);
+	console.log(oUl.lastElementChild);
+	console.log(oLi1.parentNode);
+	console.log(oLi3.nextSibling);
+	console.log(oLi3.previousSibling);
+	console.log(oLi3.nextElementSibling);
+	console.log(oLi3.previousElementSibling);
+	console.log(oBtn.value);
+	console.log(oBtn['value']);
+	console.log(oBtn.getAttribute('value'));
+	oBtn.onclick=function(){
+		oBtn.setAttribute('value','点击');
+	}
+	
+	// console.log(oBtn.value='点击')
+	// console.log(oBtn.value='按钮')
+
+</script>
+</html>
