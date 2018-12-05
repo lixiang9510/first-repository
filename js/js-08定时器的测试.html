@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box2">
+		<p id="p1">ahha</p>
+	</div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	var oBox2=document.getElementById('box2');
+	var oLi=document.getElementById('p1');
+	var cccc=oLi.cloneNode(true);
+	// function obbb(){
+	// 	oBox.innerHTML="<h1>hello</h1>";
+	// }
+	function oaaa(){
+		oBox2.appendChild(cccc);
+		// oBox2.insertBefore(cccc,oBox2.firstChild);
+	}
+
+	// var timer=setTimeout(obbb,500);
+	// console.log('timer',timer)
+	var timer2=setInterval(oaaa,1000);
+	console.log('timer2',timer2);
+</script>
+</html>
