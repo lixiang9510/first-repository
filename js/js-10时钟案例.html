@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.bigBox{
+			width: 800px;
+			height: 200px;
+			line-height: 200px;
+			margin: 100px auto;
+			background-color: yellow;
+			position: relative;
+		}
+		p{
+			text-align: center;
+			display: inline-block;
+			color: red;
+		}
+		.box1{
+			position: absolute;
+			top: -76px;
+			left:27px;
+			width: 200px;
+		}
+		.box2{
+			position: absolute;
+			top: -43px;
+			left: 42px;
+			width: 200px;
+		}
+
+		.box1 p{
+			font-size: 30px;
+		}
+		.box2 p{
+			font-size: 20px;
+		}
+		.box1 span{
+			font-size: 30px;
+		}
+		.box2 span{
+			font-size: 20px;
+		}
+		span{
+			line-height: 100px;
+			text-align: center;
+			display: inline-block;
+			color: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div class="bigBox">
+		<div class="box1">
+			<p id="hour"></p>
+			<span>:</span>
+			<p id="minute"></p>
+			<span>:</span>
+			<p id="second"></p>
+		</div>
+		<div class="box2">
+			<p id="year"></p>
+			<span>/</span>
+			<p id="mouth"></p>
+			<span>/</span>
+			<p id="day"></p>
+		</div>
+		
+	</div>
+</body>
+<script>
+	var oYear=document.getElementById('year');
+	var oMouth=document.getElementById('mouth');
+	var oDay=document.getElementById('day');
+	var oHour=document.getElementById('hour');
+	var oMinute=document.getElementById('minute');
+	var oSecond=document.getElementById('second');
+	var second1=59;
+	var minute1=59;
+	var hour1=23;
+	var day1=29;
+	var mouth1=12;
+	var year1=2018;
+	oSecond.innerHTML=second1;
+	oMinute.innerHTML=minute1;
+	oHour.innerHTML=hour1;
+	oDay.innerHTML=day1;
+	oMouth.innerHTML=mouth1;
+	oYear.innerHTML=year1;
+	setInterval(function(){
+		second1=second1+1;
+		if(second1<10){
+			oSecond.innerHTML='0'+second1;
+		}else if(second1<60){
+			oSecond.innerHTML=second1+'';
+		}else{
+			oSecond.innerHTML='00';
+		}
+		if(second1==60){
+			minute1=minute1+1;
+			if(minute1<10){
+				oMinute.innerHTML='0'+minute1;
+			}else if(minute1<60){
+				oMinute.innerHTML=minute1+'';
+			}else{
+				oMinute.innerHTML='00';
+			}
+			if(minute1==60){
+				hour1=hour1+1;
+				if(hour1<10){
+					oHour.innerHTML='0'+hour1;
+				}else if(hour1<24){
+					oHour.innerHTML=hour1+'';
+				}else{
+					oHour.innerHTML='00';
+				}
+				if(hour1==24){
+					day1=day1+1;
+					if(day1<30){
+						oDay.innerHTML=day1+'';
+					}else{
+						oDay.innerHTML='1'
+					}
+					if(day1==30){
+						mouth1=mouth1+1;
+						if(mouth1<13){
+							oMouth.innerHTML=mouth1+'';
+						}else{
+							oMouth.innerHTML='1'
+						}
+						if(mouth1==13){
+							year1=year1+1;
+							oYear.innerHTML=year1+'';
+							mouth1=1;				
+						}
+						day1=1;				
+					}
+					hour1=0;	
+				}
+				minute1=0;
+			}
+			second1=0;
+		}
+	},1000)
+	var date=new Date('2018/10/20 19:00:00');
+	console.log(date);
+</script>
+</html>
