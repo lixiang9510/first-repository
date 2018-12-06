@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		background-color: #000;
+	}
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#timer{
+		width: 300px;
+		height: 200px;
+		margin: 100px auto;
+		text-align: center;
+		font-size: 20px;
+		color: #fff;
+		font-size: 50px;
+	}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+		:
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+		:
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+	</div>
+</body>
+<script>
+	var oTimer=document.getElementById('timer');
+	var aImg=oTimer.children;
+	function num111(num){
+		if(num<10){
+			num='0'+num;
+		}else{
+			num=''+num;
+		}
+		return num;
+	}
+	function time2(){
+		var oDate=new Date();
+		var oSecond=oDate.getSeconds();
+		var oMinute=oDate.getMinutes();
+		var oHour=oDate.getHours();
+		oTimernum=num111(oHour)+num111(oMinute)+num111(oSecond);
+		for(i=0;i<aImg.length;i++){
+			aImg[i].src="../img/"+oTimernum[i]+".png"
+		}
+	}
+	setInterval(time2,1000);
+	time2();
+</script>
+</html>
