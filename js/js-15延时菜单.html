@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.big-box{
+			width: 500px;
+			height: 500px;
+			border:1px solid #000;
+			margin: 100px auto;
+
+		}
+		.box1{
+			float: left;
+			width: 80px;
+			height: 500px;
+			margin-right: 10px;
+			background-color: red;
+		}
+		.box2{
+			float: left;
+			width: 400px;
+			height: 500px;
+			background-color: blue;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="big-box">
+		<div class="box1"></div>
+		<div class="box2"></div>
+	</div>	
+</body>
+<script>
+	var oBox1=document.querySelector('.box1');
+	var oBox2=document.querySelector('.box2');
+	var timer=0;
+	oBox1.onmouseover=oBox2.onmouseover=function(){
+		clearTimeout(timer);
+		oBox2.style.display='block';
+	}
+	oBox1.onmouseout=oBox2.onmouseout=function(){
+		timer=setTimeout(function(){
+			oBox2.style.display='none';
+		},500)
+	}
+</script>
+</html>

@@ -19,11 +19,22 @@
 </head>
 <body>
 	<div id="box">
+		距离活动结束还有
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+		小时
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+		分钟
+		<img src="../img/0.png" alt="">
+		<img src="../img/0.png" alt="">
+		秒
 	</div>
 </body>
 <script>
 	var oBox=document.getElementById('box');
-	var setTime=new Date('2018/12/7 9:15:00');
+	var setTime=new Date('2018/12/7 9:30:00');
+	var aImag=oBox.children;
 	var timer=0;
 	function number1(num){
 		num<10 ? num='0'+num : num=''+num;
@@ -39,7 +50,10 @@
 		var oHours=parseInt(allSecond/3600);
 		var oMinutes=parseInt((allSecond%3600)/60);
 		var oSeconds=(allSecond%3600)%60;
-		oBox.innerHTML="距离活动结束还有"+number1(oHours)+"小时"+number1(oMinutes)+"分"+number1(oSeconds)+"秒";
+		var oTimernumber=number1(oHours)+number1(oMinutes)+number1(oSeconds);
+		for(i=0;i<aImag.length;i++){
+			aImag[i].src="../img/"+oTimernumber[i]+".png";
+		}
 	}
 	timer=setInterval(conment1,500);
 	console.log(timer);
