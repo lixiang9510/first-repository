@@ -103,16 +103,13 @@
 	var oToright=document.getElementById('toright');
 	var aImg=document.querySelectorAll('.father img');
 	var aLi=document.getElementsByTagName('li');
-	for(i=0;i<aImg.length;i++){
-		oToright.onclick=function(){
-			aImg[this].style.zIndex='666';
-		}
+	var i=2;
+	oToright.onclick=function(){
+		i=i+1;
+		aImg[2].src="../img/beauty"+i+".jpg"
 	}
-	
-	oToleft.onclick=function(){
-			aImg[i].style.zIndex='666';	
-			i=i-1;
-	}
+
+
 
 </script>
 </html>
