@@ -25,14 +25,16 @@
 		.father i{
 			position: absolute;
 			top: 50%;
-			width: 50px;
-			height: 100px;
-			margin-top: -50px;
+			width: 40px;
+			height: 60px;
+			margin-top: -30px;
 			font-size: 30px;
 			text-align: center;
-			background-color: #000;
+			background-color: #aaa;
 			color: #fff;
-			line-height: 100px;
+			line-height: 60px;
+			opacity: 0.3;
+			cursor: pointer;
 		}
 		.father .iconfont-left{
 			left: 0px;
@@ -40,29 +42,37 @@
 		.father .iconfont-right{
 			right: 0px;
 		}
+		.father i:hover{
+			opacity: 0.6;
+		}
 		.father #direct-change{
 			position: absolute;
 			right: 0px;
 			bottom: 20px;
 			list-style: none;
-			width: 200px;
-			height: 20px;
-			background-color: red;
+			width: 150px;
+			height: 17px;
 		}
 		.father #direct-change li{
 			float: left;
-			width: 20px;
-			height: 20px;
-			border: 1px solid #ccc;
+			width: 17px;
+			height: 17px;
+			border: 1px solid #666;
 			padding:2px;
-			margin-right: 20px;
+			margin-right: 10px;
 			border-radius: 50%;
 			box-sizing: border-box;
 			background-clip: content-box;
-			background-color: #f67000;
+			background-color: #ddd;
+			transition: all 0.5s;
+			cursor: pointer;
 		}
 		.father #direct-change li:last-child{
 			margin-right: 0px;
+		}
+		.father #direct-change li:hover{
+			padding: 3px;
+			background-color: #888;
 		}
 	</style>
 </head>
