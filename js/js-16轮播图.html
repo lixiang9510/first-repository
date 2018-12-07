@@ -82,11 +82,11 @@
 </head>
 <body>
 	<div class="father">
+		<img src="../img/beauty0.jpg" alt="">
 		<img src="../img/beauty1.jpg" alt="">
 		<img src="../img/beauty2.jpg" alt="">
 		<img src="../img/beauty3.jpg" alt="">
 		<img src="../img/beauty4.jpg" alt="">
-		<img src="../img/beauty5.jpg" alt="">
 		<i id="toleft" class="iconfont iconfont-left">&#xe505;</i>
 		<i id="toright" class="iconfont iconfont-right">&#xe702;</i>
 		<ul id="direct-change">
@@ -103,13 +103,17 @@
 	var oToright=document.getElementById('toright');
 	var aImg=document.querySelectorAll('.father img');
 	var aLi=document.getElementsByTagName('li');
-	var i=0;
+	var i=2;
 	oToright.onclick=function(){
+		if(i<4)
 			i=i+1;
-			return i;
-		console.log(i);
+			aImg[2].src="../img/beauty"+i+".jpg"
 	}
-	console.log(
+	oToleft.onclick=function(){
+		if(i>0)
+			i=i-1;
+			aImg[2].src="../img/beauty"+i+".jpg"
+	}
 
 
 </script>
