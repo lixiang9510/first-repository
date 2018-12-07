@@ -22,7 +22,7 @@
 			width: 100%;
 			height: 100%;
 		}
-		.father img:first-child{
+		.father img:nth-child(3){
 			z-index: 666;
 		}
 		.father i{
@@ -103,6 +103,16 @@
 	var oToright=document.getElementById('toright');
 	var aImg=document.querySelectorAll('.father img');
 	var aLi=document.getElementsByTagName('li');
-	console.log(aLi);
+	for(i=0;i<aImg.length;i++){
+		oToright.onclick=function(){
+			aImg[this].style.zIndex='666';
+		}
+	}
+	
+	oToleft.onclick=function(){
+			aImg[i].style.zIndex='666';	
+			i=i-1;
+	}
+
 </script>
 </html>
