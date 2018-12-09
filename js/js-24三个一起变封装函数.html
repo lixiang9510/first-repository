@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			margin-bottom: 10px;
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">变宽</div>
+	<div id="box2">变高</div>
+	<div id="box3">变红</div>
+</body>
+<script>
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	var timer=0;
+	function animal(obj,attr,target){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var ispeed=2;
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=='opacity'){
+				current=Math.round(current*target);
+			}
+			ispeed=(target-current)*Math.abs(1/(target-current))*ispeed;
+			if(Math.abs(current-target)<=Math.abs(ispeed)){
+				if(attr=='opacity'){
+					obj.style[attr]=target/100;
+				}else{
+					obj.style[attr]=target+'px';
+				}
+				clearInterval(obj.timer);
+			}else{
+				if(attr=='opacity'){
+					obj.style[attr]=(current+ispeed)/100;
+				}else{
+					obj.style[attr]=current+ispeed+'px';
+				}
+				
+			}
+		},10)
+	}
+	oBox1.onmouseover=function(){
+		animal(oBox1,'width',400);
+	}
+	oBox1.onmouseout=function(){
+		animal(oBox1,'width',100);
+	}
+	oBox2.onmouseover=function(){
+		animal(oBox2,'height',400);
+	}
+	oBox2.onmouseout=function(){
+		animal(oBox2,'height',100);
+	}
+	oBox3.onmouseover=function(){
+		animal(oBox3,'opacity',100)
+	}
+	oBox3.onmouseout=function(){
+		animal(oBox3,'opacity',30)
+	}
+</script>
+</html>

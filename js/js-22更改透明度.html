@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			margin:50px auto;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.5;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<button id="btn">开始动画</button>
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var timer=0;
+	oBtn.onclick=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var ispeed=2;
+			var current=parseFloat(getComputedStyle(oBox,false)['opacity']);
+			current=Math.round(current*100);
+			ispeed=(100-current)*Math.abs(1/(100-current))*ispeed;
+			// if(current==400){
+			if(Math.abs(current-100)<Math.abs(ispeed)){
+				oBox.style.opacity='1';
+				clearInterval(timer);
+			}else{
+				oBox.style.opacity=(current+ispeed)/100;
+			}
+		},10)
+	}
+</script>
+</html>
