@@ -30,10 +30,11 @@
 	function animal(obj,attr,target){
 		clearInterval(obj.timer);
 		obj.timer=setInterval(function(){
-			var ispeed=2;
+			var ispeed=7;
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			console.log(current);
 			if(attr=='opacity'){
-				current=Math.round(current*target);
+				current=Math.round(current*100);
 			}
 			ispeed=(target-current)*Math.abs(1/(target-current))*ispeed;
 			if(Math.abs(current-target)<=Math.abs(ispeed)){
@@ -48,10 +49,11 @@
 					obj.style[attr]=(current+ispeed)/100;
 				}else{
 					obj.style[attr]=current+ispeed+'px';
-				}
-				
+				}	
 			}
+			// console.log(current,ispeed)
 		},10)
+
 	}
 	oBox1.onmouseover=function(){
 		animal(oBox1,'width',400);

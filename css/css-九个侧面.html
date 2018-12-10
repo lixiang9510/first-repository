@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			position: relative;
+			width: 100px;
+			height: 200px;
+			margin:100px auto;
+			transform-style: preserve-3d;
+			transform: rotateX(-22deg) rotateY(0deg) rotateZ(0deg);
+			animation: sport 15s linear 0s infinite normal;
+		}
+		@keyframes sport{
+			0%{
+				transform: rotateX(-22deg) rotateY(0deg);
+			}
+			100%{
+				transform: rotateX(-22deg) rotateY(-360deg);
+			}
+		}
+		ul li{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 200px;
+			list-style: none;
+		}
+		ul li img{
+			width: 100px;
+			height: 200px;	
+		}
+		ul li:nth-child(1){
+			background-color: red;
+			transform: rotateY(40deg) translateZ(137px);
+		}
+		ul li:nth-child(2){
+			background-color: blue;
+			transform: rotateY(80deg) translateZ(137px);
+		}
+		ul li:nth-child(3){
+			background-color: pink;
+			transform: rotateY(120deg) translateZ(137px);
+		}
+		ul li:nth-child(4){
+			background-color: purple;
+			transform: rotateY(160deg) translateZ(137px);
+		}
+		ul li:nth-child(5){
+			background-color:orange;
+			transform: rotateY(200deg) translateZ(137px);
+		}
+		ul li:nth-child(6){
+			background-color: green;
+			transform: rotateY(240deg) translateZ(137px);
+		}
+		ul li:nth-child(7){
+			background-color: olive;
+			transform: rotateY(280deg) translateZ(137px);
+		}
+		ul li:nth-child(8){
+			background-color: skyblue;
+			transform: rotateY(320deg) translateZ(137px);
+		}
+		ul li:nth-child(9){
+			background-color: grey;
+			transform: rotateY(360deg) translateZ(137px);
+		}
+		
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="../img/0.png" alt=""></li>
+		<li><img src="../img/1.png" alt=""></li>
+		<li><img src="../img/2.png" alt=""></li>
+		<li><img src="../img/3.png" alt=""></li>
+		<li><img src="../img/4.png" alt=""></li>
+		<li><img src="../img/5.png" alt=""></li>
+		<li><img src="../img/6.png" alt=""></li>
+		<li><img src="../img/7.png" alt=""></li>
+		<li><img src="../img/8.png" alt=""></li>
+	</ul>
+</body>
+</html>
