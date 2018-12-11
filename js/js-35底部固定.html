@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		#buttom-absolute{
+			position: absolute;
+			right: 0;
+			top: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="buttom-absolute"></div>
+</body>
+<script src="js-26通用动画.js"></script>
+<script>
+	var oBox=document.getElementById('buttom-absolute');
+	window.onresize=window.onload=window.onscroll=function(){
+		var oInnerHeight=window.innerHeight;
+		var oScrollTop=document.documentElement.scrollTop;
+		var oDistance=oScrollTop+oInnerHeight-oBox.offsetHeight;
+		animate(oBox,'top',oDistance);
+	}
+</script>
+</html>

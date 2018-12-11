@@ -42,7 +42,7 @@
 	attr		属性
 	不传就是匀速，传了就是减速
 	*/
-	function animate(obj,attr,target,decelerate,fnend){
+	function animate(obj,attr,target,decelerate,fnEnd){
 		var ispeed=10;
 		clearInterval(obj.timer);
 		obj.timer=setInterval(function(){
@@ -63,8 +63,8 @@
 				}
 				if(!ispeed){
 					clearInterval(obj.timer);
-					if(fnend){
-						fnend();
+					if(fnEnd){
+						fnEnd();
 					}	
 				}
 			}else{
@@ -76,8 +76,8 @@
 						obj.style[attr]=target+'px';
 					}
 						clearInterval(obj.timer);
-						if(fnend){
-							fnend();
+						if(fnEnd){
+							fnEnd();
 						}	
 				}
 			}
