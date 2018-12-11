@@ -15,34 +15,49 @@
 			margin-bottom: 10px;
 			opacity: 0.3;
 		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 1px;
+			height: 400px;
+			background-color: black;
+		}
 	</style>
 </head>
 <body>
 	<div id="box1">变宽</div>
 	<div id="box2">变高</div>
 	<div id="box3">变红</div>
+	<footer class="line"></footer>
 </body>
 <script>
 	var oBox1=document.getElementById('box1');
 	var oBox2=document.getElementById('box2');
 	var oBox3=document.getElementById('box3');
 	var timer=0;
-	function animal(obj,attr,target){
+	/*
+	注释：
+	object   	obj 		传入的对象
+	attr		属性
+
+	*/
+	function animate(obj,attr,target){
 		clearInterval(obj.timer);
+		var ispeed=10;
 		obj.timer=setInterval(function(){
-			var ispeed=7;
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
-			console.log(current);
 			if(attr=='opacity'){
 				current=Math.round(current*100);
+			}else{
+				current=Math.round(current);
 			}
-			ispeed=(target-current)*Math.abs(1/(target-current))*Math.abs(ispeed);
-			if(Math.abs(current-target)<=Math.abs(ispeed)){
-				if(attr=='opacity'){
-					obj.style[attr]=target/100;
-				}else{
-					obj.style[attr]=target+'px';
-				}
+			if(Math.abs(ispeed)>1){
+				ispeed=Math.ceil((target-current)/10);
+			}else{
+				ispeed=(target-current)*Math.abs(1/(target-current));
+			}
+			if(!ispeed){
 				clearInterval(obj.timer);
 			}else{
 				if(attr=='opacity'){
@@ -51,25 +66,28 @@
 					obj.style[attr]=current+ispeed+'px';
 				}	
 			}
-		},10)
+			console.log(ispeed,current);
+		},30)
 	}
 	oBox1.onmouseover=function(){
-		animal(oBox1,'width',400);
+		animate(oBox1,'width',400);
 	}
 	oBox1.onmouseout=function(){
-		animal(oBox1,'width',100);
+		animate(oBox1,'width',100);
 	}
 	oBox2.onmouseover=function(){
-		animal(oBox2,'height',400);
+		animate(oBox2,'height',400);
 	}
 	oBox2.onmouseout=function(){
-		animal(oBox2,'height',100);
+		animate(oBox2,'height',100);
 	}
 	oBox3.onmouseover=function(){
-		animal(oBox3,'opacity',100)
+		animate(oBox3,'opacity',100);
 	}
 	oBox3.onmouseout=function(){
-		animal(oBox3,'opacity',30)
+		animate(oBox3,'opacity',100);
 	}
+	
+
 </script>
 </html>

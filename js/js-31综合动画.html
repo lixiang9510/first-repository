@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			margin-bottom: 10px;
+			opacity: 0.3;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 1px;
+			height: 400px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">变宽</div>
+	<div id="box2">变高</div>
+	<div id="box3">变红</div>
+	<footer class="line"></footer>
+</body>
+<script>
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	var timer=0;
+	/*
+	注释：
+	object   	obj 		传入的对象
+	attr		属性
+	不传就是匀速，传了就是减速
+	*/
+	function animate(obj,attr,target,decelerate){
+		var ispeed=10;
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			if(!decelerate){
+				ispeed=7;
+			}
+			var current=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=='opacity'){
+				current=Math.round(current*100);
+			}else{
+				current=Math.round(current);
+			}
+			if(decelerate){
+				if(Math.abs(ispeed)>1){
+				ispeed=(target-current)/10;
+				}else{
+				ispeed=(target-current)*Math.abs(1/(target-current));
+				}
+				if(!ispeed){
+				clearInterval(obj.timer);
+				}
+			}else{
+				ispeed=(target-current)*Math.abs(1/(target-current))*Math.abs(ispeed);
+				if(Math.abs(current-target)<=Math.abs(ispeed)){
+					if(attr=='opacity'){
+						obj.style[attr]=target/100;
+					}else{
+						obj.style[attr]=target+'px';
+					}
+						clearInterval(obj.timer);
+				}
+			}
+			if(attr=='opacity'){
+				obj.style[attr]=(current+ispeed)/100;
+			}else{
+				obj.style[attr]=current+ispeed+'px';
+			}
+			console.log(ispeed,current);
+		},30)
+	}
+	oBox1.onmouseover=function(){
+		animate(oBox1,'width',400,1);
+	}
+	oBox1.onmouseout=function(){
+		animate(oBox1,'width',100,1);
+	}
+	oBox2.onmouseover=function(){
+		animate(oBox2,'height',400);
+	}
+	oBox2.onmouseout=function(){
+		animate(oBox2,'height',100);
+	}
+	oBox3.onmouseover=function(){
+		animate(oBox3,'opacity',100);
+	}
+	oBox3.onmouseout=function(){
+		animate(oBox3,'opacity',30);
+	}
+</script>
+</html>

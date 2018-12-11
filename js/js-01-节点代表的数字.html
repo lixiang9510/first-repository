@@ -38,11 +38,12 @@
 	console.log(oLi3.previousElementSibling);
 	console.log(oBtn.value);
 	console.log(oBtn['value']);
-	console.log(oBtn.getAttribute('value'));
+	// console.log(oBtn.setAttribute('value','点击'));
 	oBtn.onclick=function(){
-		oBtn.setAttribute('value','点击');
+		// oBtn.setAttribute('value','点击');
+	oBtn['value']='点击';
 	}
-	
+	// console.log(oBtn['value']='点击')；
 	// console.log(oBtn.value='点击')
 	// console.log(oBtn.value='按钮')
 
