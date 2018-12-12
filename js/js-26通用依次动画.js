@@ -11,7 +11,7 @@ var timer=0;
 		clearInterval(obj.timer);
 		obj.timer=setInterval(function(){
 			if(!decelerate){
-				ispeed=100;
+				ispeed=7;
 			}
 			var current=parseFloat(getComputedStyle(obj,false)[attr]);
 			if(attr=='opacity'){
@@ -53,6 +53,9 @@ var timer=0;
 			console.log(ispeed,current);
 		},30)
 	}
-	function compatible(com){
-		 com=document.documentElement.scrollTop||document.body.scrollTop;
+	function getScrollLeft(){
+		return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;		
+	}
+	function getScrollTop(){
+		return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 	}

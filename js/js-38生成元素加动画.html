@@ -9,7 +9,17 @@
 			padding: 0;
 		}
 		div{
-			
+			width: 500px;
+			height: 300px;
+			margin:100px auto;	
+		}
+		ul li{
+			list-style: none;
+			color: red;
+			font-size: 20px;
+			border-bottom: 1px solid black;
+			opacity: 0.3;
+			height: 0;
 		}
 	</style>
 </head>
@@ -18,8 +28,25 @@
 		<textarea id="txt" cols="30" rows="1"></textarea>
 		<button id="btn">生成</button>
 		<ul id="ul1">
-			<li>xxxx</li>
 		</ul>
 	</div>
 </body>
+<script src="js-26通用依次动画.js"></script>
+<!-- <script src="js-42通用同时动画.js"></script> -->
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oUl1=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		console.log(oTxt.value);
+		var oLi=document.createElement('li');
+		oLi.innerHTML=oTxt.value;
+		oUl1.insertBefore(oLi,oUl1.firstChild)
+		// oUl1.appendChild(oLi);
+		animate(oLi,'opacity',100,1,function(){
+			animate(oLi,'height',40,1)
+		})
+	}
+		// animate(oLi,{'height':40,'opacity':100},1)
+</script>
 </html>
