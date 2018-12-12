@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+			width: 2000px;
+		}
+		div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		div img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="http://b13.photo.store.qq.com/psbe?/V11YYUL90JH0is/Yw*wy9BMMgDd47WroXVneiani5ejEM*h0FXPk8o.UWF.P3Xznvwvl4sMCs0U9qeB/b/dA0AAAAAAAAA&bo=1gM3BNYDNwQRCT4!&rf=viewer_4" alt="">
+	</div>
+	<div id="box">
+		<img src="http://m.qpic.cn/psb?/V11YYUL90JH0is/J4puG4mc4yxUl9HKokhUjM0Qa1c7ShiB26ad0OP.7U4!/b/dCEBAAAAAAAA&bo=OAQ1BDgENQQRGS4!&rf=viewer_4" alt="">
+	</div>
+	<div id="box">
+		<img src="http://m.qpic.cn/psb?/V11YYUL90JH0is/EN3dvTTLhh2UtOW9zz8EmCQwDo8.jck9rXqyYPyubM4!/b/dCIBAAAAAAAA&bo=3wHCAd8BwgERGS4!&rf=viewer_4" alt="">
+	</div>
+	<div id="box">
+		<img src="http://m.qpic.cn/psb?/V11YYUL90JH0is/Cs6prGTbRZX*GSCcL75uFtMSSnDx8NH1wvomRM.uV7c!/b/dCIBAAAAAAAA&bo=wgG7AcIBuwERGS4!&rf=viewer_4" alt="">
+	</div>
+	<div id="box">
+		<img src="http://m.qpic.cn/psb?/V11YYUL90JH0is/weFr2WlIWdlm9SoFNFriFYwYbzYxSdDPDU9tFR2K0DI!/b/dEoAAAAAAAAA&bo=yQHCAckBwgERGS4!&rf=viewer_4" alt="">
+	</div>
+	<div id="box">
+		<img src="http://m.qpic.cn/psb?/V11YYUL90JH0is/ran3h8Z1zF0W5rrsDaYtGegrX8.g7PuuGrnIsvupZLo!/b/dFEAAAAAAAAA&bo=wgECAsIBAgIRGS4!&rf=viewer_4" alt="">
+	</div>
+	
+</body>
+<script src="js-26通用依次动画.js"></script>
+<script>
+	var aDiv= document.getElementsByTagName('div');
+	document.addEventListener('mousemove',function(ev){
+		aDiv[0].style.left=getScrollLeft()+ev.clientX+'px';
+		aDiv[0].style.top=getScrollTop()+ev.clientY+'px';
+		for(i=aDiv.length-1;i>0;i--){
+			aDiv[i].style.left=aDiv[i-1].offsetLeft+100+'px';
+			aDiv[i].style.top=aDiv[i-1].offsetTop+50+'px';
+		}
+	},false)
+	document.addEventListener('mousemove',function(ev){
+		console.log(aDiv.offsetTop,aDiv.offsetLeft);
+		console.log(ev.clientY,ev.clientX);
+	},false)
+</script>
+</html>
