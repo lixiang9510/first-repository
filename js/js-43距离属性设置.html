@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 2000px;
+			height: 3000px;
+		}
+		#box{
+			position: absolute;
+			top: 1000px;
+			left: 1000px;
+			width: 200px;
+			height: 200px;
+			border:5px solid black;
+			background-color: red;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	oBox.onclick=function(){
+		console.log('1','scrollTop=',document.documentElement.scrollTop);//滚动条上面内容距离
+		console.log('2','scrollLeft=',document.documentElement.scrollLeft);//滚动条左侧内容距离
+		console.log('3','oBox.offsetTop=',oBox.offsetTop);//盒子距离相对定位的父元素上面距离
+		console.log('4','oBox.offsetLeft=',oBox.offsetLeft);//盒子距离相对定位的父元素左侧距离
+		console.log('5','oBox.clientHeight=',oBox.clientHeight);//盒子的内容区高
+		console.log('6','oBox.offsetHeight=',oBox.offsetHeight);//盒子的总高度
+		console.log('7','oBox.clientWidth=',oBox.clientWidth);//盒子的内容宽
+		console.log('8','oBox.offsetWidth=',oBox.offsetWidth);//盒子的总宽度
+		console.log('9','document.documentElement.scrollWidth=',document.documentElement.scrollWidth);//网页的总宽度
+		console.log('10','document.documentElement.scrollHeight=',document.documentElement.scrollHeight);//网页的总高度
+		console.log('11','window.screenTop=',window.screenTop);//浏览器距离屏幕上面的距离
+		console.log('12','window.screenLeft=',window.screenLeft);//浏览器距离屏幕左侧的距离
+		console.log('13','window.outerWidth=',window.outerWidth);//浏览器在屏幕中的总宽度
+		console.log('14','window.outerHeight=',window.outerHeight);//浏览器在屏幕中的总高度
+		console.log('15','window.innerWidth=',window.innerWidth);//浏览器在屏幕中内容区的总宽度，包括滚动条
+		console.log('16','window.innerHeight=',window.innerHeight);//浏览器在屏幕内容区的总高度，包括滚动条
+		console.log('17','document.documentElement.offsetWidth=',document.documentElement.offsetWidth);//一般不用
+		console.log('18','document.documentElement.clientWidth=',document.documentElement.clientWidth);//浏览器在屏幕中内容区的总宽度不包括滚动条
+		console.log('19','document.documentElement.offsetHeight=',document.documentElement.offsetHeight);//一般不用
+		console.log('20','document.documentElement.clientHeight=',document.documentElement.clientHeight);//浏览器在屏幕内容区的总高度不包括滚动条
+		/*
+		获取浏览器的宽和高用（innerWidth和innerHeight）包括滚动条，可以理解为此时浏览器的内容区，outer时可以理解为此时整个浏览器宽和高；
+		获取浏览器不包括滚动条的可视区宽和高时可以用client，注意client和offset主要设置方向还是对某个元素，client兼容性问题，两方面兼容，document和body
+		获取可视区上面隐藏页面距离时用scrollTop和scrollLeft，也存在兼容性问题，用的时候有三方面兼容，window.pageXOffset,document和body;
+		*/
+	}
+</script>
+</html>
