@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: relative;
+			width: 500px;
+			height: 500px;
+			background-color: #ccc;
+			margin:100px auto;
+		}
+		#box{
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="box"></div>
+	</div>
+</body>
+<script>
+	var oBox= document.getElementById('box');
+	oBox.onmousedown=function(ev){
+		var disX=0,disY=0;
+		disX=ev.clientX-oBox.offsetLeft;
+		disY=ev.clientY-oBox.offsetTop;
+		console.log(disX,disY);
+		document.onmousemove=function(ev){
+			var l=ev.clientX-disX;
+			var t=ev.clientY-disY;
+			if(l<10){
+				l=0;
+			}else if(l>oBox.offsetParent.offsetWidth - oBox.offsetWidth-10){
+				l=oBox.offsetParent.offsetWidth - oBox.offsetWidth
+			}
+			if(t<10){
+				t=0;
+			}else if(t>oBox.offsetParent.offsetHeight - oBox.offsetHeight-10){
+				t=oBox.offsetParent.offsetHeight - oBox.offsetHeight
+			}
+			oBox.style.left=l+'px';
+			oBox.style.top=t+'px';
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+			document.onmousedown=null;
+		}
+	}
+</script>
+</html>

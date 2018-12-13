@@ -28,10 +28,10 @@
 	var oBox = document.getElementById('box');
 	oBtn.addEventListener('click',function(ev){
 		oBox.style.display='block';
-		event.stopPropagation();
+		ev.stopPropagation();
 	},false)
 	oBox.addEventListener('click',function(ev){
-		event.stopPropagation();
+		ev.stopPropagation();
 	},false)
 
 	window.addEventListener('click',function(){
