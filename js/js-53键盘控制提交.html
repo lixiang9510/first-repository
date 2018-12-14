@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 500px;
+			height: 300px;
+			margin:100px auto;	
+		}
+		ul li{
+			list-style: none;
+			color: red;
+			font-size: 20px;
+			border-bottom: 1px solid black;
+			height: 20;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<textarea id="txt" cols="30" rows="1"></textarea>
+		<button id="btn">生成</button>
+		<ul id="ul1">
+		</ul>
+	</div>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oUl1=document.getElementById('ul1');
+	document.onkeydown=function(ev){
+		console.log(ev.keyCode);
+		if(ev.keyCode==13){
+			oBtn.onclick();
+		}
+	}
+	oBtn.onclick=function(){
+		var oLi=document.createElement('li');
+		oLi.innerHTML=oTxt.value;
+		oUl1.insertBefore(oLi,oUl1.firstChild)
+		oTxt.value=''; 
+	}
+</script>
+</html>

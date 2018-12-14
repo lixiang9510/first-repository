@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	document.onkeydown=function(ev){
+		console.log(ev.keyCode);
+		if(ev.keyCode==37){
+			oBox.style.left=oBox.offsetLeft-10 + "px";
+		}else if(ev.keyCode==39){
+			oBox.style.left=oBox.offsetLeft+10 + "px";
+		}else if(ev.keyCode==38){
+			oBox.style.top=oBox.offsetTop-10 + "px";
+		}else if(ev.keyCode==40){
+			oBox.style.top=oBox.offsetTop+10 + "px";
+		}
+	}
+</script>
+</html>

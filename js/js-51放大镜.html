@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+		#bigbox{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 380px;
+			height: 560px;
+		}
+		#bigbox img{
+			width: 100%
+			height:100%;
+		}
+		#bigbox #msk{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 150px;
+			height: 150px;
+			background-color: rgba(255,250,0,0.5);
+			display: none;
+		}
+		#list{
+			position: absolute;
+			top: 565px;
+			left: 0px;
+			width: 380px;
+		}
+		#list li{
+			float: left;
+			margin-right:30px;
+			width: 76px;
+			height: 112px;
+			opacity: 0.5;
+			list-style: none;
+		}
+		#list li img{
+			width: 100%;
+			height: 100%;
+		}
+		#largebox{
+			position: absolute;
+			top: 0px;
+			left: 390px;
+			width:380px;
+			height: 560px;
+			display: none;
+			overflow: hidden;
+		}
+		#largebox img{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 570px;
+			height: 840px;
+		}
+		#list .action{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="bigbox">
+			<img src="../img/beauty1.jpg" alt="">
+			<span id="msk"></span>
+		</div>
+		<ul id="list">
+			<li class="action"><img src="../img/beauty1.jpg" alt=""></li>
+			<li><img src="../img/beauty2.jpg" alt=""></li>
+			<li><img src="../img/beauty3.jpg" alt=""></li>
+		</ul>
+		<div id="largebox">
+			<img src="../img/beauty1.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	var oBigBox = document.getElementById('bigbox');
+	var oBigImg = document.querySelector('#bigbox img')
+	var oMsk = document.getElementById('bigbox');
+	var oList = document.getElementById('bigbox');
+	var aListImg = document.querySelectorAll('#list li')
+	var oLargeBox = document.getElementById('bigbox');
+	var oLargeImg = document.querySelector('#largebox img');
+	for(i=0;i<aListImg.length;i++){
+		aListImg[i].index=i;
+		aListImg[i].onmouseover=function(){
+			for(j=0;j<aListImg.length;j++){
+				aListImg[j].className='';
+			}
+			this.className='action';
+			oBigImg.src='../img/beauty'+(this.index+1)+'.jpg';
+			oLargeImg.src='../img/beauty'+(this.index+1)+'.jpg';
+		}
+	}
+	oBigBox.onmouseover=function(ev){
+		oMsk.style.display='block';
+		oLargeBox.style.display='block';
+		alert('a');
+		// var l = ev.clientX
+	}
+</script>
+</html>
