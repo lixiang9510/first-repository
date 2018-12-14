@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#bigBox{
+			width: 400px;
+			height: 400px;
+			background-color: #ccc;
+			margin:200px auto;
+		}
+		#smallBox{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="bigBox"></div>
+	<div id="smallBox"></div>
+</body>
+<script>
+	var oBigBox = document.getElementById('bigBox');
+	var oSmallBox = document.getElementById('smallBox');
+	var disX=0,disY=0,l=0,t=0;
+	function judgement(obj1,obj2){
+		var result=false;
+		if(obj1.offsetWidth+obj1.offsetLeft>obj2.offsetLeft
+			&&obj1.offsetHeight+obj1.offsetTop>obj2.offsetTop
+			&&obj2.offsetHeight+obj2.offsetTop>obj1.offsetTop
+			&&obj2.offsetWidth+obj2.offsetLeft>obj1.offsetLeft
+			){
+			result=true;
+		}else{
+			result=false;
+		}
+		return result;
+	}
+	oSmallBox.onmousedown=function(ev){
+		disX=ev.clientX-oSmallBox.offsetLeft;
+		disY=ev.clientY-oSmallBox.offsetTop;
+		document.onmousemove=function(ev){
+			l=ev.clientX-disX;
+			t=ev.clientY-disY;
+			if(l<0){
+				l=0;
+			}else if(l>window.innerWidth-oSmallBox.offsetWidth){
+				l=window.innerWidth-oSmallBox.offsetWidth
+			}
+			if(t<0){
+				t=0;
+			}else if(t>window.innerHeight - oSmallBox.offsetHeight){
+				t=window.innerHeight - oSmallBox.offsetHeight
+			}
+			oSmallBox.style.left=l+'px';
+			oSmallBox.style.top=t+'px';
+			if(judgement(oSmallBox,oBigBox)){
+				oBigBox.style.backgroundColor='blue';
+			}else{
+				oBigBox.style.backgroundColor='#ccc';
+			}
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>

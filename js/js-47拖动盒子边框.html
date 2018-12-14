@@ -30,18 +30,17 @@
 	var oBox= document.getElementById('box');
 	oBox.onmousedown=function(ev){
 		var disX=0,disY=0;
-
 		disX=ev.clientX-oBox.offsetLeft;
 		disY=ev.clientY-oBox.offsetTop;
 		console.log(disX,disY);
-		var oBorder = document.createElement('div');
+		oBorder = document.createElement('div');
 		oBorder.style.position='absolute';
 		oBorder.style.top=oBox.offsetTop+'px';
 		oBorder.style.left=oBox.offsetLeft+'px';
 		oBorder.style.width='100px';
 		oBorder.style.height='100px';
 		oBorder.className='border';
-		document.body.appendChild(oBorder);
+		var oBorder = document.body.appendChild(oBorder);
 		document.onmousemove=function(ev){
 			var l=ev.clientX-disX;
 			var t=ev.clientY-disY;
@@ -58,12 +57,12 @@
 			oBorder.style.left=l+'px';
 			oBorder.style.top=t+'px';
 		}
-		document.onmouseup=function(){
+		oBorder.onmouseup=function(){
 			oBox.style.left=oBorder.offsetLeft+'px';
-			oBox.style.top=oBord.er.offsetTop+'px';
+			oBox.style.top=oBorder.offsetTop+'px';
 			document.body.removeChild(oBorder);
 			document.onmousemove=null;
-			document.onmouseup=null;
+			// document.onmouseup=null;
 			// document.onmousedown=null;
 		}
 	}
