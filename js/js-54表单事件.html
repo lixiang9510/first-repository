@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			margin:200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<form action="http://www.kuazhu.com" id="form1">
+			<input type="text" id="text">
+			<input type="submit" id="sub">
+			<input type="reset" id="res">
+			<p id="msg"></p>
+		</form>
+	</div>
+</body>
+<script>
+	var oForm = document.getElementById('form1');
+	var oText = document.getElementById('text');
+	var oSub = document.getElementById('sub');
+	var oRes = document.getElementById('res');
+	var oMsg = document.getElementById('msg');
+	oText.onfocus=function(){
+		oMsg.innerHTML='请输入你的用户名'
+		var content=oMsg.value
+	}
+</script>
+</html>

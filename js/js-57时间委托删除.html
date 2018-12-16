@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn"></button>
+	<ul id="ul1">
+		<li>li1 <a href="javascript:;" class="del">删除</a></li>
+		<li>li2 <a href="javascript:;" class="del">删除</a></li>
+		<li>li3 <a href="javascript:;" class="del">删除</a></li>
+		<li>li4 <a href="javascript:;" class="del">删除</a></li>
+		<li>li5 <a href="javascript:;" class="del">删除</a></li>
+		<li>li6 <a href="javascript:;" class="del">删除</a></li>
+		<li>li7 <a href="javascript:;" class="del">删除</a></li>
+		<li>li8 <a href="javascript:;" class="del">删除</a></li>
+		<li>li9 <a href="javascript:;" class="del">删除</a></li>
+		<li>li10 <a href="javascript:;" class="del">删除</a></li>				
+	</ul>
+</body>
+<script>
+	var oUl1 = document.getElementById('ul1');
+	var oUl1 = document.getElementById('ul1');
+	oUl1.addEventListener('click',function(ev){
+		console.log(ev.target)
+		console.log(ev.target)
+		if(ev.target.className=='del'){
+			oUl1.removeChild(ev.target.parentNode);
+		}
+	},false)
+</script>
+</html>

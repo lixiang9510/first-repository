@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border:1px solid black;
+			margin:100px auto; 
+		}
+	</style>
+</head>
+<body>
+	<button id="btn"></button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	function handleEvent(ev){
+		if(ev.type=='mouseover'){
+			oBox.style.background='red';
+		}else if(ev.type=='click'){
+			oBox.style.background='blue';
+		}else if(ev.type=='mouseout'){
+			oBox.style.background='#fff';
+		}
+	}
+	oBox.addEventListener('mouseover',handleEvent,false);
+	oBox.addEventListener('click',handleEvent,false);
+	oBox.addEventListener('mouseout',handleEvent,false);
+
+</script>
+</html>

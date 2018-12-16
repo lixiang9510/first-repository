@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+			top:0px;
+			left: 0px;
+			width: 100px;
+			height: 400px;
+			background-color: #ccc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	document.oncontextmenu=function(ev){
+		oBox.style.display='block';
+		ev.preventDefault();
+		oBox.style.top=ev.clientY+'px';
+		oBox.style.left=ev.clientX+'px';
+
+	}
+
+	document.onclick=function(){
+		oBox.style.display='none';
+	}
+	oBox.onclick=function(ev){
+		ev.stopPropagation();
+	}
+</script>
+</html>

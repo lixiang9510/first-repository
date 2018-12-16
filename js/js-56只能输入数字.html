@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			margin:200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<form action="http://www.kuazhu.com" id="form1">
+			请输入银行卡号
+			<input type="text" id="text">
+		</form>
+	</div>
+</body>
+<script>
+	var oText = document.getElementById('text');
+	oText.onkeydown=function(ev){
+		if((ev.keyCode<48 || ev.keyCode>57) && (ev.keyCode<96 || ev.keyCode>106) &&  ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+			return false;
+		}
+	}
+</script>
+</html>>

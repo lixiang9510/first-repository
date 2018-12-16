@@ -26,8 +26,8 @@
 		}
 		#bigbox #msk{
 			position: absolute;
-			top: 0px;
-			left: 0px;
+			top: 30px;
+			left: 30px;
 			width: 150px;
 			height: 150px;
 			background-color: rgba(255,250,0,0.5);
@@ -91,10 +91,10 @@
 <script>
 	var oBigBox = document.getElementById('bigbox');
 	var oBigImg = document.querySelector('#bigbox img')
-	var oMsk = document.getElementById('bigbox');
+	var oMsk = document.getElementById('msk');
 	var oList = document.getElementById('bigbox');
 	var aListImg = document.querySelectorAll('#list li')
-	var oLargeBox = document.getElementById('bigbox');
+	var oLargeBox = document.getElementById('largebox');
 	var oLargeImg = document.querySelector('#largebox img');
 	for(i=0;i<aListImg.length;i++){
 		aListImg[i].index=i;
@@ -108,10 +108,12 @@
 		}
 	}
 	oBigBox.onmouseover=function(ev){
+		var disX=0;disY=0;
 		oMsk.style.display='block';
 		oLargeBox.style.display='block';
-		alert('a');
-		// var l = ev.clientX
+		disY=ev.clientY-oMsk.offsetTop-oBigBox.offsetTop-oBigBox.offsetParent.offsetTop;
+		disX=ev.clientX-oMsk.offsetLeft-oBigBox.offsetLeft-oBigBox.offsetParent.offsetLeft;
+		oMsk.style.top
 	}
 </script>
 </html>
