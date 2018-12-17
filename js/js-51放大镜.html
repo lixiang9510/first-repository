@@ -28,10 +28,11 @@
 			position: absolute;
 			top: 30px;
 			left: 30px;
-			width: 150px;
-			height: 150px;
+			width: 240px;
+			height: 240px;
 			background-color: rgba(255,250,0,0.5);
 			display: none;
+			cursor: move;
 		}
 		#list{
 			position: absolute;
@@ -55,8 +56,9 @@
 			position: absolute;
 			top: 0px;
 			left: 390px;
-			width:380px;
-			height: 560px;
+			width:570px;
+			height:840px;
+			border:1px solid #ccc;
 			display: none;
 			overflow: hidden;
 		}
@@ -64,8 +66,8 @@
 			position: absolute;
 			top: 0px;
 			left: 0px;
-			width: 570px;
-			height: 840px;
+			width: 720px;
+			height: 1120px;
 		}
 		#list .action{
 			opacity: 1;
@@ -96,6 +98,7 @@
 	var aListImg = document.querySelectorAll('#list li')
 	var oLargeBox = document.getElementById('largebox');
 	var oLargeImg = document.querySelector('#largebox img');
+	console.log(oLargeImg);
 	for(i=0;i<aListImg.length;i++){
 		aListImg[i].index=i;
 		aListImg[i].onmouseover=function(){
@@ -108,12 +111,36 @@
 		}
 	}
 	oBigBox.onmouseover=function(ev){
-		var disX=0;disY=0;
+		var disX=0,disY=0,l=0,t=0,scoleX=0,scoleY=0;
 		oMsk.style.display='block';
 		oLargeBox.style.display='block';
-		disY=ev.clientY-oMsk.offsetTop-oBigBox.offsetTop-oBigBox.offsetParent.offsetTop;
-		disX=ev.clientX-oMsk.offsetLeft-oBigBox.offsetLeft-oBigBox.offsetParent.offsetLeft;
-		oMsk.style.top
+		oBigBox.onmousemove=function(ev){
+			disY=ev.clientY-oMsk.offsetTop-oBigBox.offsetTop-oBigBox.offsetParent.offsetTop;
+			disX=ev.clientX-oMsk.offsetLeft-oBigBox.offsetLeft-oBigBox.offsetParent.offsetLeft;
+			l=ev.clientX-oBigBox.offsetLeft-oBigBox.offsetParent.offsetLeft-oMsk.offsetWidth*0.5;
+			t=ev.clientY-oBigBox.offsetTop-oBigBox.offsetParent.offsetTop-oMsk.offsetHeight*0.5;
+			if(l<0){
+				l=0;
+			}else if(l>oBigBox.offsetWidth-oMsk.offsetWidth){
+				l=oBigBox.offsetWidth-oMsk.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t>oBigBox.offsetHeight-oMsk.offsetHeight){
+				t=oBigBox.offsetHeight-oMsk.offsetHeight;
+			}
+			oMsk.style.top=t+'px';
+			oMsk.style.left=l+'px';
+			scoleX=oLargeImg.offsetWidth/oBigImg.offsetWidth;
+			scoleY=oLargeImg.offsetHeight/oBigImg.offsetHeight;
+			console.log(scoleY,scoleX);
+			oLargeImg.style.top=-scoleY*t+'px';
+			oLargeImg.style.left=-scoleX*l+'px';
+		}
+	}
+	oBigBox.onmouseout=function(ev){
+		oMsk.style.display='none';
+		oLargeBox.style.display='none';
 	}
 </script>
 </html>

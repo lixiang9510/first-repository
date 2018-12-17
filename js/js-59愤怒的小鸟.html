@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#gameBox{
+			position: relative;
+			width: 800px;
+			height: 500px;
+			border:1px solid #000;
+			margin:100px auto;
+			overflow: hidden;
+		}
+		img{
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			width: 60px;
+			height: 60px;
+		}
+		.topline{
+			position: absolute;
+			top: 0px;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+		.bottomline{
+			position: absolute;
+			bottom: 0px;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="gameBox">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrX2ZoAjZlQ4jQyMJnzer--LP62rNTsgIEFYRpePzyJFo6JPW9" alt="">
+	</div>
+</body>
+<script>
+	function getrandom(min,max){
+		return Math.round(min+(max-min)*Math.random());
+	}
+	function judgement(obj1,obj2){
+		var result=false;
+		if(obj1.offsetWidth+obj1.offsetLeft>obj2.offsetLeft
+		&&obj1.offsetHeight+obj1.offsetTop>obj2.offsetTop
+		&&obj2.offsetHeight+obj2.offsetTop>obj1.offsetTop
+		&&obj2.offsetWidth+obj2.offsetLeft>obj1.offsetLeft
+		){
+			result=true;
+		}else{
+			result=false;
+		}
+		return result;
+	}
+
+	var oGameBox=document.getElementById('gameBox');
+	var oImg=document.querySelector('img');
+	
+	var moveBirdTimer=0,addlineTimer=0,movelineTimer=0,ispeed=0;
+	clearInterval(moveBirdTimer);
+	clearInterval(addlineTimer);
+	clearInterval(movelineTimer);
+	// var gameOver=false;
+
+	function addLine(){
+		var oTopline=document.createElement('div');
+		var oBottomline=document.createElement('div');
+		oTopline.className='topline';
+		oBottomline.className='bottomline';
+		var h=getrandom(100,200);
+		oTopline.style.height=h+'px';
+		oBottomline.style.height=oGameBox.offsetHeight-h-200+'px'; 
+		oTopline.leftDate=100;
+		console.log(oGameBox.offsetHeight,h)
+		oGameBox.appendChild(oTopline);
+		oGameBox.appendChild(oBottomline);
+	}
+
+	addLine();
+	addlineTimer=setInterval(addLine,500)
+	movelineTimer=setInterval(function(){
+		var aTopline=document.querySelectorAll('.topline');
+		var aBottomline=document.querySelectorAll('.bottomline');
+		for(i=0;i<aTopline.length;i++){
+			aTopline[i].style.left=aBottomline[i].style.left=aTopline[i].leftDate-1+'%';
+			aTopline[i].leftDate-=1;
+			judgement(oImg,aTopline[i]);
+			judgement(oImg,aBottomline[i]);
+			if(judgement(oImg,aTopline[i]) || judgement(oImg,aBottomline[i])){
+				gameOver();
+			}
+			if(aTopline[i].leftDate<-5){
+				oGameBox.removeChild(aTopline[i]);
+				oGameBox.removeChild(aBottomline[i]);
+			}
+		}
+	},30)
+
+	moveBirdTimer=setInterval(function(){
+		ispeed+=1;
+		var t=oImg.offsetTop+ispeed;
+		if(t<0){
+			t=0;
+			gameOver();
+		}else if(t>=oGameBox.offsetHeight-oImg.offsetHeight-10){
+			t=oGameBox.offsetHeight-oImg.offsetHeight-10
+			gameOver();
+			console.log('b');
+		}
+		oImg.style.top=t+'px';
+		console.log('a');
+		},30)
+
+	function gameOver(){
+		clearInterval(moveBirdTimer);
+		clearInterval(addlineTimer);
+		clearInterval(movelineTimer);
+	}
+
+	document.onkeydown=function(){
+		ispeed-=10;	
+	}
+	
+</script>
+</html>
