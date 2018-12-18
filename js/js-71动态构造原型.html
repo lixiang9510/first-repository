@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		基本格式：
+		function 函数名（参数一，参数二）{
+
+		}
+		var 变量=new 函数名（参数1，参数2）
+		为了解决方法（就是函数）可以共享
+		主要是一个prototype对象。
+		本来就是叶哥整体，但是看着不舒服。解决就是放一个函数里
+		直接放进去，可以，但是每次实例使用时会访问一次。
+		改进就是加一个判断
+	*/
+
+	// function createPerson(name,age){
+	// 	console.log(this);//这时候的this就是这个函数createPerson
+	// 	this.name=name;
+	// 	this.age=age;
+	// 	console.log('createPerson.prototype.sayName');
+	// 	createPerson.prototype.sayName=function(){
+	// 	console.log("I am "+this.name);
+	// 	}
+	// 	console.log('createPerson.prototype.sayAge');
+	// 	createPerson.prototype.sayAge=function(){
+	// 	console.log("I am "+this.age+" years old");
+	// 	}
+	// }
+	function createPerson(name,age){
+		console.log(this);//这时候的this就是这个函数createPerson
+		this.name=name;
+		this.age=age;
+		console.log(this.sayName);
+		if(!this.sayName){
+			console.log('createPerson.prototype.sayName');
+			createPerson.prototype.sayName=function(){
+			console.log("I am "+this.name);
+			}			
+		}
+		console.log(this.sayAge);
+		if(!this.sayAge){
+			console.log('createPerson.prototype.sayAge');
+			createPerson.prototype.sayAge=function(){
+			console.log("I am "+this.age+" years old");
+			}			
+		}
+	}
+	// function createPerson(name,age){
+	// 	console.log(this);//这时候的this就是这个函数createPerson
+	// 	this.name=name;
+	// 	this.age=age;
+	// }
+	// createPerson.prototype.sayName=function(){
+	// 	console.log("I am "+this.name);
+	// }
+	// createPerson.prototype.sayAge=function(){
+	// 	console.log("I am "+this.age+" years old");
+	// }
+
+	var person=new createPerson("Tom",18);
+	person.sayName();
+	person.sayAge();
+
+	var person2=new createPerson("Andy",20);
+	person2.sayName();
+	person2.sayAge();
+
+ 	console.log(person.sayName==person2.sayName);
+</script>
+</html>

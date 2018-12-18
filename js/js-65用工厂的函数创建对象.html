@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		使用工厂模式创建对象格式
+		function 函数名（）{
+		var obj = new Object()
+
+
+		return obj;
+		}
+		var 变量=函数名（）；
+	*/
+	function createPerson(name,age){
+		var obj = new Object();
+		obj.name=name;
+		obj.age=age;
+		obj.showName=function(){
+			console.log("I am"+this.name);
+		}
+		obj.showAge=function(){
+			console.log("I am "+this.age+" years old");
+		}
+		return obj;
+	}
+	var person1=createPerson('Tom',18);
+	console.log(person1);
+	person1.showName();
+	person1.showAge();
+	var person2=createPerson('Andy',20);
+	console.log(person2);
+	person2.showName();
+	person2.showAge();
+	console.log(person1.showName==person2.showName);
+</script>
+</html>

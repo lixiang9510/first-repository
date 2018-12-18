@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(){
+		//用new相当于先生成一个对象
+		console.log(this);
+		//然后return这个对象
+	}
+	show();
+	new show();
+	console.log(show());
+	console.log(new show());
+</script>
+</html>

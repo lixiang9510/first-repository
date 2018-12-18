@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		基本格式：
+		function 函数名（参数一，参数二）{
+
+		}
+		var 变量=new 函数名（参数1，参数2）
+	*/
+	function createPerson(name,age){
+		console.log(this);//这时候的this就是这个函数createPerson
+		this.name=name;
+		this.age=age;
+		this.sayName=function(){
+			console.log("I am "+this.name);
+		}
+		this.sayAge=function(){
+			console.log("I am "+this.age+" years old");
+		}
+	}
+	var person=new createPerson("Tom",18);
+	console.log(person);
+	person.sayName();
+	person.sayAge();
+	var person2=new createPerson("Andy",20);
+	console.log(person2);
+	person2.sayName();
+	person2.sayAge();
+ 	console.log(person.sayName==person2.sayName);
+</script>
+</html>
