@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#nav{
+			width: 400px;
+			height: 50px;
+			/*background-color: pink;*/
+			margin-bottom: 10px;
+			cursor: pointer;
+			user-select: none;
+		}
+		#nav li{
+			float: left;
+			width: 20%;
+			height: 100%;
+			margin-right: 26px;
+			text-align: center;
+			line-height: 50px;
+		}
+		#nav li:last-child{
+			margin-right: 0px;
+		}
+		#nav .active1{
+			color: orange;
+			border-bottom: 1px solid #ff6700;
+		}
+		#obvious{
+			position: relative;
+		}
+		#obvious li{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 400px;
+			height: 400px;
+			font-size: 30px;
+			text-align: center;
+			line-height: 400px;
+			margin-bottom: 10px;
+			display: none;
+			border:1px solid black;
+			user-select: none;
+		}
+		#obvious .active2{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<ul id="nav">
+		<li class="active1">家电</li>
+		<li>家具</li>
+		<li>服饰</li>
+		<li>美食</li>
+	</ul>
+	<ul id="obvious">
+		<li class="active2">家电</li>
+		<li>家具</li>
+		<li>服饰</li>
+		<li>美食</li>
+	</ul>
+</body>
+<script>
+	function Tabs(listSelect,cotenttSelect){
+		this.aBtn=document.querySelectorAll(listSelect);
+		this.aContent=document.querySelectorAll(cotenttSelect);
+		this.bindEvent();
+	}
+	Tabs.prototype.bindEvent=function(){
+		 var _this=this;
+		for(i=0;i<this.aBtn.length;i++){
+			this.aBtn[i].index=i;
+			this.aBtn[i].onclick=function(){
+				_this.Fnclick(this);
+			}
+		}
+	}
+	Tabs.prototype.Fnclick=function(aBtn){
+		console.log(this);
+		for(j=0;j<this.aBtn.length;j++){
+			this.aBtn[j].className="";
+			this.aContent[j].style.display='none';
+		}
+		aBtn.className='active1';
+		this.aContent[aBtn.index].style.display='block';
+	}
+	new Tabs('#nav li','#obvious li');
+</script>
+</html>
