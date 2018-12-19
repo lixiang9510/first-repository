@@ -34,5 +34,22 @@
 		oMsg.innerHTML='请输入你的用户名'
 		var content=oMsg.value
 	}
+	oText.onblur=function(){
+		oMsg.innerHTML='';
+	}
+	oText.onchange=function(){
+		alert('用户名已经更改');
+	}
+	oText.oninput=function(){
+		console.log('你正在输入，注意');
+	}
+	oForm.onsubmit=function(ev){
+		console.log('正在提交');
+		// return false;
+		ev.preventDefault();
+	}
+	oForm.onreset=function(){
+		console.log('已经重置');
+	}
 </script>
 </html>

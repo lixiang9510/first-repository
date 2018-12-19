@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = 'ajkfjg55ds4g3ad4_ga_';
+	var reg1=/[^\r\n]/g;
+	var reg2=/./g;
+	var reg3=/[0-9]/g;
+	var reg4=/\d/g;
+	var reg5=/[^0-9]/g;
+	var reg6=/\D/g;
+	var reg7=/[0-9a-zA-Z_]/g;
+	var reg8=/\D/g;
+	
+
+
+	console.log(str);
+	console.log(str.replace(reg1,'*'));
+	console.log(str.replace(reg2,'*'));
+	console.log(str.replace(reg3,'*'));
+	console.log(str.replace(reg4,'*'));
+	console.log(str.replace(reg5,'*'));
+	console.log(str.replace(reg6,'*'));
+</script>
+</html>

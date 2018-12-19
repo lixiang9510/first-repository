@@ -15,6 +15,7 @@
 			border:1px solid #000;
 			margin:100px auto;
 			overflow: hidden;
+			background-image: url(../img/backimg.jpg);
 		}
 		img{
 			position: absolute;
@@ -22,6 +23,7 @@
 			left: 200px;
 			width: 60px;
 			height: 60px;
+			user-select: none;
 		}
 		.topline{
 			position: absolute;
@@ -37,7 +39,23 @@
 			width: 30px;
 			background-color: green;
 		}
-
+		.gameend1{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -25px;
+			margin-left: -80px;
+			width: 160px;
+			height: 50px;
+			background-color: pink;
+			color: red;
+			font-size: 30px;
+			text-align: center;
+			line-height: 50px;
+			cursor: pointer;
+			border-radius: 25px;
+			user-select: none;
+		}
 	</style>
 </head>
 <body>
@@ -65,7 +83,7 @@
 
 	var oGameBox=document.getElementById('gameBox');
 	var oImg=document.querySelector('img');
-	
+	var oDiv=null;
 	var moveBirdTimer=0,addlineTimer=0,movelineTimer=0,ispeed=0;
 	clearInterval(moveBirdTimer);
 	clearInterval(addlineTimer);
@@ -85,10 +103,7 @@
 		oGameBox.appendChild(oTopline);
 		oGameBox.appendChild(oBottomline);
 	}
-
-	addLine();
-	addlineTimer=setInterval(addLine,500)
-	movelineTimer=setInterval(function(){
+	function moveline(){
 		var aTopline=document.querySelectorAll('.topline');
 		var aBottomline=document.querySelectorAll('.bottomline');
 		for(i=0;i<aTopline.length;i++){
@@ -104,9 +119,8 @@
 				oGameBox.removeChild(aBottomline[i]);
 			}
 		}
-	},30)
-
-	moveBirdTimer=setInterval(function(){
+	}
+	function moveBird(){
 		ispeed+=1;
 		var t=oImg.offsetTop+ispeed;
 		if(t<0){
@@ -115,16 +129,30 @@
 		}else if(t>=oGameBox.offsetHeight-oImg.offsetHeight-10){
 			t=oGameBox.offsetHeight-oImg.offsetHeight-10
 			gameOver();
-			console.log('b');
 		}
 		oImg.style.top=t+'px';
-		console.log('a');
-		},30)
-
+	}
+	addlineTimer=setInterval(addLine,500);
+	movelineTimer=setInterval(moveline,30);
+	moveBirdTimer=setInterval(moveBird,30);
+	function gameend(){
+		oDiv=document.createElement('div');
+		oDiv.innerHTML='游戏结束';
+		oDiv.className='gameend1';
+		oGameBox.appendChild(oDiv);
+		oDiv.onclick=function(){
+			oImg.style.top='0px';
+			addlineTimer=setInterval(addLine,500);
+			movelineTimer=setInterval(moveline,30);
+			moveBirdTimer=setInterval(moveBird,30);
+			oDiv.style.display='none';
+		}
+	}
 	function gameOver(){
 		clearInterval(moveBirdTimer);
 		clearInterval(addlineTimer);
 		clearInterval(movelineTimer);
+		gameend();
 	}
 
 	document.onkeydown=function(){

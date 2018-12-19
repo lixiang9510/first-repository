@@ -23,6 +23,7 @@
 			text-align: center;
 			font-size: 20px;
 			margin-top: -30px;
+			opacity: 0.5;
 			background-color: #ccc;
 			z-index: 99;
 			cursor:pointer;
@@ -38,6 +39,7 @@
 			text-align: center;
 			font-size: 20px;
 			margin-top: -30px;
+			opacity: 0.5;
 			background-color: #ccc;
 			z-index: 99;
 			cursor:pointer;
@@ -81,6 +83,8 @@
 			this.oLi=document.createElement('li');
 			this.oImg=document.createElement('img');
 			this.oImg.src=this.aImg[i];
+			this.oImg.style.width=this.width+'px';
+			this.oImg.style.height=this.height+'px';
 			this.oLi.appendChild(this.oImg);
 			this.oUl.appendChild(this.oLi);
 			this.oLi.style.position="absolute";
