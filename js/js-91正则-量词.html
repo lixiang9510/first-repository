@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = 'ab1cdef6ghi23jkl7m444no9pqr4s6tuv3wxyz'
+	var reg1 = /4{2}/g;		//前面的原子恰好出现两次
+	var reg2 = /4{2,}/g;	//前面的原子最少出现两次
+	var reg3 = /4{2,3}/g;	//前面的原子最多出现3次，最少出现两次
+	var reg4 = /4+/g;		//前面的原子最少出现1次，等价于{1，}
+	var reg5 = /4?/g;		//前面的原子最少出现0次，最多出现一次，等价于{0，1}
+	var reg6 = /4*/g;		//前面的原子最少出现一次，等价于{0，}
+
+	console.log(str.replace(reg1,'*'));
+	console.log(str.replace(reg2,'*'));
+	console.log(str.replace(reg3,'*'));
+	console.log(str.replace(reg4,'*'));
+	console.log(str.replace(reg5,'*'));
+	console.log(str.replace(reg6,'*'));
+	console.log(reg1.test(str));
+	console.log(reg2.test(str));
+	console.log(reg3.test(str));
+	console.log(reg4.test(str));
+	console.log(reg5.test(str));
+	console.log(reg6.test(str));
+</script>
+</html>

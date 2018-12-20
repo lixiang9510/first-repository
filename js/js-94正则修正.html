@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "a1b1c2ABa1a2";
+	var reg1=/[a-z]/;
+	var reg2=/[a-z]/i;
+	var reg3=/[a-z]/;
+	var reg4=/[a-z]/g;
+	console.log(str);
+	console.log(reg1.ignoreCase);
+	console.log(reg2.ignoreCase);
+	console.log(reg3.global);
+	console.log(reg4.global);
+	console.log(str.replace(reg1,"*"))
+	console.log(str.replace(reg1,"*"))
+	console.log(str.replace(reg3,"*"))
+	console.log(str.replace(reg4,"*"))
+</script>
+</html>

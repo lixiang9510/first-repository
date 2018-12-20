@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "a1b1c2ABa1a2";
+	var reg1=/[a-z](?=\d)/g;
+	var reg2=/[a-z](?!\d)/ig;
+	console.log(str);
+	console.log(str.replace(reg1,"*"))
+	console.log(str.replace(reg2,"*"))
+
+</script>
+</html>

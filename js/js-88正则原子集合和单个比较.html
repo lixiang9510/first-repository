@@ -8,17 +8,21 @@
 	
 </body>
 <script>
-	var str = 'ajkfjg55ds4g3ad4_ga_';
-	var reg1=/[^\r\n]/g;
-	var reg2=/./g;
-	var reg3=/[0-9]/g;
-	var reg4=/\d/g;
-	var reg5=/[^0-9]/g;
-	var reg6=/\D/g;
-	var reg7=/[0-9a-zA-Z_]/g;
-	var reg8=/\D/g;
-	
-
+	var str = 'ajkfjg55 ds4g3ad4_ga_';
+	var reg1=/[^\r\n]/g;		//除了回车和换行符意外的任意字符
+	var reg2=/./g;				//除了回车和换行符意外的任意字符
+	var reg3=/[0-9]/g;			//任意数字
+	var reg4=/\d/g;				//任意数字
+	var reg5=/[^0-9]/g;			//任意非数字
+	var reg6=/\D/g;				//任意非数字
+	var reg7=/[0-9a-zA-Z_]/g;	//任意数字、字母、下划线
+	var reg8=/\w/g;				//任意数字、字母、下划线
+	var reg9=/[^0-9a-zA-Z_]/g;	//任意非数字、字母、下划线
+	var reg10=/\W/g;			//任意非数字、字母、下划线
+	var reg11=/[\t\n\f\r]/g;	//空白符
+	var reg12=/\s/g;			//空白符
+	var reg13=/[^\t\n\f\r]/g;	//任意非空白符
+	var reg14=/\S/g;			//任意非空白符
 
 	console.log(str);
 	console.log(str.replace(reg1,'*'));
@@ -27,5 +31,13 @@
 	console.log(str.replace(reg4,'*'));
 	console.log(str.replace(reg5,'*'));
 	console.log(str.replace(reg6,'*'));
+	console.log(str.replace(reg7,'*'));
+	console.log(str.replace(reg8,'*'));
+	console.log(str.replace(reg9,'*'));
+	console.log(str.replace(reg10,'*'));
+	console.log(str.replace(reg11,'*'));
+	console.log(str.replace(reg12,'*'));
+	console.log(str.replace(reg13,'*'));
+	console.log(str.replace(reg14,'*'));
 </script>
 </html>

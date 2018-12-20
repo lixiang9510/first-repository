@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+	<script>
+		var str = "dsf jf4df 524 ";
+		var reg1 = /^5/g;
+		var reg2 = /[^5]/g;
+		var reg3 = /\bdsf\b/g;
+		var reg4 = /\B524\B/g;
+		console.log(str);
+		console.log(str.replace(reg1,"*"));
+		console.log(str.replace(reg2,"*"));
+		console.log(str.replace(reg3,"*"));
+		console.log(str.replace(reg4,"*"));
+	</script>
+</html>

@@ -8,14 +8,24 @@
 			margin: 0;
 			padding: 0;
 		}
+		body{
+			background-image: url(http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/02/73/02d84ab46e4400f2423802b1a820ff49.jpg);
+			background-size: 1600px 800px;
+
+			background-repeat: no-repeat;
+		}
 		#gameBox{
 			position: relative;
 			width: 800px;
 			height: 500px;
-			border:1px solid #000;
+			/*border:1px solid #000;*/
 			margin:100px auto;
 			overflow: hidden;
-			background-image: url(../img/backimg.jpg);
+			transform: rotateZ(0deg);
+			border-radius: 20px;
+			background-image: url(http://m.qpic.cn/psb?/V10fh5zY0TwyRW/Ffeox*i0dnjzNOrkuk9y1ceaZRvrJGCBf75xrkBP1.k!/b/dL4AAAAAAAAA&bo=IAMVAgAAAAARBwQ!&rf=viewer_4);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
 		}
 		img{
 			position: absolute;
@@ -29,15 +39,17 @@
 			position: absolute;
 			top: 0px;
 			left: 100%;
-			width: 30px;
-			background-color: green;
+			width: 25px;
+			background-image: url(https://cdn.pixabay.com/photo/2014/12/22/00/08/tree-576864_960_720.png);
+			background-position: -150px -20px;
 		}
 		.bottomline{
 			position: absolute;
 			bottom: 0px;
 			left: 100%;
-			width: 30px;
-			background-color: green;
+			width: 25px;
+			background-image: url(https://cdn.pixabay.com/photo/2014/12/22/00/08/tree-576864_960_720.png);
+			background-position: -150px -20px;
 		}
 		.gameend1{
 			position: absolute;
@@ -60,7 +72,7 @@
 </head>
 <body>
 	<div id="gameBox">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrX2ZoAjZlQ4jQyMJnzer--LP62rNTsgIEFYRpePzyJFo6JPW9" alt="">
+		<img src="http://m.qpic.cn/psb?/V10fh5zY0TwyRW/lwIgLRLUWRQIETlJ6fAQlaeZigcG6J.ZEmTAOvmoaWQ!/b/dFYBAAAAAAAA&bo=3ADcAAAAAAARFyA!&rf=viewer_4" alt="">
 	</div>
 </body>
 <script>
@@ -85,14 +97,18 @@
 	var oImg=document.querySelector('img');
 	var oDiv=null;
 	var moveBirdTimer=0,addlineTimer=0,movelineTimer=0,ispeed=0;
+	var aTopline=0;
+	var aBottomline=0;
+	var oTopline=0;
+	var oBottomline=0;
 	clearInterval(moveBirdTimer);
 	clearInterval(addlineTimer);
 	clearInterval(movelineTimer);
 	// var gameOver=false;
 
 	function addLine(){
-		var oTopline=document.createElement('div');
-		var oBottomline=document.createElement('div');
+		oTopline=document.createElement('div');
+		oBottomline=document.createElement('div');
 		oTopline.className='topline';
 		oBottomline.className='bottomline';
 		var h=getrandom(100,200);
@@ -104,8 +120,8 @@
 		oGameBox.appendChild(oBottomline);
 	}
 	function moveline(){
-		var aTopline=document.querySelectorAll('.topline');
-		var aBottomline=document.querySelectorAll('.bottomline');
+		aTopline=document.querySelectorAll('.topline');
+		aBottomline=document.querySelectorAll('.bottomline');
 		for(i=0;i<aTopline.length;i++){
 			aTopline[i].style.left=aBottomline[i].style.left=aTopline[i].leftDate-1+'%';
 			aTopline[i].leftDate-=1;
@@ -140,13 +156,6 @@
 		oDiv.innerHTML='游戏结束';
 		oDiv.className='gameend1';
 		oGameBox.appendChild(oDiv);
-		oDiv.onclick=function(){
-			oImg.style.top='0px';
-			addlineTimer=setInterval(addLine,500);
-			movelineTimer=setInterval(moveline,30);
-			moveBirdTimer=setInterval(moveBird,30);
-			oDiv.style.display='none';
-		}
 	}
 	function gameOver(){
 		clearInterval(moveBirdTimer);

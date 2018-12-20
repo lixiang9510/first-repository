@@ -7,4 +7,12 @@
 <body>
 	
 </body>
+<script>
+	var str = '123456';
+	var reg1 = /\d{2,4}/;	//默认贪婪模式，尽可能的多匹配
+	var reg2 = /\d{2,4}?/	//非贪婪模式，尽可能的少匹配
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+
+</script>
 </html>
