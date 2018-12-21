@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abc12abc";
+	var str2 = "abc12123";
+	var reg1 = /[a-z]{2}/g;
+	var reg2 = /[a-z]{2}/;
+	console.log(reg1.test(str)); //加g时是全局匹配，下次开始会从reg1.lastIndex的返回结果开始测试，有了返回true，没有返回false
+	console.log(reg1.lastIndex);
+	console.log(reg1.test(str));
+	console.log(reg1.lastIndex);
+	console.log(reg1.test(str));
+	console.log(reg1.lastIndex);
+
+	console.log(reg2.test(str));	//不加g时是非全局匹配，每次都是从下标为0的元素开始。
+	console.log(reg2.lastIndex);
+	console.log(reg2.test(str));
+	console.log(reg2.lastIndex);
+	console.log(reg2.test(str));
+	console.log(reg2.lastIndex);
+</script>
+</html>

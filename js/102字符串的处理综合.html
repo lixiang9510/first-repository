@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = '  A123b 2里cd ef59g hi_gklmn ';
+	console.log(str);
+	console.log(str.replace(/\s+/g,"*"));	//replace;
+	console.log(str.charAt(6));				//根据charAt（）括号中的数字，返回字符中该下标的字符，没有返回空。
+	console.log(str.charCodeAt(7));         //根据括号里的数字，返回字符中该下标的字符编码，没有返回空。汉字的Unicode,包含了ASCII(0-127);
+	console.log(str.indexOf("ef5"));		//从前向后找括号中的字符，返回找到首字符在原来字符中的下标，没有返回-1；
+	console.log(str.lastIndexOf("ef5"));	//从后向前找括号中的字符，返回找到首字符在原来字符中的下标，没有返回-1；
+	console.log(encodeURIComponent(str));	//URI编码，编码除了字母、数字、(、)、.、!、*、~、'、-、_之外的所有字符。
+	console.log(decodeURIComponent(encodeURIComponent(str)));	//URI解码。		
+	console.log(str.concat("a 00212")); 		//字符串添加
+	console.log(str.slice(5,8));			//截取字符串，括号中的两个参数分别是起始下标和结束下标。
+	console.log(str.substr(-5,8));			//截取字符串长度，括号里的两个参数分别是起始下标和截取长度。
+	console.log(str.substring(-6,9));		//截取字符串的长度，第一个字是正数时，为起始下标，截取到结束下标的前一位。第一个参数为负数的时候，从字符串的第一位开始截取，截取到结束下标。
+	console.log(str.toLowerCase());			//把字符串转化为小写
+	console.log(str.toUpperCase());			//把字符串转化为大写
+	console.log(str.trim());				//去除字符串两端的空白
+
+
+</script>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.option-nav-ul1{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 40px;
+			background-color: green;
+		}
+		.option-nav-ul1 li{
+			float: left;
+			list-style: none;
+			height: 100%;
+			text-align: center;
+			cursor: pointer;
+			user-select: none;
+		}
+		.option-nav-ul1-li{
+			background-color: #ff6700;
+		}
+		.option-nav-ul2{
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			width: 100%;
+			background-color:skyblue;
+		}
+		.option-nav-ul2 li{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+		}
+		.option-nav-ul2-li{
+			z-index: 9;
+			opacity: 1;
+		}
+		.option-nav-ul2-li-img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	function animate(obj,options,decelerate,fnEnd){
+		var ispeed=10;
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var isStopAll=true;
+			for(var attr in options){
+				var isStopOne=true;
+				if(!decelerate){
+					ispeed=7;
+				}
+				var current=parseFloat(getComputedStyle(obj,false)[attr]);
+				if(attr=='opacity'){
+					current=Math.round(current*100);
+				}else{
+					current=Math.round(current);
+				}
+				if(decelerate){
+					if(Math.abs(ispeed)>1){
+						ispeed=(options[attr]-current)/10;
+					}else{
+						ispeed=(options[attr]-current)*Math.abs(1/(options[attr]-current));
+					}
+					if(!ispeed){
+						isStopOne=false;			
+					}else{
+						isStopAll=false;
+					}
+				}else{
+					ispeed=(options[attr]-current)*Math.abs(1/(options[attr]-current))*Math.abs(ispeed);
+					if(Math.abs(current-options[attr])<=Math.abs(ispeed)){
+						if(attr=='opacity'){
+							obj.style[attr]=options[attr]/100;
+						}else{
+							obj.style[attr]=options[attr]+'px';
+						}
+						isStopOne=false;
+					}else{
+						isStopAll=false;
+					}
+				}
+				if(isStopAll){
+					clearInterval(obj.timer);
+					if(!isStopOne){
+						if(fnEnd){
+							fnEnd();
+						}	
+					}
+				}
+				if(attr=='opacity'){
+					obj.style[attr]=(current+ispeed)/100;
+				}else{
+					obj.style[attr]=current+ispeed+'px';
+				}
+				console.log(ispeed,current);
+			}
+		},30)
+	}
+</script>
+<script>
+	function Options(opation){
+		this.oBox=document.getElementById(opation.id);
+		this.aNav=opation.aNav;
+		this.aImg=opation.aImg;
+		this.oUl1=null;
+		this.oUl2=null;
+		this.oName=null;
+		this.oCotent=null;
+		this.oImg=null;
+		this.width=opation.width;
+		this.height=opation.height;
+		this.init();
+		this.addEvent();
+	}
+	Options.prototype.init=function(){
+		console.log(this.width)
+		this.oBox.style.position='relative';
+		this.oUl1=document.createElement('ul');
+		this.oUl2=document.createElement('ul');
+		this.oBox.appendChild(this.oUl1);
+		this.oBox.appendChild(this.oUl2);
+		this.oBox.style.width=this.width+'px';
+		this.oBox.style.height=this.height+'px';
+		this.oBox.style.backgroundColor='pink';
+		this.oUl1.className='option-nav-ul1';
+		this.oUl2.className='option-nav-ul2';
+		this.oUl2.style.height=this.oBox.offsetHeight-40+'px';
+		for(i=0;i<this.aNav.length;i++){
+			this.oName=document.createElement('li');
+			this.oName.innerHTML=this.aNav[i];
+			this.oUl1.appendChild(this.oName);
+			this.oName.style.width=(100/this.aNav.length)+"%";
+			// this.oName.className='option-nav-ul1-li';
+			this.oName.style.lineHeight=this.oName.offsetHeight+"px";
+			this.oCotent=document.createElement('li');
+			this.oImg=document.createElement('img');
+			this.oImg.src=this.aImg[i];
+			this.oImg.className="option-nav-ul2-li-img";
+			this.oCotent.appendChild(this.oImg);
+			this.oUl2.appendChild(this.oCotent);
+			// this.oCotent.className="option-nav-ul2-li";
+			this.oCotent.style.opacity=0.5; 
+			if(i==0){
+				// this.oCotent.className='option-nav-ul2-li';
+				this.oCotent.style.opacity=1;
+				this.oCotent.style.zIndex=9;
+				this.oName.className='option-nav-ul1-li';
+			}
+		}
+	}
+	Options.prototype.addEvent=function(){
+		var _this=this;
+		this.aName=this.oUl1.children;
+		this.aCotent=this.oUl2.children;
+		for(i=0;i<this.aNav.length;i++){
+			this.aName[i].index=i;
+			this.aName[i].onclick=function(){
+				for(j=0;j<_this.aNav.length;j++){
+					_this.aName[j].className="";
+					_this.aCotent[j].style.zIndex=1;
+					_this.aCotent[j].style.opacity=0.5;
+				}
+				_this.aName[this.index].className="option-nav-ul1-li";
+				_this.aCotent[this.index].style.zIndex=9;
+				animate(_this.aCotent[this.index],{'opacity':100},0);
+			}
+		}
+	}
+	new Options({
+		id:'box',
+		aNav:['美女1','美女2','美女3','美女4','美女5'],
+		aImg:["http://t1.27270.com/uploads/tu/201809/1287/9d0d93ac30.jpg","http://t1.27270.com/uploads/tu/201807/436/cbeec2f42f.jpg","http://t1.27270.com/uploads/tu/201811/101/bd6d773eef.jpg","http://t1.27270.com/uploads/tu/201811/80/408325a295.jpg","http://t1.27270.com/uploads/tu/201811/78/0f0deab21d.jpg"],
+		width:380,	//等于所加图片的宽度
+		height:600	//等于所加图片的高度-40px(这是上面导航栏的高度)
+	});
+</script>
+</html>

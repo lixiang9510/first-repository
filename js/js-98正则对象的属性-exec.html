@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//exct
+	var str = "a2018-12-21b";
+	var reg1 = /(\d{4})-(\d{2})-(\d{2})/g;
+	var reg2 = /(?<year>\d{4})-(?<mouth>\d{2})-(?<day>\d{2})/;
+	var reg3 = /(?<year>\d{4})-(?<mouth>2{2})-(?<day>\d{2})/;
+	console.log(reg1.lastIndex);
+	console.log(reg1.exec(str));
+	console.log(reg1.lastIndex)
+	console.log(reg2.exec(str));
+	console.log(reg3.exec(str));
+	console.log(reg3.lastIndex);
+</script>
+</html>
