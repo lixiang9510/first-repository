@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Move(opation){
+		this.oDiv=null;
+		this.disX=0;
+		this.disY=0;
+		this.top=opation.top;
+		this.left=opation.left;
+		this.width=opation.width;
+		this.height=opation.height;
+		this.init();
+		this.bindEvent();
+	}
+	Move.prototype.init=function(){
+		this.oDiv=document.createElement('div');
+		this.oDiv.style.position='absolute';
+		this.oDiv.style.top='0';
+		this.oDiv.style.left='0';
+		this.oDiv.style.width='100px';
+		this.oDiv.style.height='100px';
+		this.oDiv.style.backgroundColor='red';
+		document.body.appendChild(this.oDiv);
+	}
+
+	Move.prototype.bindEvent=function(){
+		this.oDiv.onmousedown=function(ev){
+			this.disX=ev.clientX-this.oDiv.offsetLeft;
+			this.disY=ev.clientY-this.oDiv.offsetTop;
+			document.onmousemove=function(ev){
+				this.oDiv.style.left=ev.clientX-this.disX+'px';
+				this.oDiv.style.top=ev.clientY-this.disY+'px';
+			}.bind(this);
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}.bind(this);
+	}
+		new Move({
+		width:100,
+		height:100,
+		color:'red',
+		top:0,
+		left:0
+	});
+</script>
+</html>

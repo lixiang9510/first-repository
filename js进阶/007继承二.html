@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+
+	// console.log(Person);
+	Person.prototype.showName=function(){
+		console.log('I am '+this.name);
+	}
+	Person.prototype.showAge=function(){
+		console.log('I am '+this.age+' years old');
+	}
+	Person.prototype.showMajor=function(){
+		console.log('I am from '+this.major);
+	}
+	
+	// var p1=new Person('tom',18);
+	// Object.defineProperty(p1,'aaa',{
+	// 	value:2
+	// });
+	Object.defineProperty(Person.prototype,'aaa',{
+		value:2,
+		enumerable:true
+	})
+
+	var p1=new Person('Tom',18,'computed');
+	function Student(name,age,major){
+		Person.call(this,name,age) 
+		this.major=major;
+	}
+	for(attr in Person.prototype){
+		console.log(attr);
+		Student.prototype[attr]=Person.prototype[attr];
+	}
+	// console.log(p1);
+	var s1=new Student('Tom',18,'computed');
+	console.log(s1);
+	s1.showName();
+	s1.showAge();
+	s1.showMajor();
+	console.log(s1.aaa);
+	
+</script>
+</html>

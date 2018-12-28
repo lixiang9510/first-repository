@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var i=0;
+	function TrowFn(fn,wait){
+		var lasttime=Date.now();
+		return function(){
+			var currentTime=Date.now();
+			if(currentTime-lasttime>wait){
+				fn();
+				lasttime=Date.now();
+			}
+		}
+	}
+	window.onscroll=TrowFn(function(){
+		console.log(i++)
+	},500)
+</script>
+</html>

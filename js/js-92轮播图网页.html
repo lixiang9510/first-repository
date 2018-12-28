@@ -46,7 +46,6 @@
 			user-select: none;
 
 		}
-
 	</style>
 </head>
 <body>
@@ -236,17 +235,17 @@
 	}
 	//add a common function;
 	Carousel.prototype.changeImg=function(){
+		for(i=0;i<this.aLi.length;i++){
 			for(i=0;i<this.aLi.length;i++){
-				for(i=0;i<this.aLi.length;i++){
-					this.aLi[i].style.opacity=0.5;
-					this.aLi[i].style.zIndex=1;
-					this.aLi2[i].style.opacity=0.5;					
-				}
-				this.aLi[this.now].style.zIndex=9;
-				animate(this.aLi[this.now],{'opacity':100},0)
-				this.aLi2[this.now].style.opacity=1;
+				this.aLi[i].style.opacity=0.5;
+				this.aLi[i].style.zIndex=1;
+				this.aLi2[i].style.opacity=0.5;					
 			}
+			this.aLi[this.now].style.zIndex=9;
+			animate(this.aLi[this.now],{'opacity':100},0)
+			this.aLi2[this.now].style.opacity=1;
 		}
+	}
 	new Carousel({
 		id:'box',
 		aImg:["http://t1.27270.com/uploads/tu/201809/1287/9d0d93ac30.jpg","http://t1.27270.com/uploads/tu/201807/436/cbeec2f42f.jpg","http://t1.27270.com/uploads/tu/201811/101/bd6d773eef.jpg","http://t1.27270.com/uploads/tu/201811/80/408325a295.jpg","http://t1.27270.com/uploads/tu/201811/78/0f0deab21d.jpg"],

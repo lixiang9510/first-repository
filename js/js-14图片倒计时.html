@@ -9,7 +9,7 @@
 			padding: 0;
 			background-color: #000;
 		}
-		#box{
+		#box2{
 			text-align: center;
 			margin-top:100px;
 			color: #fff; 
@@ -18,7 +18,7 @@
 	</style>
 </head>
 <body>
-	<div id="box">
+	<div id="box2">
 		距离活动结束还有
 		<img src="../img/0.png" alt="">
 		<img src="../img/0.png" alt="">
@@ -32,8 +32,10 @@
 	</div>
 </body>
 <script>
-	var oBox=document.getElementById('box');
-	var setTime=new Date('2018/12/7 9:30:00');
+	var oBox=document.getElementById('box2');
+	var setTime=new Date('2018/12/28 9:30:00');
+	console.log(setTime.getTime());
+	console.log(Date.now())
 	var aImag=oBox.children;
 	var timer=0;
 	function number1(num){
@@ -56,7 +58,7 @@
 		}
 	}
 	timer=setInterval(conment1,500);
-	console.log(timer);
-	conment1();
+	// console.log(timer);
+	// conment1();
 </script>
 </html>

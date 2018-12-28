@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script>
+	function person(n1,n2){
+		console.log(this,n1,n2);
+	}
+	person(1,2);
+	person.call({name:'Tom'},1,2);
+	person.apply({name:'Tom'},[1,2]);
+	var fn=person.bind({name:'Tom'});
+	console.log(fn);
+	fn(1,2);
+	person.call(person,1,2);
+	person.apply(person,[1,2]);
+	var fn=person.bind(person);
+	console.log(fn);
+	fn(1,2);
+
+</script>
+<body>
+	
+</body>
+</html>

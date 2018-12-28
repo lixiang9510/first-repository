@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	person.prototype.showName=function(){
+		console.log('I am '+this.Tom);
+	}
+	person.prototype.showAge=function(){
+		console.log('I am '+this.age+'years old');
+	}
+	var p1=new person('Tom',18);
+	console.log(p1);
+	console.log(p1.__proto__);
+	console.log(person.prototype.__proto__);
+	console.log(Object.prototype);
+</script>
+</html>

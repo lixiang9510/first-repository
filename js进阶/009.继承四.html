@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		console.log('aaaa');
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.showName=function(){
+		console.log('I am '+this.name);
+	}
+	Person.prototype.showAge=function(){
+		console.log('I am '+this.age+' years old');
+	}
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major=major;
+	}
+	Student.prototype=Object.create(Person.prototype);
+	var s1=new Student('Tom',18,'computed')
+	s1.showName();
+</script>
+
+</html>

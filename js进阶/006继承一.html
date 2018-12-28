@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	person.prototype.showName=function(){
+		console.log('I am '+this.name);
+	}
+	person.prototype.showAge=function(){
+		console.log('I am '+this.age+' years old');
+	}
+	person.prototype.showMajor=function(){
+		console.log('I am from '+this.major);
+	}
+	function student(name,age,major){
+		person.call(this,name,age)
+		this.major=major;
+	}
+	student.prototype=person.prototype
+	// student.prototype.showName=function(){
+	// 	console.log('I am '+this.name);
+	// }
+	// student.prototype.showAge=function(){
+	// 	console.log('I am '+this.age+' years old');
+	// }
+	// student.prototype.showMajor=function(){
+	// 	console.log('I am from '+this.major);
+	// }
+	var s1=new student('tom',18,'computer');
+	console.log(s1);
+	s1.showName();
+	s1.showAge();
+	s1.showMajor();
+	var p1=new person('Leo',19,'teacher');
+	p1.showName();
+	p1.showAge();
+	p1.showMajor();
+</script>
+</html>

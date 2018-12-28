@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="#">
+		<input type="text" id="txt">
+		<div id="box1"></div>
+		<input type="password" id="password">
+		<div id="box2"></div>
+	</form>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oPassword=document.getElementById('password');
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var reg1=/^[a-zA-Z_]{1}[0-9a-zA-z_]{2,7}$/;
+	var reg2=/^[a-zA-Z]{1}[0-9a-zA-Z_]{7,10}$/;
+	oTxt.onblur=function(){
+		if(reg1.test(oTxt.value)){
+			oBox1.innerHTML='用户名正确'
+		}else{
+			oBox1.innerHTML='用户名错误'
+		}
+	}
+	oPassword.onblur=function(){
+		if(reg2.test(oPassword.value)){
+			oBox2.innerHTML='密码正确';
+		}else{
+			oBox2.innerHTML='密码错误';
+		}
+	}
+</script>
+</html>

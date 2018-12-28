@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	person.prototype.showName=function(){
+		console.log('I am '+this.Tom);
+	}
+	person.prototype.showAge=function(){
+		console.log('I am '+this.age+'years old');
+	}
+	var p1=new person('Tom',18);
+	p1.EYERs=2;
+	person.prototype.hand=2;
+	console.log(p1.EYERs);
+	console.log(p1.hand);
+	console.log(delete person.prototype.hand);
+	console.log(p1.hand);
+	console.log(delete p1.name);
+</script>
+</html>
