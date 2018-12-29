@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name,task){
+			this.name=name;
+			this.task=task;
+			this.students=[];
+		}
+		Teacher.prototype={
+			construstor:Teacher,
+			bindStudent:function(student){
+				this.students.push(student);
+			},
+			publish:function(){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listen(this.task);
+				}
+			}
+		}
+		w.Teacher=Teacher;
+	})(window);
+	(function(w){
+		function Student(name,teacher){
+			this.name=name;
+			teacher.bindStudent(this);
+		}
+		Student.prototype={
+			construstor:Student,
+			listen:function(task){
+				console.log(this.name+' task is '+task);
+			}
+		}	
+		w.Student=Student;	
+	})(window);
+	var t1=new Teacher('Tom','working');
+	var s1=new Student('Leo',t1);
+	var s2=new Student('Jane',t1);
+	console.log(t1);
+	t1.publish();
+
+</script>
+</html>

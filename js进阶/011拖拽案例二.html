@@ -16,9 +16,10 @@
 		this.left=opation.left;
 		this.width=opation.width;
 		this.height=opation.height;
+		this.color=opation.color,
 		this.init();
 		this.fnDown();
-		this.fnMove();
+
 	}
 	Move.prototype.init=function(){
 		this.oDiv=document.createElement('div');
@@ -27,7 +28,7 @@
 		this.oDiv.style.left='0';
 		this.oDiv.style.width='100px';
 		this.oDiv.style.height='100px';
-		this.oDiv.style.backgroundColor='red';
+		this.oDiv.style.backgroundColor=this.color;
 		document.body.appendChild(this.oDiv);
 	}
 
@@ -35,7 +36,9 @@
 		this.oDiv.onmousedown=function(ev){
 			this.disX=ev.clientX-this.oDiv.offsetLeft;
 			this.disY=ev.clientY-this.oDiv.offsetTop;
-			onMove()
+			this.fnMove();
+			this.fnUp();
+
 		}.bind(this);
 	}
 	Move.prototype.fnMove=function(){
@@ -59,6 +62,16 @@
 		document.onmousemove=function(ev){
 			var l=ev.clientX-this.disX;
 			var t=ev.clientY-this.disY;
+			if(l<=0){
+				l=0;
+			}else if(l>=window.innerWidth-this.oDiv.offsetWidth){
+				l=window.innerWidth-this.oDiv.offsetWidth;
+			}
+			if(t<=0){
+				t=0;
+			}else if(t>=window.innerHeight-this.oDiv.offsetHeight){
+				t=window.innerHeight-this.oDiv.offsetHeight;
+			}
 			this.oDiv.style.left=l+'px';
 			this.oDiv.style.top=t+'px';
 		}.bind(this);
