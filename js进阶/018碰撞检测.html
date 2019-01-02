@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1{
+			
+			width: 200px;
+			height: 200px;
+			margin:200px auto;
+			background-color: red;
+
+		}
+		#box2{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script>
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var disX=0,disY=0,l=0,t=0;
+	oBox2.onmousedown=function(ev){
+		document.onmousemove=null;
+		document.onmpuseup=null;
+		disX=ev.clientX-oBox2.offsetLeft;
+		disY=ev.clientY-oBox2.offsetTop;
+		document.onmousemove=function(ev){
+			l=ev.clientX-disX;
+			t=ev.clientY-disY;
+			if(l<=0){
+				l=0;
+			}else if(l>window.innerWidth-oBox2.offsetWidth){
+				l=window.innerWidth-oBox2.offsetWidth;
+			}
+			if(t<=0){
+				t=0;
+			}else if(t>window.innerHeight-oBox2.offsetHeight){
+				t=window.innerHeight-oBox2.offsetHeight;
+			}
+			oBox2.style.left=l+'px';
+			oBox2.style.top=t+'px';
+			if((l+oBox2.offsetWidth>oBox1.offsetLeft)
+				&&(oBox1.offsetLeft+oBox1.offsetWidth>l)
+				&&(t+oBox2.offsetHeight>oBox1.offsetTop)
+				&&(oBox1.offsetTop+oBox1.offsetHeight>t)
+				){
+				oBox1.style.backgroundColor='green';
+			}else{
+				oBox1.style.backgroundColor='red';
+			}
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>

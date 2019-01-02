@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		span{
+			display: inline-block;
+			width: 50px;
+			height: 20px;
+		}
+		#dollar{
+			color: red;
+		}
+		#yen{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<label for="rmb" id="name1"></label>
+	<input type="text" id="rmb"></br>
+	<span id="name2"></span><span id="dollar"></span></br>
+	<span id="name3"></span><span id="yen"></span>
+</body>
+<script>
+	(function(w){
+		function Renminbi(name,id1,id2){
+			this.country=name;
+			this.olabel=document.getElementById(id1);
+			this.oInput=document.getElementById(id2)
+			this.olabel.innerHTML=this.country;
+			this.Foreigns=[];
+			this.bindEvent();
+
+		}
+		Renminbi.prototype={
+			constructor:Renminbi,
+			bindForeign:function(Foreign){
+				this.Foreigns.push(Foreign);
+			},
+			bindEvent:function(){
+				this.oInput.oninput=function(){
+					this.publish();
+				}.bind(this)
+			},
+			publish:function(){
+				for(var i=0;i<this.Foreigns.length;i++){
+					this.Foreigns[i].listen(this.oInput.value)
+				}
+			}
+		}
+		w.Renminbi=Renminbi;
+	})(window);
+	(function(w){
+		function Foreign(name,id1,id2,renminbi,ratio){
+			this.country=name;
+			this.ratio=ratio;
+			this.content=null;
+			this.oSpan1=document.getElementById(id1);
+			this.oSpan2=document.getElementById(id2);
+			this.oSpan1.innerHTML=this.country;
+			renminbi.bindForeign(this);
+		}	
+		Foreign.prototype={
+			constructor:Foreign,
+			listen:function(task){
+				this.content=task*this.ratio;
+				this.oSpan2.innerHTML=this.content;
+			}
+		}
+		w.Foreign=Foreign;
+	})(window);
+	var R1=new Renminbi('人民币','name1','rmb');
+	var F1=new Foreign('美元:','name2','dollar',R1,0.15);
+	var F2=new Foreign('日元:','name3','yen',R1,15.91);
+</script>
+</html>

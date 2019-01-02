@@ -15,7 +15,7 @@
 			this.students=[];
 		}
 		Teacher.prototype={
-			construstor:Teacher,
+			constructor:Teacher,
 			bindStudent:function(student){
 				this.students.push(student);
 			},
@@ -33,7 +33,7 @@
 			teacher.bindStudent(this);
 		}
 		Student.prototype={
-			construstor:Student,
+			constructor:Student,
 			listen:function(task){
 				console.log(this.name+' task is '+task);
 			}

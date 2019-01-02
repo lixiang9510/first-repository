@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.login{
+			position: absolute;
+			top:50%;
+			left: 50%;
+			width: 200px;
+			height: 400px;
+			margin-top: -100px;
+			margin-left: -200px;
+			background-color: grey;
+		}
+		.mask{
+			width: 100%;
+			height: 600px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">登陆</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	function judgement(fn){
+		var obj=null;
+		if(!obj){
+			return function(){
+				obj=fn();
+			}
+		}
+		return obj;
+	}
+	function createLogin(){
+		var oDiv=document.createElement('div');
+		oDiv.className='login';
+		document.body.appendChild(oDiv);
+		return oDiv;
+	}
+	var wokeCreatLogin=judgement(createLogin);
+	oBtn.onclick=function(){
+		wokeCreatLogin();
+	}
+</script>
+</html>
