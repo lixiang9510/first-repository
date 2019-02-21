@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<button>点击</button>
+	<div><div>1</div></div>
+	<div><div>2</div></div>
+	<div><div>3</div></div>
+	<div><div>4</div></div>
+	<div><div>5</div></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	console.log($('div'));
+	$("button").click(function(){
+		$("div").css({
+			width:"200px",
+			height:"200px",
+			background:"red"
+		})
+	})
+</script>
+</html>

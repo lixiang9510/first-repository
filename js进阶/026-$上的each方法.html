@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	var arr1=[1,2,3,5,9,8];
+	var aa={0:'aaa',1:'bbb',2:'ccc',length:3};
+	arr1.forEach(function(item,index){
+		console.log("1:::",item,index)
+	});
+	$.each(arr1,function(index,item){
+		console.log("2:::",index,item)
+	});
+	$.each(aa,function(index,item){
+		console.log("3:::",index,item)
+	});
+	$.each($('div'),function(index,item){
+		console.log("4:::",index,item)
+	})
+</script>
+</html>

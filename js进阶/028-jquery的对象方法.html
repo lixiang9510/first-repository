@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2" data-dd="jhgjhjk">div2</div>
+	<div class="div3">div3</div>
+	<div class="div4">div4</div>
+	<div class="div5">div5</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$('.div2').each(function(index,element){
+		console.log(this);
+	});
+	$('.div2').data('aa','bb');
+	console.log($('.div2').data('aa'))
+	console.log($('.div2').data('dd'))
+</script>
+</html>

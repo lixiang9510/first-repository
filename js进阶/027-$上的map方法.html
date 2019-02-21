@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	var arr1=[1,2,3,5,9,8];
+	var aa={0:'aaa',1:'bbb',2:'ccc',length:3};
+	var rest1=$.map(arr1,function(item,index){
+		return(item);
+	});
+	console.log(rest1);
+	var rest2=$.map(aa,function(item,index){
+		return(item);
+	});
+	console.log(rest2);
+	// $.map(aa,function(item,index){
+	// 	console.log(item,index);
+	// });
+</script>
+</html>

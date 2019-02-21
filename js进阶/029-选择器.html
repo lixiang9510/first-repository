@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">div1</div>
+	<div class="div2">div2</div>
+	<div id="div3"><p>div3</p></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	console.log($('div:eq(1)'));
+	console.log($('div:empty'));
+	console.log($('div:parent'));
+	console.log($('div:contains(div2)'));
+	console.log($('div:has(p)'));
+	console.log($('.div2').siblings());
+</script>
+</html>
