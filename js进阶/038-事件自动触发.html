@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://www.kuazhu.com"><span>跨猪网</span></a>
+	<div>hahahaha</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		
+		// $('a').click(function(){
+		// 	alert('aaa');
+		// })
+		// $('a').trigger('click');
+
+		$('div').on('click',function(){
+			$('div').css('color','red');
+		})
+		$('div').trigger('click');
+	})
+
+</script>
+</html>

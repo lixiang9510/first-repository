@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">移除事件</button>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').mouseover(function(){
+			alert('thing1');
+		})
+		$('div').on('click',function(){
+			alert('thing2');
+		})
+		$('div').one('click',function(){
+			alert('thing3');
+		})
+		$('.btn').click(function(){
+			$('div').off();
+			$('div').off('click');
+		})
+	})
+
+</script>
+</html>
