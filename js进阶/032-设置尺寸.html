@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			padding: 20px;
+			border:20px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	console.log($('div').width());
+	console.log($('div').innerWidth());
+	console.log($('div').outerWidth(200));
+</script>
+</html>

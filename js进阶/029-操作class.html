@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+		}
+		.box2{
+			color: red;
+		}
+		.box3{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<button class="button">切换</button>
+	<div class="box1 box2 box3">段落一</div>
+	<div class="box1 box2 box3">段落二</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	// $('div').attr('class','box1 box2 box3');
+	// $('div').addClass('box1 box2 box3');
+	// $("div").removeClass('box1 box2 box3');
+	var obtn = document.getElementsByTagName('button')[0];
+	obtn.onclick=function(){
+		$('div').toggleClass('box1 box2 box3');
+	}
+
+</script>
+</html>
