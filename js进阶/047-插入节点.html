@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>插入一</button>
+	<button>插入二</button>
+	<button>插入三</button>
+	<button>插入四</button>
+	<button>插入五</button>
+	<button>插入六</button>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+	</ul>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			var $li=$('<li>胡博是被</li>');
+			$('ul').append($li)
+		});
+		$('button').eq(1).on('click',function(){
+			var $li=$('<li>胡博是被</li>');
+			$($li).appendTo($('ul'))
+		});
+		$('button').eq(2).on('click',function(){
+			var $li=$('<li>胡博是被</li>');
+			$('ul').prepend($li)
+		});
+		$('button').eq(3).on('click',function(){
+			var $li=$('<li>胡博是被</li>');
+			$($li).prependTo($('ul'))
+		});
+		$('button').eq(4).on('click',function(){
+			var $p=$('<p>胡博是被</p>');
+			$('ul').after($p)
+		});
+		$('button').eq(5).on('click',function(){
+			var $p=$('<p>胡博是被</p>');
+			$('ul').before($p)
+		});
+
+	})
+</script>
+</html>

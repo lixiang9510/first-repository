@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">开始动画</button>
+	<button id="btn2">结束动画</button>
+	<div></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#btn1').on('click',function(){
+			$('div').animate({width:200},1000)
+			$('div').animate({height:200},1000)
+			$('div').animate({opacity:0.5},1000)
+		})
+		$('#btn2').on('click',function(){
+			$('div').stop(false,true)
+		})
+	})
+</script>
+</html>
