@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>获取数据一</button>
+</body>
+<script src="./jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			var jaXHR=$.ajax({
+				url:'data.json',
+				type:'GET',
+				dateTYPE:'json'
+			})
+			jaXHR.done(function(msg,statusMsg,jqXHP){
+				console.log('yes')
+				console.log(msg);
+				console.log(statusMsg);
+				console.log(jqXHP);
+			})
+			jaXHR.fail(function(jqXHP,statusMsg){
+				console.log('no');
+				console.log(statusMsg);
+				console.log(jqXHP);				
+			})	
+			jaXHR.always(function(jqXHP,statusMsg){
+				console.log('1111');
+				console.log(statusMsg);
+				console.log(jqXHP);				
+			})
+		})
+	})
+</script>
+</html>

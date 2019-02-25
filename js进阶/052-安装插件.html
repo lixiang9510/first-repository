@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid black;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>变颜色</button>
+	<div>div1</div>
+	<div>div2</div>
+</body>
+<script src="./jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$.fn.setColor=function(opatons){
+			var ENDCOLORS={color:'red'};
+			opatons=$.extend({},ENDCOLORS,opatons);
+			return this.each(function(){
+				this.style.color=opatons.color;
+			})
+		}
+		$('button').on('click',function(){	
+			$('div').setColor({color:'blue'});
+		})
+	})
+</script>
+</html>
