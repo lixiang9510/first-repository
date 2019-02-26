@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function kQuery(){
+
+	}
+	kQuery.prototype.extend=kQuery.extend=function(options){
+		console.log(this);
+		for(key in options){
+			this[key]=options[key];
+		}
+	}
+	kQuery.prototype.extend({
+		test1:function(){
+			console.log('test1');
+		}
+	})
+	// kQuery.extend({
+	// 	test2:function(){
+	// 		console.log('test2');
+	// 	}
+	// })
+	kQuery.prototype.extend=function(){
+
+	}
+</script>
+</html>

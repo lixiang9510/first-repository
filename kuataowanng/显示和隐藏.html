@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">显示</button>
+	<button class="btn2">隐藏</button>
+	<div></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	var $oBtn1=$('.btn1');
+	var $oBtn2=$('.btn2');
+	var $silent={
+		show:function($oBtn1){
+			$oBtn1.on('click',function(){
+				$('div').css({width:200});
+			})
+		},
+		hide:function(){
+
+		}
+	}
+	$silent.show($oBtn1);
+</script>
+</html>
