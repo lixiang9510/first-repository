@@ -13,11 +13,20 @@
 		this.name=name;
 		this.age=age;
 	}
-	Person.prototype.showName=function(){
-		console.log('I am '+this.name);
-	}
-	Person.prototype.showAge=function(){
-		console.log('I am '+this.age+' years old');
+	// Person.prototype.showName=function(){
+	// 	console.log('I am '+this.name);
+	// }
+	// Person.prototype.showAge=function(){
+	// 	console.log('I am '+this.age+' years old');
+	// }
+	Person.prototype={
+		constructor:Person,
+		showName:function(){
+			console.log('I am '+this.name)
+		},
+		showAge:function(){
+			console.log('I am '+this.age+' years old')
+		}
 	}
 	function Student(name,age,major){
 		Person.call(this,name,age);
@@ -26,6 +35,8 @@
 	Student.prototype=Object.create(Person.prototype);
 	var s1=new Student('Tom',18,'computed')
 	s1.showName();
+
+	console.log(s1);
 </script>
 
 </html>
