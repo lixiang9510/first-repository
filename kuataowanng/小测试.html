@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>转换</button>
+	<div class="box">
+		<ul class="list">
+			<li class="iterm1">li1</li>
+			<li class="iterm3">li3</li>
+			<li class="iterm7">li7</li>
+			<li class="iterm5">li5</li>
+		</ul>
+	</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			// var oli0=document.createElement('<li class=iterm0>li0</li>');
+			$('.iterm1').before($('<li class=iterm0>li0</li>'));
+			// $(oli0).attr('class','iterm0');
+			// $(oli0).text('li0');
+			// console.log($(oli0));
+			// var oli2=document.createElement('li');
+			$('.iterm1').after($('<li class=iterm2>li2</li>'));
+			// $(oli2).attr('class','iterm2');
+			// $(oli2).html('li2');
+			// console.log($(oli0));
+			$('li').eq(4).replaceWith('<li class=iterm4>li4</li>')
+			// $('li').eq(4).attr('class','iterm4');
+			// $('li').eq(4).html('li4');
+			// var oli6=document.createElement('li');
+			$('.iterm5').after($('<li class=iterm6>li6</li>'));
+			// $(oli6).attr('class','iterm6');
+			// $(oli6).html('li6');
+
+		})
+	})
+</script>
+</html>

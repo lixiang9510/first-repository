@@ -9,8 +9,8 @@
 			padding: 0;
 		}
 		div{
-			width: 100px;
-			height: 100px;
+			width: 200px;
+			height: 200px;
 			background: red;
 		}
 	</style>
@@ -22,18 +22,43 @@
 </body>
 <script src="../jquery/jquery-1.12.4.js"></script>
 <script>
-	var $oBtn1=$('.btn1');
-	var $oBtn2=$('.btn2');
-	var $silent={
-		show:function($oBtn1){
-			$oBtn1.on('click',function(){
-				$('div').css({width:200});
-			})
+	var beginer=[
+		{name1:$('.btn1')},
+		{name2:$('div')},
+		{width:200,height:200,opacity:1},
+		{timer:500}
+	];
+	var finished=[
+		{name1:$('.btn2')},
+		{name2:$('div')},
+		{width:0,height:0,opacity:0.5},
+		{timer:500}
+	];
+	var silent={
+		showed:function(obj){
+					obj[0].name1.on('click',function(){
+						if($('div').width()<200){
+							console.log('aaa');
+							obj[1].name2
+							.animate(obj[2],obj[3].timer)
+						}
+					})
 		},
-		hide:function(){
-
+		hided:function(obj){
+			obj[0].name1.on('click',function(){
+				if($('div').width()>0){
+					console.log('aaa');
+					obj[1].name2
+					.animate(obj[2],obj[3].timer)
+				}
+				
+			})
 		}
-	}
-	$silent.show($oBtn1);
+	};
+	silent.showed(beginer);
+	silent.hided(finished);
+	// silent.hided($('btn2'),$('div'))
+	//初始状态
+
 </script>
 </html>
