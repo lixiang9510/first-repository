@@ -1,4 +1,3 @@
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,15 +27,26 @@
 <script src="../jquery/jquery-1.12.4.js"></script>
 <script>
 	var silent={
+		inin:function($elem){
+			if($elem.is(':hidden')){
+				$elem.data('status','hidden');
+			}else{
+				$elem.data('status','shown');
+			}
+		},
 		show:function($elem){
-			$elem.trigger('show');
+			if($elem.data('status')=='shown')return;
+			if($elem.data('status')=='show')return;
+			$elem.data('status','show').trigger('show');
 			$elem.show();
-			$elem.trigger('shown')
+			$elem.trigger('shown').data('status','shown')
 		},
 		hide:function($elem){
-			$elem.trigger('hide');
+			if($elem.data('status')=='hiden')return;
+			if($elem.data('status')=='hide')return;
+			$elem.data('status','hide').trigger('hide');
 			$elem.hide();
-			$elem.trigger('hiden')
+			$elem.trigger('hiden').data('status','hiden')
 		}
 	}
 	var $elem=$('#box');

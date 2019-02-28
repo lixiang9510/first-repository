@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function test(hidden){
+		console.log((typeof hidden == 'function' && hidden));
+	}
+	test(test2);
+	function test2(){
+		console.log('aaa')
+	}
+</script>
+</html>

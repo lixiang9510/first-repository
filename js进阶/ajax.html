@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>按钮</button>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$('button').on('click',function(){
+		// $.ajax({
+		// 	url:'data.json',
+		// 	type:'GET',
+		// 	dataTYPE:'JSON',
+		// 	success:function(aaa,bb,jqXHR){
+		// 	console.log(aaa);
+		// 	console.log(bb);
+		// 	console.log(jqXHR);
+		// 	}
+		// })
+		$.get('data.json',function(name,bb,jqXHR){
+			console.log(name);
+			console.log(bb);
+			console.log(jqXHR);
+		},'json')
+	})
+	
+</script>
+</html>
