@@ -13,13 +13,45 @@
 		color:#ea675a; 
 	}
 	.nav-left li{
-		height: 44px;
+		height: 44px; 
 		line-height: 44px;
+	}
+	.dropdown{
+		position: relative;
 	}
 	.dropdown-toggle{
 		display: block;
 		height: 44px;
 		line-height: 44px;
+		padding: 0 5px;
+		background: #fff;
+	}
+	.dropdown-layer{
+		display: none;
+		position: absolute;
+		top: 44px;
+		left: 0px;
+		background: #fff;	
+		border:1px solid #f3f5f7;
+		border-top: none;
+	}
+	.menu-item{
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		padding: :0 5px;
+		white-space: nowrap;
+	}
+	.menu-item:hover{
+		background: #fff;
+	}
+	.dropdown:hover .dropdown-toggle{
+		background: #fff;
+		border-left: 1px solid #f3f5f7;
+		border-right: 1px solid #f3f5f7;
+	}
+	.dropdown:hover .dropdown-layer{
+		display: block;
 	}
 /*顶部导航结束*/
 

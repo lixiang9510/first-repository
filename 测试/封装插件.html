@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>按钮</button>
+	<div class="box"></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script src="clone-css.js"></script>
+<script>
+	var $eDiv=$('.box');
+	$('button').on('click',function(){
+		// $eDiv.css('width',120);
+		$eDiv.clonecss('width',120)
+	})
+</script>
+</html>

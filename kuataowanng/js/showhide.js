@@ -170,7 +170,6 @@
 		if(options.js){
 			showHideFn = js[options.mode];
 		}
-
 		showHideFn.init($elem);
 
 		return {
@@ -186,20 +185,23 @@
 	//注册插件
 	$.fn.extend({
 		showHide:function(options){
-			console.log(this);
+			// console.log(this);
 			//1.隐式迭代
 			return this.each(function(){
-				// console.log(this) DOM对象
+				// console.log(this) //DOM对象
 				var $elem = $(this);
 				
 				var showHideObj = $elem.data('showHideObj');
 
 				if(!showHideObj){//单例模式
-					options = $.extend({},DEFAULTS,options)
+					options = $.extend({},DEFAULTS,options)  //{js:true,mode:"slideLeftRight"}
+					//options此时变化
+					// console.log(options);
 					showHideObj = getShowHide($elem,options);
+
 					$elem.data('showHideObj',showHideObj);					
 				}
-
+				console.log(showHideObj);
 				if(typeof showHideObj[options] == 'function'){
 					showHideObj[options]($elem);
 				}

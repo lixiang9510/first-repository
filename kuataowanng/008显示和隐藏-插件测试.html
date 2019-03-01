@@ -33,12 +33,12 @@
 	<div class="box" class="transition"></div>
 </body>
 <script src="../jquery/jquery-1.12.4.js"></script>
-<script src="js/showhide.js"></script>
+<script src="show-and-hide.js"></script>
 <script>
 var $elem = $('.box');
 //初始化
 $elem.showHide({
-	js:true,
+	js:false,
 	mode:"slideLeftRight"
 });
 $elem.on('show shown hide hidden',function(ev){
