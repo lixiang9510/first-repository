@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			left: 0;
+			top: 100px;
+			width: 10px;
+			height: 10px;
+			/*margin-left: -250px;*/
+			background: red;
+			transform: rotateZ(300deg);
+			box-sizing: border-box;
+		}
+		img{
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<button>下一张</button>
+	<div>
+		<img src="../img/beauty1.jpg" alt="">
+	</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script>
+	function imgs(){
+		var $elem=$('div');
+		var timer=0;
+		var lefts=$('div')[0].offsetLeft;
+		var tops=$('div')[0].offsetTop;
+		var widths=$elem[0].offsetWidth;
+		var heights=$elem[0].offsetHeight;
+		var degs=270;
+		clearInterval(timer);
+		timer=setInterval(function(){
+			degs=degs+1;
+			if(lefts<=542){
+				lefts=lefts+10;
+				$('div')[0].style.left=lefts+'px';
+			};
+			if(tops<=100){
+				tops=tops+10;
+				$('div')[0].style.top=tops+'px';
+			};
+			if(widths<=500){
+				widths=widths+10;
+				$('div')[0].style.width=widths+'px';
+			};
+			if(heights<=500){
+				heights=heights+10;
+				$('div')[0].style.height=heights+'px';
+			};
+			if(degs==360){
+				$('div')[0].style.transform='rotateZ('+degs+'deg)'
+				clearInterval(timer);
+			}else{
+				$('div')[0].style.transform='rotateZ('+degs+'deg)';
+			}
+		},10)
+	}
+	$('button').on('click',function(){
+		imgs();
+	})
+	
+
+</script>
+</html>
