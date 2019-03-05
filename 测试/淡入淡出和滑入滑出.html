@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<style>	
+		*{
+			margin: 0;
+			padding: 0;	
+		}	
+		div{
+			position: absolute;
+			top: 150px;
+			left: 500px;
+			width: 380px;
+			height: 560px;
+			border:1px solid black;
+		}
+		li{
+			position: absolute;
+			left: 380px
+			top:0;
+			list-style: none;
+			width: 380px;
+			height: 560px;
+		}
+		i{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: block;
+			width: 30px;
+			height: 50px;
+			background: red;
+			z-index: 20;
+			padding-right: auto;
+			padding-left: auto;
+			line-height: 50px;
+			font-size: 30px;
+			
+		}
+	</style>
+</head>
+<body>
+	<button>按钮</button>
+	<div>
+		<ul>
+	
+		</ul>
+		<i class="fa fa-chevron-circle-left left"></i>
+		<i class="fa right">&#xf138;</i>
+	</div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script src="../ktao/js/search.js"></script>
+<script src="js/data.js"></script>
+<script>
+	// var oUl=document.getElementsByTagName('ul')[0];
+	// console.log(oUl)
+	// for(i=0;i<beauty.length;i++){
+	// 	var oLi=document.createElement('li');
+	// 	oLi.innerHTML="<img src="+beauty[i]+" alt=''>"
+	// 	console.log(oLi);
+	// 	oUl.appendChild(oLi);
+	// }
+	$('button').on('click',function(){
+		$('div').search();
+	})
+</script>
+</html>

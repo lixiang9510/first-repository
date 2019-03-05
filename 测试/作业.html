@@ -14,8 +14,7 @@
 			top: 100px;
 			width: 10px;
 			height: 10px;
-			/*margin-left: -250px;*/
-			background: red;
+			/*background: red;*/
 			transform: rotateZ(300deg);
 			box-sizing: border-box;
 		}
@@ -32,15 +31,21 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
 <script>
+	var data=['../img/beauty1.jpg','../img/beauty2.jpg','../img/beauty3.jpg','../img/beauty4.jpg','../img/beauty5.jpg','../img/beauty6.jpg','../img/beauty7.jpg','../img/beauty8.jpg','../img/beauty9.jpg',];
+	var index=0;
 	function imgs(){
+		//第一张跳出来
+		//下一张预备
 		var $elem=$('div');
 		var timer=0;
-		var lefts=$('div')[0].offsetLeft;
-		var tops=$('div')[0].offsetTop;
-		var widths=$elem[0].offsetWidth;
-		var heights=$elem[0].offsetHeight;
+		var lefts=0;
+		var tops=100;
+		var widths=10;
+		var heights=10;
 		var degs=270;
+		var imgBegin=$elem.find('img');
 		clearInterval(timer);
+		imgBegin.attr('src',data[index]);
 		timer=setInterval(function(){
 			degs=degs+1;
 			if(lefts<=542){
@@ -62,6 +67,10 @@
 			if(degs==360){
 				$('div')[0].style.transform='rotateZ('+degs+'deg)'
 				clearInterval(timer);
+				index=index+1
+				if(index==data.length){
+					index=0;
+				}
 			}else{
 				$('div')[0].style.transform='rotateZ('+degs+'deg)';
 			}

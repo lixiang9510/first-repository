@@ -1,0 +1,13 @@
+beauty=[
+	'../img/beauty0.jpg',
+	'../img/beauty1.jpg',
+	'../img/beauty2.jpg',
+	'../img/beauty3.jpg',
+	'../img/beauty4.jpg',
+	'../img/beauty5.jpg',
+	'../img/beauty6.jpg',
+	'../img/beauty7.jpg',
+	'../img/beauty8.jpg',
+	'../img/beauty9.jpg',
+	'../img/beauty10.jpg'
+]

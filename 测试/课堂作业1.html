@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			position: absolute;
+			top: 50px;
+			left:500px;
+			background: red;
+		}
+		div{
+
+		}
+		.active1{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+	<button>切换</button>
+	<div class="active1"></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script src="clone-css.js"></script>
+<script>
+	var bbb=false;
+	$('button').on('click',function(){
+		$('div').css('display','block');
+		$('div').clonecss('backgroundColor','purple',500,100);
+	})
+	$('div').on('click',function(){
+		console.log('aa')
+		
+		if(!bbb){
+			$('div').aaaa(bbb);
+			bbb=true;
+		}else{
+			$('div').aaaa(bbb);
+			bbb=false;
+		}
+		
+
+	})
+</script>
+</html>
