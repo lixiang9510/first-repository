@@ -174,7 +174,7 @@
 	function getShowHide($elem,options){
 		var showHideFn = slient;
 		if(options.js){
-			showHideFn = js[options.mode];//js.
+			showHideFn = js[options.mode];
 		}
 
 		showHideFn.init($elem);
@@ -194,7 +194,7 @@
 		showHide:function(options){
 			//console.log(this);
 			//1.隐式迭代
-			 return this.each(function(){
+			return this.each(function(){
 				// console.log(this) DOM对象
 				var $elem = $(this);
 				
@@ -205,8 +205,8 @@
 					showHideObj = getShowHide($elem,options);
 					$elem.data('showHideObj',showHideObj);					
 				}
+
 				if(typeof showHideObj[options] == 'function'){
-					console.log(showHideObj[options]);
 					showHideObj[options]($elem);
 				}
 			});

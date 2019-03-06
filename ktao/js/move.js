@@ -112,7 +112,7 @@
 
 				if(!moveObj){//单例模式
 					options = $.extend({},DEFAULTS,options)
-					moveObj = getMo	ve($elem,options);
+					moveObj = getMove($elem,options);
 					$elem.data('moveObj',moveObj);					
 				}
 				if(typeof moveObj[options] == 'function'){
