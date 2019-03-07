@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>获取</button>
+	<input type="text">
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	// var result=$('input')[0].value[0];
+	// $('button').on('click',function(){
+	// 	// console.log($('input')[0].value.toString());
+	// 	console.log($('input')[0].value.length)
+	// 	for(i=0;i<$('input')[0].value.length;i++){
+	// 		result=$('input')[0].value[i]
+	// 	}
+	// })
+	// for(i=1;i<10000;i++){
+	// 	var aa=i.toString();
+	// 	if(aa.length==1){
+	// 		console.log(i);
+	// 	}else if(aa.length==2){
+	// 		if(aa[0]==aa[1]){
+	// 			console.log(i);
+	// 		}
+	// 	}else if(aa.length==3){
+	// 		if(aa[0]==aa[2]){
+	// 			console.log(i);
+	// 		}
+	// 	}else if(aa.length==4){
+	// 		if(aa[0]==aa[3]){
+	// 			if(aa[1]==aa[2]){
+	// 				console.log(i);
+	// 			}
+	// 		}
+	// 	}
+	// }
+	var arr=[];
+	for(i=1;i<10000;i++){
+		var aa=i.toString();
+		for(j=0;j<aa.length;j++){
+			arr.push(aa[j])
+		}
+		 var bb='';
+		arr.reverse();
+		for(j=0;j<aa.length;j++){
+			bb=bb+arr[j]
+		}
+		if(aa===bb){
+			console.log(aa)
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: absolute;
+			top: 200px;
+			left: 50%;
+			display: block;
+			width: 500px;
+			height: 200px;
+			margin-left: -250px;
+			text-align: center;
+			font-size: 30px;
+			background-image: url(../../img/1111.jpg);
+			color: #ff6700;
+			box-sizing: border-box;
+		}
+		.son{
+			position: absolute;
+			top: 400px;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			background: purple;
+			box-sizing: border-box;
+		}
+		.box1{
+			left: 600px;
+		}
+		.box2{
+			left: 880px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">hahhah</div>
+	<div class="son box1">ni</div>
+	<div class="son box2"></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	// console.log($('.father')[0].offsetLeft)
+	$('.box1').on('hover',function(){
+		$('.father').text('xixiixixix');
+	})
+</script>
+</html>
