@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.containt{
+			position: absolute;
+			top: 150px;
+			left: 50%;
+			margin-left: -250px;
+			width: 500px;
+			height: 500px;
+			background: grey;
+		}
+		.box{
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="containt"></div>
+	<div class="box" draggable=true></div>
+</body>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+	// $('.box').on('dragstart',function(){
+	// 	console.log('dragstart:::')
+	// })
+	// $('.box').on('drag',function(){
+	// 	console.log('drag:::')
+	// })
+	var timer;
+	$('.box').on('dragend',function(){
+		clearTimeout(timer);
+		// $('.box').css({'left':Number($('.containt')[0].offsetLeft)+200,'top':350});
+		$('.containt').append($('.box'));
+		timer=setTimeout(function(){
+			alert('已完成拖拽');
+		},10)
+	})
+	// $('.containt').on('dragover',function(ev){
+	// 	ev.preventDefault();
+	// })
+	// $('.containt').on('dragend',function(){
+	// })
+	// $('.box').on('drop',function(){
+	// 	console.log('drop:::')
+	// })
+	// $('.box').on('dragenter',function(){
+	// 	console.log('dragenter:::')
+	// })
+	// $('.box').on('dragleave',function(){
+	// 	console.log('dragleave:::')
+	// })
+	// $('.box').on('dragleave',function(){
+	// 	console.log('dragleave:::')
+	// })
+	// $('.box').on('drag',function(){
+	// 	console.log('drag:::')
+	// })
+</script>
+</html>
