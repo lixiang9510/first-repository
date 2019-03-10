@@ -1,0 +1,53 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@color:#333;
+@width:400px;
+@height:100px;
+@background: #ff6700;
+@margin-top: 10px;
+
+/*不会消失*/
+//会消失
+.box1{
+	width: @width;
+	height: @height;
+	background: @background;
+	color:@color;
+	margin-top: @margin-top;
+}
+.box2{
+	.box1;
+	.border-radius;
+}
+.border-radius{
+	border-radius: 20px
+}
+.border-radius-def(@r:20px){
+	border-radius:@r;
+}
+.box3{
+	.box2;
+	.border-radius-def;
+}
+ul{
+	width: 100px;
+	height: 100px;
+	background: red;
+	li{
+		width: 50px;
+		height: 50px;
+		background: blue;
+		a{
+			font-size: ~10px;
+			color: green;
+			text-decoration-line: none;
+		}
+		&:hover{
+			background: yellow;
+		}
+	}
+
+}
+

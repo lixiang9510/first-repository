@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*不会消失*/
+.box1 {
+  width: 400px;
+  height: 100px;
+  background: #ff6700;
+  color: #333333;
+  margin-top: 10px;
+}
+.box2 {
+  width: 400px;
+  height: 100px;
+  background: #ff6700;
+  color: #333333;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.border-radius {
+  border-radius: 20px;
+}
+.box3 {
+  width: 400px;
+  height: 100px;
+  background: #ff6700;
+  color: #333333;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+ul {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+ul li {
+  width: 50px;
+  height: 50px;
+  background: blue;
+}
+ul li a {
+  font-size: ~10px;
+  color: green;
+  text-decoration-line: none;
+}
+ul li:hover {
+  background: yellow;
+}
