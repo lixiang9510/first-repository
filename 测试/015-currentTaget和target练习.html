@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+		<li>li6</li>
+		<li>li7</li>
+	</ul>
+</body>
+<script>
+	var oUl=document.querySelector('ul');
+	oUl.onclick=function(ev){
+		// console.log(ev.target);
+		console.log(ev.currentTarget)
+	}
+</script>
+</html>

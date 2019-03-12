@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 800px;
+			border: 1px solid black;
+			margin:100px auto;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+
+
+		}
+		.son{
+			list-style: none;
+			flex-shrink: 0;
+			width: 100px;
+			height: 100px;
+			box-sizing: border-box;
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<ul class="father">
+		<li class="son"></li>
+		<li class="son"></li>
+		<li class="son"></li>
+		<li class="son"></li>
+		<li class="son"></li>
+		<li class="son"></li>
+	</ul>
+</body>
+</html>

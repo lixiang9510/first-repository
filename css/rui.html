@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 850px;
+			height: 650px;
+			animation-play-state: paused;
+		}
+		.father1{
+			transform-style: preserve-3d;
+			position: fixed;
+			top: 50px;
+			left: 100px;
+			transform-origin: 300px 300px;
+			animation: first 12s linear 10s infinite normal;	
+		}
+		@keyframes first{
+			0%{
+				transform:  rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			}
+			6%{
+				transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg);
+			}
+			12%{
+				transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg);
+			}
+			18%{
+				transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+			}
+			24%{
+				transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+			}
+			30%{
+				transform: rotateX(0deg) rotateY(270deg) rotateZ(0deg);
+			}
+			36%{
+				transform: rotateX(0deg) rotateY(270deg) rotateZ(0deg);
+			}
+			42%{
+				transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+			}
+			48%{
+				transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+			}
+			54%{
+				transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+			}
+			60%{
+				transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+			}
+			68%{
+				transform: rotateX(-180deg) rotateY(360deg) rotateZ(180deg);
+			}
+			74%{
+				transform: rotateX(-180deg) rotateY(360deg) rotateZ(180deg);
+			}
+			82%{
+				transform: rotateX(-270deg) rotateY(360deg) rotateZ(0deg);
+			}
+			88%{
+				transform: rotateX(-270deg) rotateY(360deg) rotateZ(0deg);
+			}
+			94%{
+				transform: rotateX(-360deg) rotateY(360deg) rotateZ(0deg);
+			}
+			100%{
+				transform: rotateX(-360deg) rotateY(360deg) rotateZ(0deg);
+			}
+		}
+		.father2{
+			transform-style: preserve-3d;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			animation: second 10s linear 2s 1 normal;
+			animation-fill-mode: forwards;
+			/*transform: rotateX(45deg) rotateY(-25deg) rotateZ(0deg);*/
+		}
+		@keyframes second{
+			0%{
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			20%{
+				transform: rotateX(45deg) rotateY(30deg);
+			}
+			60%{
+				transform: rotateX(45deg) rotateY(30deg);
+			}
+			80%{
+				transform: rotateX(0deg)rotateY(0deg);
+			}
+			100%{
+				transform: translateZ(100PX);
+			}
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			
+		}
+		.son1{
+			position: absolute;
+			top: 200px;
+			left: 0px;
+			background-color: yellow;
+			animation: one 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center right;
+		}
+		@keyframes one{
+			from{
+				transform: rotateY(0deg);
+			}
+			to{
+				transform:rotateY(-90deg);
+			}
+		}
+		.son2{
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			background-color: blue;
+			animation: two 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center bottom;
+
+		}
+		@keyframes two{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(90deg);
+			}
+		}
+		.son3{
+			position: absolute;
+			top: 200px;
+			left: 200px;
+			background-color: red;
+			animation: one
+		}
+		.son4{
+			position: absolute;
+			top: 400px;
+			left: 200px;
+			background-color: green;
+			animation: four 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center top;
+		}
+		@keyframes four{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(-90deg);
+			}
+		}
+		.son5{
+			position: absolute;
+			top: 200px;
+			left: 400px;
+			background-color: blue;
+			animation: five 2s linear 4s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin:center left;
+		}
+		@keyframes five{
+			from{
+				transform: rotateY(0deg);
+			}
+			to{
+				transform: rotateY(90deg);
+			}
+		}
+
+		.son6{
+			position: absolute;
+			top: 200px;
+			left: 600px;
+			background-color: orange;
+			animation: six 2s linear  6s 1 normal;
+			animation-fill-mode: forwards;
+			transform-origin: center left;
+		}
+		@keyframes six{
+			0%{
+				transform: translateX(0px) translateZ(0px);
+			}
+			25%{
+				transform: translateX(0px) translateZ(-200px);
+			}
+			75%{
+				transform: translateX(-400px) translateZ(-200px);
+			}
+			100%{
+				transform: translateX(-400px) translateZ(-200px);
+			}
+
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		img .son61{
+			transform: rotateY(180deg);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father father1">
+		<div class="father father2">
+			<div class="son son1">
+				<img src="http://m.qpic.cn/psb?/V10fh5zY2qvHyF/rUCvI4brEs.HBzNvND*4BmebU9kbbkpyT1f0e*362AY!/b/dCEAAAAAAAAA&bo=OASgBTgEoAURCT4!&rf=viewer_4" alt="">
+			</div>
+			<div class="son son2">
+				<img src="http://m.qpic.cn/psb?/V10fh5zY2qvHyF/TmYIsLAizLZ*l5u2jB6SnEDoxEhaJBIMkf802E9Vx2w!/b/dCEBAAAAAAAA&bo=gAJsBZcCngURGcs!&rf=viewer_4" alt="">
+			</div>
+			<div class="son son3">
+				<img src="http://m.qpic.cn/psb?/V10fh5zY2qvHyF/hLgvW0P0glyU.XJWVcBzfUtHx2e*ZPxvww.pBwxzl64!/b/dB8AAAAAAAAA&bo=KAR.BygEfgcRGS4!&rf=viewer_4" alt="">
+			</div>
+			<div class="son son4">
+				<img src="http://b287.photo.store.qq.com/psb?/V10fh5zY2qvHyF/MT5T6.tXt2DKBtJme38BiiRAP4fHJhYHj18z8mj9cgo!/b/dB8BAAAAAAAA&bo=wAMABcADAAURJxA!&rf=viewer_4" alt="">
+			</div>
+			<div class="son son5">
+				<img src="http://b234.photo.store.qq.com/psb?/V10fh5zY2qvHyF/*QllwQ9uQ1kgMA1LUcARhZCoT.wq23HrrQhMYhKwik4!/b/dEpch4uhBgAA&bo=8ABAAQAAAAABF4E!&rf=viewer_4" alt="">
+			</div>
+			<div class="son son6">
+				<img class="son61" src="http://b234.photo.store.qq.com/psb?/V10fh5zY2qvHyF/aWh1JuwSUlaRe9mlglyN0mrKp8NLCH1tQtPxLfeT5io!/b/dArliIuDBgAA&bo=8ABAAQAAAAABF4E!&rf=viewer_4" alt="">
+			</div>
+	
+		</div>
+	</div>
+</body>
+</html>

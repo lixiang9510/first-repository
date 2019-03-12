@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			
+			width: 1000px;
+			height: 600px;
+			margin:100px auto;
+			border:1px solid black;
+			display: flex;
+			/*flex-direction: column;*/
+/*			flex-wrap: wrap;*/
+			/*align-content: baseline;*/
+			justify-content: space-between;
+			flex-direction: row-reverse;
+		}
+/*		.father2{
+			width: 800px;
+			height: 200px;
+
+			display: flex;
+			flex-direction: row-reverse;
+		}
+		.father2-1{
+			justify-content:flex-start;
+		}
+		.father2-2{
+			justify-content:center;
+		}
+		.father2-3{
+			justify-content:flex-end;
+		}*/
+		.son{
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background-color: red;
+		}
+		.son1{
+			align-self: flex-start;
+			/*margin-left: 10px;*/
+		}
+		.son2{
+			/*margin-top: 50px;*/
+			align-self: center;
+			/*margin-left: 10px;*/
+		}
+
+		.son3{
+			/*margin-top: 100px;*/
+			align-self: flex-end;
+			/*margin-right: 10px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<!-- <div class="father2 father2-1"> -->
+			<div class="son son1">div1</div>
+			<div class="son son1">div2</div>
+			<div class="son son1">div3</div>
+		<!-- </div> -->
+		<!-- <div class="father2 father2-2"> -->
+			<div class="son son2">div4</div>
+			<div class="son son2">div5</div>
+			<div class="son son2">div6</div>			
+		<!-- </div> -->
+		<!-- <div class="father2 father2-3"> -->
+			<div class="son son3">div7</div>
+			<div class="son son3">div8</div>
+			<div class="son son3">div9</div>			
+		<!-- </div> -->
+		
+
+		
+	</div>
+</body>
+</html>

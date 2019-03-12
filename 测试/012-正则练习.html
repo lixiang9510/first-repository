@@ -8,8 +8,21 @@
 	
 </body>
 <script>
-	var str = 'aabDbccdd1';
-	var reg = /d\b/ig;
-	console.log(str.replace(reg,'*'));
+	// var str = 'aabDbccdd1';
+	// var reg = /d/g;
+	// console.log(str.replace(reg,'*'));
+	// console.log(reg.test(str));
+	// console.log(reg.lastIndex);
+	var str1='a1a2你a3a4';
+	// var str2=str1.replace(/\d/g,function(match,index,origin){
+	// 	console.log(index);
+	// 	console.log(origin);
+	// 	console.log(match);
+	// 	return parseInt(match)*10;
+
+	// })
+	// console.log(str2);
+	console.log(str1.charAt(4));
+	console.log(str1.charCodeAt(0));
 </script>
 </html>
