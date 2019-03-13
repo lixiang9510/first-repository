@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 100px;
+			left:100px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+	var oDiv=document.querySelector('div');
+	console.log(oDiv.offsetLeft=oDiv.offsetX);
+	console.log(window.screenLeft==window.screenX)
+</script>
+</html>
