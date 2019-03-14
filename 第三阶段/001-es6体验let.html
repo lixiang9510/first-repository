@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// ;(function(){
+	// 	var a=2;
+	// 	var a=3;
+	// 	let b=6;
+	// 	let b=8;//let 定义变量时，变量名字不能重复
+	// })();
+	/*
+	;(function(){
+		console.log(a);
+		var a=2;
+		console.log(b);
+		let b=3;
+		//let 定义变量不作变量提升
+	})();
+	*/
+	/*
+	;(function(){
+		if(true){
+			var a=2
+			let b=2
+		}
+		console.log(a);
+		console.log(b);
+		//let 是块状定义域，一个花括号就是一个块状结构
+	})();
+	*/
+	function fn1(){
+		var a=1;
+		function fn11(){
+			a=2;
+			console.log('a1:::',a)
+		}
+		console.log('a2:::',a);
+		fn11();
+		console.log('a3:::',a);
+	}
+	fn1();
+	function fn21(){
+		let b=1;
+		function fn211(){
+			let b=2;
+			console.log('b1:::',b)
+		}
+		console.log('b2:::',b);
+		fn211();
+		console.log('b3:::',b);
+	}
+	fn21();
+</script>
+</html>

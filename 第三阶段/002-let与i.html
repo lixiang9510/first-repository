@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点我</button>
+	<button>点我</button>
+	<button>点我</button>
+	<button>点我</button>
+	<button>点我</button>
+</body>
+<script>
+	var aBtn=document.querySelectorAll('button');
+	// console.log(aBtn);
+	for(let i=0; i<aBtn.length;i++){
+		aBtn[i].onclick=function(){
+			console.log(i);
+		}
+	}
+</script>
+</html>

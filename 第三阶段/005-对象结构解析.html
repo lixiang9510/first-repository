@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj={
+		username:'Tom',
+		age:18
+	}
+	// let{username,age,friend={username:'Leao'}}=obj;
+	// console.log(username,age,friend);
+	let{username,age,friend={username:'Leao'}}={username:"Tom",age:18,friend:{username:'Peter'}};
+	console.log(username,age,friend);
+</script>
+</html>
