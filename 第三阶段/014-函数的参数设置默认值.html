@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn(x,y=11){
+		console.log(x,y)
+	}
+	fn(11);
+	function obj(url,{user='Leo',world='Hello'}={}){
+		console.log(url,user,world)
+	}
+	obj('http://www.kuazhu.com',{user:'Tom'});
+	function sum(...arr){
+		console.log(arr)
+	}
+	sum(1,2,3,4,5);
+	function fn1(
+		arg1,
+		arg2,//直接加一个逗号
+	){
+		console.log(arg1,arg2);
+	}
+	fn1('aaa','bbb')
+	var a=100;
+	function fn2(x=a+10){
+		console.log(x);
+	}
+	fn2();
+	a=200;
+	fn2();
+	fn2(200);
+</script>
+</html>

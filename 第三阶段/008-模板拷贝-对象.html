@@ -8,11 +8,10 @@
 	
 </body>
 <script>
-	let arr1=[22,33];
-	// console.log(arr1.arguments)
-	function sum(n1,n2){
-		return n1+n2;
-	}
-	console.log(sum(...arr1));
+	let obj={username:"Tom",friend:{username:'Leao'}};
+	let obj2={...obj};
+	obj2.username="Jeke";
+	console.log(obj);
+	console.log(obj2);
 </script>
 </html>

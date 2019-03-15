@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj2={id:200};
+	let obj1={id:100};
+	let m=new Map();
+	m.set('age',18);
+	m.set(obj1,'Teacher');
+	m.set(obj2,'student');
+	console.log(m)
+	for(let key of m.keys()){
+		console.log('key',key);
+	}
+	for(let value of m.values()){
+		console.log('value',value);
+	}
+	for(let entrie of m.entries()){
+		console.log('entries',entrie);
+	}
+	m.forEach(function(val,index){
+		console.log('forEach',val,index)
+	})
+</script>
+</html>

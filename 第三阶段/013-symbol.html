@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let s=Symbol('name','Tom');
+	let s1=Symbol('user name is Tom');
+	let s2=Symbol('user name is Lea');
+	let obj = {
+		age:18,
+		[s1]:'Tom',
+		[s2]:'Lea'
+	};
+	console.log(obj);
+	// s[obj]='Tom';
+	// console.log(typeof s);
+	console.log(Reflect.ownKeys(obj));
+	for (let key in Reflect.ownKeys(obj)){
+		console.log(key);
+	}
+</script>
+</html>

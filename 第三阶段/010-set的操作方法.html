@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s = new Set([11,22,55,66]);
+	s.add(88);
+	s.add(99);
+	for(let key of s.keys()){
+		console.log('key',key);
+	}
+	for(let value of s.values()){
+		console.log('value',value);
+	}
+	for(let entrie of s.entries()){
+		console.log('entries',entrie);
+	}
+	s.forEach(function(val,index){
+		console.log('forEach',val,index)
+	})
+
+</script>
+</html>
