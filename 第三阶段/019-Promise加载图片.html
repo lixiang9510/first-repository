@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var img = new Image();
+	// img.onload=function(){
+	// 	console.log('success');
+	// }
+	// img.onerror=function(){
+	// 	console.log('failed')
+	// }
+	// img.src='../img/113416-1517110456633d.jpg'
+	/*
+	function loadImg(url,success,error){
+		img.onload=function(){
+			success(url);
+			console.log('success');
+		}
+		img.onerror=function(){
+			error(url);
+			console.log('failed')
+		}
+		img.src=url
+	}
+	loadImg('../img/113416-1517110456633d.jpg',function(url){
+		console.log(url+'success');
+	},function(url){
+		console.log(url+'failed');
+	})
+	*/
+	/*
+	let promise =new Promise((resolve,reject)=>{
+		var img = new Image();
+		img.onload=function(){
+			resolve('../img/113416-1517110456633d.jpg')
+		}
+		img.onerror=function(){
+			reject('../img/113416-1517110456633d.jpg')
+		}
+		img.src='../img/113416-1517110456633d.jpg'
+	})
+	promise
+	.then(url=>{
+		console.log(url+'success');
+	},err=>{
+		console.log(url+'failed');
+	})
+	*/
+	let getLoadImgPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			var img = new Image();
+			img.onload=function(){
+				resolve(url)
+			}
+			img.onerror=function(){
+				reject(url)
+			}
+			img.src=url
+		})
+	}
+	getLoadImgPromise('../img/113416-1517110456633d.jpg')
+	.then(url=>{
+		console.log(url+'success');
+	},err=>{
+		console.log(url+'failed');
+	})
+
+</script>
+</html>
