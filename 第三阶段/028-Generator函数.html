@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function* gen(){
+		console.log('gened ....');
+		yield 'get data1';//给程序暂停，直到有next方法时执行
+		console.log('do something after get data1');
+		yield 'get data2';
+		console.log('do something after get data2');
+		yield 'get data3';
+		return 'do something after get data3';//如果没有返回值最后的value就是undefined
+	}
+	// console.log(gen);
+	// console.log(typeof gen);
+	// let g = gen();
+	// // console.log(g);
+	// let result = g.next();
+	// console.log(result);
+	// console.log(g.next())
+	let g = gen();
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+
+
+
+</script>
+</html>

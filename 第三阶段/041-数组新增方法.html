@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</body>
+<script>
+	let likeArr = {
+		0:'aa',
+		1:"bb",
+		length:2
+	}
+	let arr = Array.from(likeArr);
+	console.log(likeArr);
+	console.log(arr);
+	function fn(){
+		console.log(arguments);
+		console.log(Array.from(arguments))
+	}
+	fn(11,22);
+	let aBox =document.querySelectorAll('.box');
+	console.log('aBox',aBox);
+	console.log(Array.from(aBox));
+
+	let arr1 = [11,22,33,44];
+
+	console.log(arr1.find(n=>n>22));
+	console.log(arr1.find(n=>n>30));
+	console.log(arr1.find(n=>n>80));
+
+
+	console.log(arr1.findIndex(n=>n>22));
+	console.log(arr1.findIndex(n=>n>30));
+	console.log(arr1.findIndex(n=>n>80));//找不到返回-1
+
+	console.log(arr1.includes(11));
+	console.log(arr1.includes(14));
+	console.log(arr1.includes("11"));
+</script>
+</html>

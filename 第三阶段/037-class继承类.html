@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		showName(){
+			console.log('I am '+this.name);
+		}
+		showAge(){
+			console.log('I am '+this.age+" years old");
+		}
+		static sayHi(){//实例方法
+			console.log("Hi...")
+		}
+	}
+	let p = new Person("Tom",18);
+	console.log(p);
+	p.showName();
+	p.showAge();
+	Person.sayHi();
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age);
+			this.major=major;
+		}
+		sayMajor(){
+			console.log("I am from "+ this.major);
+		}
+	}
+	let s = new Student("Leo",88,"computer");
+	s.showAge();
+	s.sayMajor();
+	console.log(s);
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function fn(){
+		await 'hello'//await仅仅只能放在async里面使用
+	}
+	*/
+	/*
+	//不是需要等待的直接返回
+	async function fn(){
+		let data1 = await 'hello';//await表示后面的处理需要等待
+		//let data1 = 'hello';
+		console.log(data1)
+	}
+	fn();
+	*/
+	
+	let promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('data');
+		},100)
+	});
+	/*
+	async function fn(){
+		let data1  = await promise;
+		console.log(data1);
+	}
+	fn();
+	*/
+	/*
+	async function fn(){
+		await Promise.reject('出错了');
+		let data1  = await promise;
+		console.log(data1); 
+	}
+	fn()
+	.catch(err=>{
+		console.log(err);
+	})
+	*/
+	async function fn(){
+		try{
+			await Promise.reject('出错了');
+		}
+		catch(err){
+			console.log(err)
+		}
+		try{
+			let data1 = await promise;
+			console.log(promise);
+		}
+		catch(err){
+			console.log(err);
+		}
+	}
+	fn();
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	async function fn(){//前面加上async表示函数里面有异步处理
+		// await
+		return 'hellow'
+	}
+	let p =fn();
+	p.then(data=>{
+		console.log(data);
+	})
+	console.log(p);//什么都没写就是返回一个Promise对象
+
+
+</script>
+</html>

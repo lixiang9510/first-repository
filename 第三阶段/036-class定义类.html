@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//let p1 = new Person();//不存在声明的提升
+	class Person{
+		constructor(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		showName(){
+			console.log('I am '+this.name);
+		}
+		showAge(){
+			console.log('I am '+this.age+" years old");
+		}
+		static sayHi(){//实例方法
+			console.log("Hi...")
+		}
+	}
+	let p = new Person("Tom",18);
+	console.log(p);
+	p.showName();
+	p.showAge();
+	Person.sayHi();
+	// console.log(typeof p);
+</script>
+</html>

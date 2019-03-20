@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getDataPromise = (delay)=>{
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve('data:::'+delay)
+			},delay)
+		});
+	}
+	let aPromises = [900,300,800].map(delay=>getDataPromise(delay));
+	let p = new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				reject('rejectData:::'+900)
+			},900)
+		});
+	aPromises.push(p);
+	Promise.race(aPromises)
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+	console.log(aPromises);
+
+
+
+</script>
+</html>

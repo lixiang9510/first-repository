@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let userNmae='Tom',
+	age=18;
+	// let obj = {
+	// 	userNmae:userNmae,
+	// 	age:age
+	// }
+	/*
+	let obj = {
+		userNmae,
+		age
+	}
+	*/
+	// let obj = {
+	// 	userNmae,
+	// 	age,
+	// 	sayUsername(){
+	// 		console.log('I am '+this.userNmae);
+	// 	},
+	// 	sayAge(){
+	// 		console.log("I am "+this.age+" years old")
+	// 	}
+	// }
+	let obj = {
+		userNmae,
+		age,
+		sayUsername:()=>{
+			console.log(this,'I am '+this.userNmae);
+			console.log('this.name=',this.name)
+		},
+		sayAge:()=>{
+			console.log("I am "+this.age+" years old")
+		}
+	}
+	console.log(obj);
+	obj.sayUsername();
+	obj.sayAge();
+
+</script>
+</html>
