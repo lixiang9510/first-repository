@@ -5,16 +5,16 @@ const fs = require('fs');
 const querystring = require('querystring');
 const swig = require('swig');	
 const mime = require('./mime.json');
-const {getAll,add} = require('./wishModule.js')
+const {remove,getAll,add} = require('./wishModule.js')
 const server = http.createServer((req,res)=>{
-	console.log('url=>',req.url);
+	// console.log('url=>',req.url);
 	let reqUrl = url.parse(req.url,true);
 	let pathname = reqUrl.pathname;
 	if(pathname == '/' || pathname == '/index.html'){//获取首页
 		// res.setHeader('Content-Type','text/html;charset=UTF-8');
 		getAll()
 		.then(data=>{
-			console.log(data);
+			// console.log(data);
 			/*
 				let html = `<!DOCTYPE html>
 							<html lang="en">
@@ -84,7 +84,24 @@ const server = http.createServer((req,res)=>{
 				res.end(result);
 			})
 		})
-	}	
+	}
+	else if(pathname == "/del"){
+		let id = reqUrl.query.id;
+		remove(id)
+		.then(data=>{
+			let result = JSON.stringify({
+					status:0,
+				});
+			res.end(result);
+		})
+		.catch(err=>{
+			let result = JSON.stringify({
+				status:10,
+				massage:"删除失败"
+			});
+			res.end(result);
+		})
+	}
 	else{
 		let filePath = path.normalize(__dirname + '/static/' + pathname);
 		let extname = path.extname(filePath);

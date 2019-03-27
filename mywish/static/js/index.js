@@ -15,33 +15,66 @@
 		wishHeight = $wish.height(),
 		wallWidth = $wall.width(),
 		wallHeight = $wall.height();
-	$wish.pep({  constrainTo: '.wall'});
-	$wish.each(function(){
-		let x = getRandom(0,wallWidth-wishWidth);
-		let y = getRandom(0,wallHeight-wishHeight);
-		$(this).css({
-			transform: "matrix(1,0,0,1,"+x+","+y+")"
-		})
-	});
+		function handleWishPep($elem){
+			$elem.pep({  constrainTo: '.wall'});
+			$elem.each(function(){
+				let x = getRandom(0,wallWidth-wishWidth);
+				let y = getRandom(0,wallHeight-wishHeight);
+				$(this).css({
+					transform: "matrix(1,0,0,1,"+x+","+y+")"
+				})
+			});
+			$elem.hover(function(){
+				$(this).css({
+					zIndex:999
+				})
+			},function(){
+				$(this).css({
+					zIndex:0
+				})
+			})	
+		}
+	handleWishPep($wish);
 	$('.sub-btn').on('click',function(){
-		$.ajax({
-			url:'/add',
-			type:'post',
-			dataType:'json',
-			data:{
-				content:$('#content').val()
+		if($('#content').val()){
+			$.ajax({
+				url:'/add',
+				type:'post',
+				dataType:'json',
+				data:{
+					content:$('#content').val()
 			}
-		})
-		.done(function(result){
-			if(result.status==0){
-				var $dom =`<div class="wish" style="background: ${result.data.color}">
-								<a href="javascript:;" class="close" data-id='${result.data.id}'></a>
-								${result.data.content}
-							</div>`
-			}else{
-				alert(result.message)
-			}
-		})
+			})
+			.done(function(result){
+				if(result.status==0){
+					var $dom =$(`<div class="wish" style="background: ${result.data.color}">
+									<a href="javascript:;" class="close" data-id='${result.data.id}'></a>
+									${result.data.content}
+								</div>`);
+					$wall.append($dom);
+					handleWishPep($dom);
+					$('#content').val('');
+				}else{
+					alert(result.message)
+				}
+			})
+		}
 	})
 
+	$wall.on('click','.close',function(){
+		var $this = $(this);
+		$.ajax({
+			url:"del",
+			dataType:"json",
+			data:"id="+$this.data('id')
+		})
+		.done(function(result){
+			if(result.status == 0){
+
+				$(this.parentNode).remove();
+			}else{
+				alert(result.message);
+			}
+		}.bind(this))
+	})
 })(jQuery);	

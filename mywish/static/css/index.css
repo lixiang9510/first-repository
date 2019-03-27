@@ -9,17 +9,19 @@ body{
     background-size: cover;
 }
 .wall {
-    width: 900px;
-    height: 600px;
+    width: 1200px;
+    height: 700px;
     float: left;
-    margin: 20px;
+    /*border:1px solid black;*/
 }
 
 .wish {
     width: 150px;
-    height: 200px;
+    height: 150px;
     background: blue;
+    /*border-radius: 50%;*/
     position: relative;
+    text-align: center;
     box-sizing: border-box;
     padding:20px 10px 10px 10px;
     overflow: hidden;
