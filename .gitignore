@@ -1,2 +1,11 @@
-beautiful.jpg
-aboutme.html
+.DS_Store
+*.mp3
+*.ogg
+*.wav
+*.mp4
+*.webm
+**/node_modules
+**/db
+*.jpg
+*.png
+*.jpeg
