@@ -6,38 +6,42 @@
 */
 import * as types from './actionTypes.js'
 import axios from 'axios';
-export const getAddItemAction = ()=>{
-	return {
-		type:types.ADD_ITEM
-	}
-}
-export const getChangeItemAction = (payload)=>{
-	return {
-		type:types.CHANGE_ITEM,
-		payload
-	}
-}
-export const getDelItemAction = (payload)=>{
-	return  {
-		type:types.DEL_ITEM,
-		payload
-	}
-}
+import { message } from 'antd';
 
-export const loadInitDataAction = (payload)=>{
+const getLoginRequestAction = () =>{
 	return {
-		type:types.LOAD_DATA,
-		payload
+		type:types.LOGIN_REQUEST	
 	}
 }
-
-export const getInitDataAction = ()=>{
+const getLoginDoneAction = () =>{
+	return {
+		type:types.LOGIN_DONE
+	}
+}
+export const getLoginAction = (values)=>{
 	return (dispatch)=>{
-		axios
-		.get('http://127.0.0.1:3000/')
+		dispatch(getLoginRequestAction());
+		axios({
+			methed:'post',
+			url:'http://127.0.0.1:3000/admin/login',
+			data:values
+		})
 		.then(result=>{
-			const action = loadInitDataAction(result.data);
-			dispatch(action)
+			console.log(result)
+			if(result.data.code == 0){
+				console.log(222);
+				window.location.href = '/'
+			}else if(result.data.code == 1){
+				console.log(2333);
+				message.error(result.data.message)
+			}
+		})
+		.catch(err=>{
+			console.log(err);
+			message.error('网络请求失败，请稍后重试')
+		})
+		.finally(()=>{
+			dispatch(getLoginDoneAction());
 		})
 	}
 }

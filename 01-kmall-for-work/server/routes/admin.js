@@ -34,6 +34,7 @@ router.get("/init",(req,res)=>{
 //用户登录
 router.post("/login",(req,res)=>{
 	let body = req.body;
+	console.log('aaa')
 	//定义返回数据
 	let result  = {
 		code:0,// 0 代表成功 

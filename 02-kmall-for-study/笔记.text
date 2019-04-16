@@ -6,7 +6,9 @@ KMALL
 5.admin-->app.js删除，留下一些基本东西，此时App是最外层组件
 6.配置webpack将css文件独立出来，进入admin安装：npm install --save-dev mini-css...
 7.开始配置webpack.config.js,为了css,也就是修改loader,然后css就会单独打包成一个文件
-8.进入app.js页面，引入登陆(login)页面，login页面为复制todolist，进入login页面，改成最基本的，组件名字改成login，然后login页面应该显示一个登陆页面，进入antd页面，找form，里面有，然后copy,（组件里面不能用箭头函数），此时操作都在index.js文件名下，用div包裹，然后就可恶意修改样式。
+8.进入app.js页面，引入登陆(login)页面，login页面为复制todolist，进入login页面，改成最基本的，组件名字改成login，然后login页面应该显示一个登陆页面，进入antd页面，找form，里面有，然后copy,（组件里面不能用箭头函数），此时操作都在index.js文件名下，用div包裹，然后就可以修改样式。
 9.在index里面改样式，然后进入index.js里面删除不需要的东西,然后可以改自己想要的样式，（制作登陆页面）
 10.加placeolder,在index.js改，修改this的指向，和提交按钮的位置，然后修改验证，改成中文，然后看验证是否通过。
-11.
+11.处理验证问题，用户名和密码添加规则，在rules添加一个对象用来写正则,
+12.现在开始发送ajax请求，引入axion,在gitup查看用法，
+13.在App里面处理后台返回数据，用code判断，
