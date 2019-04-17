@@ -16,6 +16,7 @@ const router = Router();
 
 
 router.get("/init",(req,res)=>{
+	console.log('aaaaaaaa...............')
 	//插入数据到数据库
 	new UserModel({
 		username:'admin',
@@ -32,9 +33,10 @@ router.get("/init",(req,res)=>{
 });
 
 //用户登录
+
 router.post("/login",(req,res)=>{
+	console.log('adfasfsd...........')
 	let body = req.body;
-	console.log('aaa')
 	//定义返回数据
 	let result  = {
 		code:0,// 0 代表成功 
@@ -60,18 +62,18 @@ router.post("/login",(req,res)=>{
 		}
 	})
 })
-
+/*
 //权限控制
 router.use((req,res,next)=>{
 	if(req.userInfo.isAdmin){
 		next()
 	}else{
 		res.send({
-			code:10
+			code:120
 		});
 	}
 })
-
+*/
 //系统统计
 router.get('/count',(req,res)=>{
 	UserModel.estimatedDocumentCount()

@@ -32,6 +32,14 @@ module.exports = {
 		//出口的文件所在的目录
 		path: path.resolve(__dirname, 'dist')
 	},
+	resolve:{
+		alias:{
+			pages:path.resolve(__dirname,'./src/pages'),
+			util:path.resolve(__dirname,'./src/util'),
+			api:path.resolve(__dirname,'./src/api'),
+			common:path.resolve(__dirname,'./src/common')
+		}
+	},
 	module: {
 		rules: [
 		//处理css文件

@@ -30,7 +30,7 @@ const app = express();
 
 //跨域设置
 app.use((req,res,next)=>{
-	res.append("Access-Control-Allow-Origin","http://localhost:3001");
+	res.append("Access-Control-Allow-Origin","*");
 	res.append("Access-Control-Allow-Credentials",true);
 	res.append("Access-Control-Allow-Methods","GET, POST, PUT,DELETE");
 	res.append("Access-Control-Allow-Headers", "Content-Type, X-Requested-With,X-File-Name"); 
@@ -77,6 +77,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //处理路由
+console.log('bbbbbbbb.............')
+/*
+app.use("/admin/login",(req,res)=>{
+    res.end('i am comming')
+});*/
 app.use("/admin",require('./routes/admin.js'));
 app.use("/user",require('./routes/user.js'));
 app.use("/category",require('./routes/category.js'));

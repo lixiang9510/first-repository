@@ -30,7 +30,6 @@ class NormalLoginForm extends Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form;
-    console.log(11);
     return (
     	<div className="Login">
 			<Form className="login-form">
