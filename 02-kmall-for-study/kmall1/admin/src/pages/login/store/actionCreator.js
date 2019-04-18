@@ -7,6 +7,8 @@
 import * as types from './actionTypes.js'
 import axios from 'axios';
 import { message } from 'antd';
+import { request,setUserName } from 'util';
+import { ADMIN_LOGIN } from 'api';
 
 const getLoginRequestAction = ()=>{
 	return {
@@ -29,19 +31,26 @@ export const getLoginAction = (values)=>{
 		//1.5 相当于程序流程走到./reducer.js
 	
 		dispatch(getLoginRequestAction());
-
+                /*
                 axios({
                 	method:'post',
                 	url:'http://127.0.0.1:3000/admin/login',
                 	data:values
                 })
+                */
+                request({
+                        method:'post',
+                        url:ADMIN_LOGIN,
+                        data:values
+                })
                 .then(result=>{
                 	// console.log(result)
-                	if(result.data.code == 0){//登录成功
+                	if(result.code == 0){//登录成功
                 		//跳转到后台首页
+                                setUserName(result.data.username);
                 		window.location.href = "/"
                 	}else if(result.data.code == 1){
-                		message.error(result.data.message)
+                		message.error(result.message)
                 	}
                 })
                 .catch(err=>{
