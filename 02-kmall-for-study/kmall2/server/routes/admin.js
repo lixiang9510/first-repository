@@ -14,40 +14,40 @@ const hmac = require('../util/hmac.js')
 
 const router = Router();
 
-/*
-router.get("/init",(req,res)=>{
-	//插入数据到数据库
-	new UserModel({
-		username:'admin',
-		password:hmac('admin'),
-		isAdmin:true
-	})
-	.save((err,newUser)=>{
-		if(!err){//插入成功
-			res.send('ok')
-		}else{
-			res.send('err')				
-		}
-	})
-});
-*/
-/*
-router.get("/init",(req,res)=>{
-	const users = [];
-	for(let i = 0;i<500;i++){
-		users.push({
-			username:'test'+i,
-			password:hmac('test'+i),
-			phone:'1368182'+parseInt(Math.random()*10000),
-			email:'test'+i+'@kuazhu.com'
-		})
-	}
-	UserModel.insertMany(users)
-	.then(result=>{
-		res.send('ok')
-	})
-});
-*/
+
+// router.get("/init",(req,res)=>{
+// 	//插入数据到数据库
+// 	new UserModel({
+// 		username:'admin',
+// 		password:hmac('admin'),
+// 		isAdmin:true
+// 	})
+// 	.save((err,newUser)=>{
+// 		if(!err){//插入成功
+// 			res.send('ok')
+// 		}else{
+// 			res.send('err')				
+// 		}
+// 	})
+// });
+
+
+// router.get("/init",(req,res)=>{
+// 	const users = [];
+// 	for(let i = 0;i<500;i++){
+// 		users.push({
+// 			username:'test'+i,
+// 			password:hmac('test'+i),
+// 			phone:'1368182'+parseInt(Math.random()*10000),
+// 			email:'test'+i+'@kuazhu.com'
+// 		})
+// 	}
+// 	UserModel.insertMany(users)
+// 	.then(result=>{
+// 		res.send('ok')
+// 	})
+// });
+
 //用户登录
 router.post("/login",(req,res)=>{
 	let body = req.body;

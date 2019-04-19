@@ -1,52 +1,35 @@
+
 /*
 * @Author: TomChen
 * @Date:   2019-04-11 20:15:26
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-17 20:45:48
+* @Last Modified time: 2019-04-12 20:09:18
 */
 import * as types from './actionTypes.js'
 import { request } from 'util'
-import { GET_USERS } from 'api'
+import { ADMIN_COUNT } from 'api'
 
-const getPageRequestAction = ()=>{
+
+const setCountAction = (payload)=>{
 	return {
-		type:types.PAGE_REQUEST
+		type: types.SET_COUNT,
+		payload	
 	}
 }
-const getPageDoneAction = ()=>{
-	return {
-		type:types.PAGE_DONE
-	}
-}
-
-const setPageAction = (payload)=>{
-	return {
-		type:types.SET_PAGE,
-		payload
-	}
-}
-
-export const getPageAction = (page)=>{
+export const getCountAction = ()=>{
 	return (dispatch)=>{
-		dispatch(getPageRequestAction())
 		request({
-			url:GET_USERS,
-			data:{
-				page:page
-			}
+			url:ADMIN_COUNT
 		})
 		.then(result=>{
 			if(result.code == 0){
-				dispatch(setPageAction(result.data))
+				const action = setCountAction(result.data)
+				dispatch(action)
 			}
 		})
 		.catch(err=>{
-			console.log(err)
-		})
-		.finally(()=>{
-			dispatch(getPageDoneAction())
+			console.log(err);
 		})
 	}
 }
-
 

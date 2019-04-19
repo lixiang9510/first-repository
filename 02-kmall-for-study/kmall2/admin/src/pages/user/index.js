@@ -7,7 +7,7 @@
 
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { Table, Divider, Tag } from 'antd';
+import { Table, Divider,Breadcrumb, Tag } from 'antd';
 import moment from 'moment'
 import { actionCreator } from './store'
 import Layout from 'common/layout'
@@ -53,7 +53,13 @@ class User extends Component{
     	}).toJS()
         return (
         	<div className="User">
+           
         		<Layout>
+               <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>首页</Breadcrumb.Item>
+                <Breadcrumb.Item>用户管理</Breadcrumb.Item>
+                <Breadcrumb.Item>用户列表</Breadcrumb.Item>
+              </Breadcrumb>
         			<Table 
         				dataSource={dataSource} 
         				columns={columns} 
