@@ -103,7 +103,7 @@ export const getLevelOneCategoriesAction = ()=>{
 		})
 	}	
 }
-export const getOrderAction = (pid,id,newOrder)=>{
+export const getUpdateOrderAction = (pid,id,newOrder)=>{
 	return (dispatch,getState)=>{
 		const state = getState().get('category');
 		request({

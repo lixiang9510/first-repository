@@ -35,13 +35,19 @@ class ProductSave extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log(values)
-            }
+            this.props.handleSave(err,values)
+            
         });
     }
     render() {
         const { getFieldDecorator } = this.props.form;
+        const {
+            handleCategoryId,
+            handleImages,
+            handleDetail,
+            categoryIdValidateStatus,
+            categoryIdHelp
+        } = this.props
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -87,9 +93,14 @@ class ProductSave extends Component {
                             <Input placeholder="商品描述" />
                           )}
                         </Form.Item>
-                        <Form.Item label="商品分类">
+                        <Form.Item
+                             label="商品分类"
+                             required={true}
+                             validateStatus={categoryIdValidateStatus}
+                             help={categoryIdHelp}
+                             >
                             <CategorySelector getCategoryId={(pid,id)=>{
-                                console.log(pid,id)
+                                handleCategoryId(pid,id)
                             }} />
                         </Form.Item>
                         <Form.Item label="商品价格">
@@ -111,7 +122,7 @@ class ProductSave extends Component {
                                 action={UPLOAD_PRODUCT_IMAGE}
                                 max={3}
                                 getFileList={(fileList)=>{
-                                    console.log(fileList)
+                                    handleImages(fileList)
                                 }}
                             />
                         </Form.Item>
@@ -119,7 +130,7 @@ class ProductSave extends Component {
                             <RichEditor 
                             url={UPLOAD_PRODUCT_DETAIL_IMAGE}
                             getRichEditorValue={(value)=>{
-                                console.log(value)
+                                handleDetail(value)
                             }}
                             />
                         </Form.Item>                                                                                                                                                                     
@@ -135,19 +146,36 @@ class ProductSave extends Component {
                 </Layout>
             </div>
         )
-    }
+    }     
 }
+
 const WrappedProductSave = Form.create()(ProductSave);
 
 const mapStateToProps = (state) => {
     return {
-
+        categoryIdValidateStatus:state.get('product').get('categoryIdValidateStatus'),
+        categoryIdHelp:state.get('product').get('categoryIdHelp')
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        handleCategoryId:(pid,id)=>{
+            const action = actionCreator.getSetCategoryIdAction(pid,id)
+            dispatch(action)
+        },
+        handleImages:(fileList)=>{
+            const action = actionCreator.getSetImagesAction(fileList)
+            dispatch(action)
+        },
+         handleDetail:(value)=>{
+            const action = actionCreator.getSetDetailAction(value)
+            dispatch(action)
+        },
+         handleSave:(err,values)=>{
+            const action = actionCreator.getSaveAction(err,values)
+            dispatch(action)
+        }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedProductSave)

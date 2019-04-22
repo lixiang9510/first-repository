@@ -7,15 +7,11 @@ class UploadImage extends Component{
 		this.state = {
 		    previewVisible: false,
 		    previewImage: '',
-		    fileList: [{
-		      uid: '-1',
-		      name: 'xxx.png',
-		      status: 'done',
-		      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-		    }],
+		    fileList: [],
 		};
 		this.handlePreview=this.handlePreview.bind(this);
 		this.handleChange=this.handleChange.bind(this);
+		this.handleCancel = this.handleCancel.bind(this);
 
 	}
 	handleCancel(){
@@ -23,6 +19,7 @@ class UploadImage extends Component{
 	}
 
   	handlePreview(file){
+  		console.log("1111111",file)
 	    this.setState({
 	      previewImage: file.url || file.thumbUrl,
 	      previewVisible: true,
