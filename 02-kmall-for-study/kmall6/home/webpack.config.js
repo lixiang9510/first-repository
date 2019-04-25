@@ -11,9 +11,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const publicPath = "/";
 
-const getHtmlConfig = (name)=>({
+const getHtmlConfig = (name,title)=>({
     template:'./src/view/'+name+'.html',//模板文件
     filename:name+'.html',//输出的文件名
+    title:title,
     inject:true,//脚本写在那个标签里,默认是true(在body结束后)
     hash:true,//给生成的js/css文件添加一个唯一的hash
     chunks:['common',name]
@@ -31,6 +32,7 @@ module.exports = {
 		'common':'./src/pages/common/index.js',		
 		'index':'./src/pages/index/index.js',		
 		'user-login':'./src/pages/user-login/index.js',		
+		'user-register':'./src/pages/user-register/index.js',		
 	},
 	//单入口写法二
 	//entry: './src/index.js',
@@ -96,8 +98,9 @@ module.exports = {
 		]
 	},
 	plugins:[
-	    new htmlWebpackPlugin(getHtmlConfig('index')),
-	    new htmlWebpackPlugin(getHtmlConfig('user-login')),	    
+	    new htmlWebpackPlugin(getHtmlConfig('index','首页')),
+	    new htmlWebpackPlugin(getHtmlConfig('user-login','用户登陆')),	    
+	    new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),	    
 	    new CleanWebpackPlugin(),
 	    new MiniCssExtractPlugin({
 	    	filename:'css/[name].css'
