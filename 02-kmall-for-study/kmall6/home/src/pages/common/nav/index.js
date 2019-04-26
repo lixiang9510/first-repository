@@ -2,10 +2,10 @@
 
 
 
-require ('./index.css')
+
+require('./index.css')
 var _user = require('service/user')
 var _util = require('util')
-
 var nav = {
 	init:function(){
 		this.bindEvent();
@@ -13,7 +13,7 @@ var nav = {
 		return this;
 	},
 	bindEvent:function(){
-		//绑定退出事件
+		//1.绑定退出事件
 		$('#logout').on('click',function(){
 			_user.logout(function(result){
 				window.location.reload();
@@ -24,7 +24,7 @@ var nav = {
 	},
 	loadUsername:function(){
 		_user.getUsername(function(data){
-			$('.not-login').hide()
+			$('.not-login').hide();
 			$('.login')
 			.show()
 			.find('.username')
@@ -32,4 +32,5 @@ var nav = {
 		})
 	}
 }
-module.exports = nav.init()
+
+module.exports = nav.init();

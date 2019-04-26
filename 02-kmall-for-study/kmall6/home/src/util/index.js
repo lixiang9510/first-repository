@@ -1,6 +1,9 @@
 
 
 
+
+
+
 var _util ={
 	request:function(options){
 		var _this = this;
@@ -37,6 +40,12 @@ var _util ={
 	goHome:function(){
 		window.location.href = '/'
 	},
+	getParamFormUrl:function(key){
+		var query = window.location.search.substr(1);
+		var reg = new RegExp('(^|&)'+key+'=([^&]*)(&|$)');
+		var result = query.match(reg)
+		return result ? decodeURIComponent(result[2]) : null;
+	},
 	validate:function(value,type){
 		var value = $.trim(value);
 		if(type == 'require'){
@@ -47,6 +56,12 @@ var _util ={
 		}
 		if(type == 'password'){
 			return /^[a-zA-Z0-9_]{3,9}$/.test(value);
+		}
+		if(type == 'phone'){
+			return /^1[35689_]\d{9}$/.test(value);
+		}
+		if(type == 'email'){
+			return /^\w+\.\w{2,6}$/.test(value);
 		}
 	}
 }

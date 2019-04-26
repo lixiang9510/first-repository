@@ -33,6 +33,8 @@ module.exports = {
 		'index':'./src/pages/index/index.js',		
 		'user-login':'./src/pages/user-login/index.js',		
 		'user-register':'./src/pages/user-register/index.js',		
+		'user-center':'./src/pages/user-center/index.js',	
+		'result':'./src/pages/result/index.js'	
 	},
 	//单入口写法二
 	//entry: './src/index.js',
@@ -50,10 +52,10 @@ module.exports = {
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
-            api:path.resolve(__dirname,'./src/api'),
+            service:path.resolve(__dirname,'./src/service'),
             common:path.resolve(__dirname,'./src/common'),
             node_modules:path.resolve(__dirname,'./node_modules'),
-            service:path.resolve(__dirname,'./src/service'),
+            
             util:path.resolve(__dirname,'./src/util')
         }
     },	
@@ -101,6 +103,8 @@ module.exports = {
 	    new htmlWebpackPlugin(getHtmlConfig('index','首页')),
 	    new htmlWebpackPlugin(getHtmlConfig('user-login','用户登陆')),	    
 	    new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),	    
+	    new htmlWebpackPlugin(getHtmlConfig('user-center','用户中心')),	    
+	    new htmlWebpackPlugin(getHtmlConfig('result','提示结果')),	    
 	    new CleanWebpackPlugin(),
 	    new MiniCssExtractPlugin({
 	    	filename:'css/[name].css'

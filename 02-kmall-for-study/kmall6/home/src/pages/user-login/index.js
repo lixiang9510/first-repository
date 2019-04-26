@@ -48,9 +48,9 @@ var page ={
 			password:$.trim($('[name="password"]').val())
 		}
 		//2.验证
-		var valodateResult = this.validate(formData)
+		var validateResult = this.validate(formData)
 		//3.发送
-		if(valodateResult.status){//通过验证
+		if(validateResult.status){//通过验证
 			formErr.hide();
 			_user.login(formData,function(){
 				_util.goHome()
@@ -58,7 +58,7 @@ var page ={
 				formErr.show(msg)
 			})
 		}else{
-			formErr.show(valodateResult.msg)
+			formErr.show(validateResult.msg)
 		}
 	},
 	validate:function(formData){
