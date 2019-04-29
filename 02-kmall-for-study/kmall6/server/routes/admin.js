@@ -14,7 +14,7 @@ const hmac = require('../util/hmac.js')
 
 const router = Router();
 
-/*
+
 router.get("/init",(req,res)=>{
 	//插入数据到数据库
 	new UserModel({
@@ -30,7 +30,7 @@ router.get("/init",(req,res)=>{
 		}
 	})
 });
-*/
+
 /*
 router.get("/init",(req,res)=>{
 	const users = [];

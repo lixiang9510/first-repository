@@ -2,7 +2,7 @@
  * @Author: TomChen
  * @Date:   2019-04-09 19:29:30
  * @Last Modified by:   TomChen
- * @Last Modified time: 2019-04-23 18:49:15
+ * @Last Modified time: 2019-04-23 19:15:19
  */
 
 import React, { Component } from 'react'
@@ -50,10 +50,9 @@ class ProductList extends Component {
             key: 'name',
             render:name=>{
                 if(keyword){
-
                     const reg = new RegExp('('+keyword+')','ig');
                     const html = name.replace(reg,"<b style='color:red'>$1</b>");
-                    return <div dangerouslySetInnerHTML={{__html:html}}></div>
+                    return <span dangerouslySetInnerHTML={{__html:html}}></span>;
                 }else{
                     return name;
                 }
