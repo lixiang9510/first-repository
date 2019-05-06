@@ -1,0 +1,45 @@
+<view class='container'>
+  <swiper indicator-dots="true" indicator-color="#ff0" indicator-active-color="#f21" autoplay="true">
+    <swiper-item>
+      <image src='../../images/swiper/beauty0.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/swiper/beauty1.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/swiper/beauty2.jpg'></image>
+    </swiper-item>    
+  </swiper>
+    <view class='article-wrap'>
+    <view class='article-item'>
+      <view class='article-head'>
+        <image class='article-head-avatar' src='../../images/avatar/bingshan.jpg'></image>
+        <text class='article-head-date'>2019-05-06</text>
+      </view>
+      <text class='article-title'>我是文章标题{{tltle}}</text>
+      <image class='article-img' src='../../images/article/beauty4.jpg'></image>
+      <text class='article-desc'>我是描述</text>
+      <view class='article-footer'>
+        <image class='article-footer-icon' src='../../images/icon/beauty6.jpg'></image>
+        <text class='article-footer-text'>20</text>
+        <image class='article-footer-icon' src='../../images/icon/beauty7.jpg'></image>
+        <text class='article-footer-text'>33</text>        
+      </view>
+    </view>
+    <view class='article-item'>
+      <view class='article-head'>
+        <image class='article-head-avatar' src='../../images/avatar/beauty10.jpg'></image>
+        <text class='article-head-date'>2019-05-06</text>
+      </view>
+      <text class='article-title'>我是文章标题</text>
+      <image class='article-img' src='../../images/avatar/beauty10.jpg'></image>
+      <text class='article-desc'>我是描述</text>
+      <view class='article-footer'>
+        <image class='article-footer-icon' src='../../images/icon/beauty6.jpg'></image>
+        <text class='article-footer-text'>20</text>
+        <image class='article-footer-icon' src='../../images/icon/beauty7.jpg'></image>
+        <text class='article-footer-text'>33</text>        
+      </view>
+    </view>    
+  </view>
+</view> 
