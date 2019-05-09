@@ -1,5 +1,5 @@
+var { articles } = require('../../data/db.js')
 Page({
-
 
   /**
   * 页面的初始数据

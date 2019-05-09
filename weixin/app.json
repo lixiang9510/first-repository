@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/movie/movie",
+    "pages/movie-more/movie-more",
     "pages/article/article",
-    "pages/article/article-detail/article-detail",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/article/article-detail/article-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
