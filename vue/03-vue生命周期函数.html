@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03-vue生命周期函数.html</title>
+</head>
+<body>
+	<div id="app">
+		<p ref="p">{{message}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:"hello vue"
+		},
+		beforeCreate(){
+			console.log("beforeCreate")
+			console.log("this.message",this.message)
+			console.log("this.$el",this.$el)
+			console.log("this.$refs",this.$refs.p)
+		},
+		created(){
+			console.log("created")
+			console.log("this.message",this.message)
+			console.log("this.$el",this.$el)
+			console.log("this.$refs",this.$refs.p)
+		},
+		beforeMount(){
+			console.log("beforeMount")
+			console.log("this.message",this.message)
+			console.log("this.$el",this.$el)
+			console.log("this.$refs",this.$refs.p)
+		},
+		mounted(){
+			console.log("mounted")
+			console.log("this.message",this.message)
+			console.log("this.$el",this.$el)
+			console.log("this.$refs",this.$refs.p)
+		},
+		beforeUpdate(){
+			console.log("beforeUpdate")
+		},
+		updata(){
+			console.log("updata")
+		},
+		beforeDestroy(){
+			console.log("beforeDestroy")
+		},
+		destroy(){
+			console.log("destroy")
+		},
+		
+
+	});
+	
+</script>
+</html>

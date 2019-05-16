@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05-表单控件双向绑定.html</title>
+</head>
+<body>
+	<div id="app">
+		<p >{{score}}</p>
+		<p>您的分数是{{score}}</p>
+		
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			score:0
+		}
+	});
+
+</script>
+</html>
