@@ -2,9 +2,11 @@
 
 
 
-const express = require('express')
-const swig = require('swig')
-const mongoose = require('mongoose')
+const express = require('express');
+const swig = require('swig');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const Cookies = require('cookies');
 const app = express();
 const port = 3000
 mongoose.connect('mongodb://localhost/blog',{useNewUrlParser:true})
@@ -31,9 +33,25 @@ app.set('views', './views')
 //注册模板引擎
 app.set('view engine', 'html')
 
-app.get('/',(req,res)=>{
-	res.render('main/index')
+//post/put请求处理中间件
+app.use(bodyParser.urlencoded({ extended:false}))
+app.use(bodyParser.json())
+
+//设置cookies中间件
+app.use((req,res,next)=>{
+    req.cookies = new Cookies(req,res);
+    req.userInfo={};
+    let userInfo = req.cookies.get('userInfo');
+    if(userInfo){
+        req.userInfo = JSON.parse(userInfo);
+    }
+    next();
 })
+
+app.use('/',require('./routes/index.js'))
+
+app.use('/user',require('./routes/user.js'))
+
 app.get('/list',(req,res)=>{
 	res.render('list')
 })
