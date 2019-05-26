@@ -15,8 +15,6 @@
 		$register.hide();
 		$login.show();
 	})
-	
-
 	var usernameReg = /^[a-z][a-z0-9_]{2,9}$/i;
 	var passwordReg = /^\w{3,6}$/;
 	//用户注册
@@ -90,9 +88,12 @@
 			})
 			.done(function(result){
 				if(result.status==0){
+					/*
 					$login.hide();
 					$('#user-info span').html(result.data.username);
 					$('#user-info').show();
+					*/
+					window.location.reload();
 				}else{
 					$err.html(result.message)
 				}
