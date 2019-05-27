@@ -3,7 +3,8 @@
   用户列表
 {% endblock %}
 {% block content %}
-	<table class="table table-striped">
+<div class="content">
+	<table class="table table-striped" >
 		<thead>
 			<tr>
 				<th>#</th>
@@ -12,11 +13,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for key,val in users %}
+			{% for user in users %}
 				<tr>
-					<td>{{val._id.toString()}}</td>
-					<td>{{val.username}}</td>
-					{% if val.isAdmin %}
+					<td>{{user._id.toString()}}</td>
+					<td>{{user.username}}</td>
+					{% if user.isAdmin %}
 						<td>是</td>
 					{% else %}
 						<td>否</td>
@@ -26,4 +27,8 @@
 			{% endfor %}
 		</tbody>
 	</table>
+</div>
+{% if pages > 1 %}
+{% include './pagination.html' %}
+{% endif %}
 {% endblock %}

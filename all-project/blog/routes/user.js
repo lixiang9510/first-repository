@@ -13,9 +13,6 @@ router.post('/register',(req,res)=>{
 	}
 	UserModel.findOne({username})
 	.then(user=>{
-
-		console.log(hmac(password));
-		console.log('aaaaaa');
 		if(user){//用户已存在
 			result.status = 10;
 			result.message = '用户已存在'
@@ -25,7 +22,7 @@ router.post('/register',(req,res)=>{
 			UserModel.insertMany({
 				username,
 				password:hmac(password),
-				isAdmin:true
+				isAdmin:false
 			})
 			.then(user=>{
 				result.data = user;

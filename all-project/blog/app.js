@@ -79,6 +79,7 @@ app.use('/',require('./routes/index.js'))
 app.use('/user',require('./routes/user.js'))
 
 app.use('/admin',require('./routes/admin.js'))
+app.use('/category',require('./routes/category.js'))
 app.get('/list',(req,res)=>{
 	res.render('list')
 })
