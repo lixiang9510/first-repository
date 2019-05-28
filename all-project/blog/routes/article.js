@@ -1,6 +1,7 @@
 
 const express = require('express');
 const CategoryModel = require('../models/category.js');
+const ArticleModel = require('../models/article.js');
 const pagination = require('../util/pagination.js')
 
 const router = express.Router();
@@ -12,62 +13,62 @@ router.use((req,res,next)=>{
 		res.send('<h1>请使用管理员账号登陆</h1>')
 	}
 })
-//显示分类列表
+//显示文章列表
 router.get('/',(req,res)=>{
 	const options = {
 		page:req.query.page,
-		model:CategoryModel,
+		model:ArticleModel,
 		query:{},
 		projection:'-__v',
-		sort:{order:1}
+		sort:{_id:-1}
 	}
 	pagination(options)
 	.then(data=>{
-		res.render('admin/category_list',{
+		res.render('admin/article_list',{
 			userInfo:req.userInfo,
-			categories:data.docs,
+			articles:data.docs,
 			page:data.page*1,
 			pages:data.pages,
 			list:data.list,
-			url:'/category'
+			url:'/article'
 		})	
 	})
 })
-//添加分类页面
+//添加文章页面
 router.get('/add',(req,res)=>{
-	res.render('admin/category_add_edit',{
-		userInfo:req.userInfo
+	CategoryModel.find({},'name')
+	.sort({order:-1})
+	.then(categories=>{
+		res.render('admin/article_add',{
+			userInfo:req.userInfo,
+			categories
+		})
 	})
+	
 })
-//处理添加分类
+//处理添加文章
 router.post('/add',(req,res)=>{
-	const { name,order } = req.body;
-	CategoryModel.findOne({name})
-	.then(category=>{
-		if(category){//已经存在该分类
-			res.render('admin/error',{
-				userInfo:req.userInfo,
-				message:'已有同名分类，添加分类失败'
-			})
-		}else{
-			CategoryModel.insertMany({name,order})
-			.then(categories=>{
-				res.render('admin/success',{
-					userInfo:req.userInfo,
-					message:"添加分类成功",
-					url:'/category'
-				})
-			})
-			.catch(err=>{
-				throw err;
-			})
-		}
+	const { category,title,introduction,content } = req.body;
+	ArticleModel.insertMany({
+		category,
+		title,
+		introduction,
+		content,
+		user:req.userInfo._id
+	})
+	.then(result=>{
+		res.render('admin/success',{
+			userInfo:req.userInfo,
+			message:'添加文章成功',
+			url:'/article'
+		})		
 	})
 	.catch(err=>{
-		res.render('/admin/error',{
+		res.render('admin/success',{
 			userInfo:req.userInfo,
-			message:'操作数据库错误，请稍后再试'
-		});
+			message:'添加文章失败，操作数据库错误，请稍后再试',
+			url:'javascript:window.history.back()'
+		})
 	})
 })
 

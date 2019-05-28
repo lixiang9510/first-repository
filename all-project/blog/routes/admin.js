@@ -1,10 +1,13 @@
 
 const express = require('express');
+const multer = require('multer');
+const upload = multer({dest:'public/uploads'})
 const UserModel = require('../models/user.js');
 const pagination = require('../util/pagination.js');
 
 const router = express.Router();
 
+//管理员权限验证
 router.use((req,res,next)=>{
 	if(req.userInfo.isAdmin){
 		next()
@@ -13,11 +16,13 @@ router.use((req,res,next)=>{
 		return;
 	}
 })
+//显示后台首页
 router.get('/',(req,res)=>{
 	res.render('admin/index',{
 		userInfo:req.userInfo
 	})
 })
+//显示用户列表
 router.get('/users',(req,res)=>{
 	/*
 	let limit = 2;
@@ -72,5 +77,11 @@ router.get('/users',(req,res)=>{
 		})	
 	})
 })
-
+router.post('/uploadImage',upload.single('upload'),(req,res)=>{
+	const uploadeFilePath = '/uploads/'+req.file.filename
+	res.json({
+		uploaded:true,
+		url:uploadeFilePath
+	})
+})	
 module.exports = router;
