@@ -9,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>标题</th>
+				<th>分类</th>
 				<th>作者</th>
 				<th>创建时间</th>
 				<th>点击量</th>
@@ -19,8 +20,9 @@
 			{% for article in articles %}
 				<tr>
 					<td>{{article.title}}</td>
-					<td>{{article.user}}</td>
-					<td>{{article.createAt}}</td>
+					<td>{{article.category.name}}</td>
+					<td>{{article.user.username}}</td>
+					<td>{{article.createAt | date('Y年m月d日 H:m:i',-8*60)}}</td>
 					<td>{{article.click}}</td>
 					<td>
 						<a href="/view/{{article._id.toString()}}">查看</a> /

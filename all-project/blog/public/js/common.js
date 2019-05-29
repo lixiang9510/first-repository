@@ -103,5 +103,46 @@
 			})
 		}
 	})
-	
+	//文章分页
+	var $articlePagination = $('#article-list');
+
+	function buildArticleListHtml(articles){
+		var html = '';
+		articles.forEach(function(article){
+			var createAt = moment(article.createAt).format('YYYY年MM月DD日 H:m:i')
+			html += `<div class="panel panel-default content-item">
+				      <div class="panel-heading">
+				        <h3 class="panel-title">
+				          <a href="/view/${article._id.toString()}" class="link" target="_blank">${article.title}</a>
+				        </h3>
+				      </div>
+				      <div class="panel-body">
+				       ${article.introduction}
+				      </div>
+				      <div class="panel-footer">
+				        <span class="glyphicon glyphicon-user"></span>
+				        <span class="panel-footer-text text-muted">${article.user.username}</span>
+				        <span class="glyphicon glyphicon-th-list"></span>
+				        <span class="panel-footer-text text-muted">${article.category.name}</span>
+				        <span class="glyphicon glyphicon-time"></span>
+				        <span class="panel-footer-text text-muted">${createAt}</span>
+				        <span class="glyphicon glyphicon-eye-open"></span>
+				        <span class="panel-footer-text text-muted"><em>${article.click}</em>已阅读</span>
+				      </div>
+    				</div>
+					`
+		})
+
+
+
+
+		return html;
+	}
+
+	$articlePagination.on('get-data',function(ev,data){
+		$('#article-wrap').html(buildArticleListHtml(data.docs))
+	})
+	$articlePagination.pagination({
+		url:'/articles'
+	})
 })(jQuery);
