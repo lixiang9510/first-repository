@@ -103,6 +103,22 @@ router.get('/edit/:id',(req,res)=>{
 		})
 	})
 })
+//查看文章
+router.get('/see/:id',(req,res)=>{
+	const { id } = req.params;
+	CategoryModel.find({},'name')
+	.sort({order:-1})
+	.then(categories=>{
+		ArticleModel.findById(id)
+		.then(article=>{	
+			res.render('admin/article_see',{
+				userInfo:req.userInfo,
+				article,
+				categories
+			})
+		})
+	})
+})
 //处理编辑文章
 router.post('/edit',(req,res)=>{
 	const { id,category,title,introduction,content } = req.body;

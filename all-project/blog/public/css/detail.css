@@ -17,3 +17,12 @@
 .detail-panel .panel-body{
 	background: #fff;
 }
+.btn-sub-comment{
+	padding:26px 20px; 
+}
+#comment-wrap{
+	height: 400px;
+}
+#comment-wrap .panel-body{
+	word-break: break-word;
+}

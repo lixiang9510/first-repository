@@ -104,12 +104,11 @@
 		}
 	})
 	//文章分页
-	var $articlePagination = $('#article-list');
-
+	var $articlePagination = $('#article-page');
 	function buildArticleListHtml(articles){
 		var html = '';
 		articles.forEach(function(article){
-			var createAt = moment(article.createAt).format('YYYY年MM月DD日 H:m:i')
+			var createAt = moment(article.createAt).format('YYYY年MM月DD日 HH:mm:ss');
 			html += `<div class="panel panel-default content-item">
 				      <div class="panel-heading">
 				        <h3 class="panel-title">
@@ -132,17 +131,76 @@
     				</div>
 					`
 		})
-
-
-
-
 		return html;
 	}
-
+	function buildPaginationHtml(page,list){
+		var html = '';
+		html += `<li>
+			      <a href="javascript:;" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    `;
+		list.forEach(function(i){
+			if( i ==page ){
+				html += `<li class="active"><a href="javascript:;">${ i }</a></li>`
+			}else{
+				html += `<li><a href="javascript:;">${ i }</a></li>`
+			}
+		})
+		html += `<li>
+			      <a href="javascript:;" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			    `;
+		return html;
+	}
+	function buildCommentListHtml(comments){
+		var html = '';
+		console.log(comments);
+		comments.forEach(function(comment){
+			var createAt = moment(comment.createAt).format('YYYY年MM月DD日 HH:mm:ss');
+			html +=	`<div class="panel panel-default">
+			            <div class="panel-heading">${comment.user.username}评论于${ createAt }</div>
+			            <div class="panel-body">
+			             ${comment.content}
+			            </div>
+		          	</div>
+					`
+		})
+		return html;
+	}
 	$articlePagination.on('get-data',function(ev,data){
-		$('#article-wrap').html(buildArticleListHtml(data.docs))
+		//构建文章列表
+		$('#article-wrap').html(buildArticleListHtml(data.docs));
+		//构建分页器
+		var $pagination = $articlePagination.find('.pagination');
+
+		if(data.pages > 1){
+			$pagination.html(buildPaginationHtml(data.page,data.list))
+		}else{
+			$pagination.html('');
+		}
 	})
 	$articlePagination.pagination({
 		url:'/articles'
+	})
+	//评论评论列表分页
+	var $commentPagination = $('#comment-page');
+	$commentPagination.pagination({
+		url:'/comment/list'
+	})
+	$commentPagination.on('get-data',function(ev,data){
+		//构建分页列表
+		$('#comment-wrap').html(buildCommentListHtml(data.docs));
+		//构建分页器
+		var $pagination = $commentPagination.find('.pagination');
+
+		if(data.pages > 1){
+			$pagination.html(buildPaginationHtml(data.page,data.list))
+		}else{
+			$pagination.html('');
+		}
 	})
 })(jQuery);
