@@ -72,7 +72,7 @@ async function getDetailData(req){
 	const ArticleDataPromise = ArticleModel.findOneAndUpdate({_id:id},{$inc:{click:1}},{new:true})
 								.populate({path:'user',select:'username'})
 								.populate({path:'category',select:'name'});
-	const commentPageDataPromise = CommentModel.getPaginationComments(req)							
+	const commentPageDataPromise = CommentModel.getPaginationComments(req,{article:id})							
 	const data = await commonDataPromise;
 	const article = await ArticleDataPromise;
 	const pageData = await commentPageDataPromise;
@@ -88,6 +88,8 @@ async function getDetailData(req){
 //详情页
 router.get('/view/:id',(req,res)=>{
 	//要得到一个id，为所查看文章得id
+	// const {id} = req.params;
+
 	getDetailData(req)
 	.then(data=>{
 		const { categories,topArticles,article,pageData } = data;
@@ -103,6 +105,7 @@ router.get('/view/:id',(req,res)=>{
 			page:pageData.page*1,
 			pages:pageData.pages,
 			list:pageData.list,
+			// article_id:id
 		})	
 	})
 })

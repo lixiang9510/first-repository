@@ -9,18 +9,18 @@ const hmac = require('../util/hmac.js');
 
 const router = express.Router();
 
-//管理员权限验证
+//登录验证
 router.use((req,res,next)=>{
-	if(req.userInfo.isAdmin){
+	if(req.userInfo._id){
 		next()
 	}else{
-		res.send('<h1>请使用管理员账号登陆</h1>')
+		res.send('<h1>请登录账号</h1>')
 		return;
 	}
 })
 //显示后台首页
 router.get('/',(req,res)=>{
-	res.render('admin/index',{
+	res.render('home/index',{
 		userInfo:req.userInfo
 	})
 })

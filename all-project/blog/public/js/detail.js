@@ -30,7 +30,7 @@
 			})
 			.done(function(result){
 				$('#comment-content').val('');
-				console.log(result)
+				 $('#comment-page').trigger('get-data',result.data)
 			})
 			.fail(function(err){
 				console.log(err)
