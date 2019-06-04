@@ -4,11 +4,9 @@
 * @Last Modified by:   TomChen
 * @Last Modified time: 2019-03-13 18:52:43
 */
-alert('b');
 ;(function($){
 	var passwordReg = /^\w{3,6}$/;
 	$('#btn-sub').on('click',function(){
-		alert('a');
 		var $errs = $('.err');
 		var password = $('[name="password"]').val();
 		var repassword = $('[name="repassword"]').val();
