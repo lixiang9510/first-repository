@@ -103,7 +103,6 @@
 		this.oBox.style.marginLeft=-this.width*0.5+'px';
 		this.oUl.style.listStyle='none';
 		this.aLi=this.oUl.children;
-		console.log(this.aLi)
 	}
 	//for add left and right button;
 	Carousel.prototype.leftRight=function(){
@@ -116,7 +115,6 @@
 		this.toRight.innerHTML='&gt;'
 		this.oBox.appendChild(this.toLeft);
 		this.oBox.appendChild(this.toRight);
-		console.log(this.toRight);
 		this.toRight.onclick=function(){
 			_this.now++;
 			if(_this.now==_this.aLi.length){
