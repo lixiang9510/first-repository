@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<layout>
+			<div slot="first">hahha</div>
+			<div slot="secound">xicxaooafaxiix</div>
+		</layout>
+	</div>
+	<template id="layout" >
+		<div>
+			<nav>我是顶部导航</nav>
+			<slot name="first">我是中间内容</slot>
+			<slot name="secound">我是中间内容</slot>
+			<footer>我是底部部分</footer>
+		</div>
+	</template>
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		
+		template:'#layout'
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			
+		}
+	});
+</script>
+</html>

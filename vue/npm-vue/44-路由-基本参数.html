@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+<body>
+	<div id="app">
+		<p>
+			 <router-link to="/home">home</router-link>
+			 <router-link to="/article/:1258">article</router-link>
+			 <router-link to="/about">about</router-link>
+		</p>
+		<div>
+			 <router-view></router-view>
+		</div>
+	</div>
+	<template id="home">
+		<div>this is home page</div>
+	</template>
+	<template id="article">
+		<div>
+			this is article page
+			id:{{$route.params.id}}
+		</div>
+	</template>
+	<template id="about">
+		<div>this is about page</div>
+	</template>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="../js/router.js"></script>
+<script>
+	//1.定义路由组件
+	const Home = Vue.extend({
+		template:'#home'
+	})
+	const Article = Vue.extend({
+		template:'#article'
+	})
+	const About = Vue.extend({
+		template:'#about'
+	})
+	// 2. 定义路由
+	const routes=[
+		{ path:'/home',component:Home},
+		{ path:'/article/:id',component:Article},
+		{ path:'/about',component:About},
+		{ path: '/a', redirect: '/home' }
+	]
+	// 3. 创建 router 实例，然后传 `routes` 配置
+	const router = new VueRouter({
+		routes
+	})
+	let vm = new Vue({
+		el:"#app",
+		router,
+		data:{
+			
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<ul>
+			<li>吃饭</li>
+			<li-item 
+				v-for="(item,index) in items"
+				:task="item.task"
+				:id="item.id"
+				:key="index"
+			></li-item>
+		</ul>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	// 全局定义，必须在实例之前
+	Vue.component('li-item',{
+		/*
+		data(){
+			return {
+				task:'睡觉'
+			}
+		},*/
+		// props:['test'],
+		props:{
+			task:String,
+			id:Number
+		},
+		template:'<li>{{id}}-{{task}}</li>'
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			items:[
+				{
+					id:1,
+					task:'睡觉'
+				},
+				{
+					id:2,
+					task:'玩游戏'
+				}
+			]
+		}
+	});
+</script>
+</html>

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="app">
-		<p>{{message}}</p>
+		<p ref='p'>{{message}}</p>
 	</div>
 </body>
 <script src="js/vue.js"></script>
@@ -18,6 +18,14 @@
 			message:"hello vue"
 		}
 	});
-	console.log(vm)
+	console.log(vm);
+	console.log(vm.message);
+	console.log(vm.$data.message);
+	console.log(vm.$el);
+	console.log(vm.$refs.p);
+	vm.$watch("message",function(){
+		console.log("message had been changed")
+	})
+	vm.$destroy();
 </script>
 </html>

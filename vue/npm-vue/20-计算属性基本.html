@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p>{{message.split('').reverse('').join('')}}</p>
+		<p>{{reversedMessage()}}</p>
+		<p>{{reverseMessage}}</p>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:"hello"
+		},
+		methods:{
+			reversedMessage(){
+				return this.message.split('').reverse('').join('')
+			}
+		},
+		computed:{
+			reverseMessage(){
+				return this.message.split('').reverse('').join('');
+			}
+		}
+	});
+</script>
+</html>

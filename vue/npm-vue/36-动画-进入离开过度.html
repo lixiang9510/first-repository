@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		.slide-fade-enter-active {
+		  transition: all .3s ease;
+		}
+		.slide-fade-leave-active {
+		  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.slide-fade-enter, .slide-fade-leave-to
+		/* .slide-fade-leave-active for below version 2.1.8 */ {
+		  transform: translateX(10px);
+		  opacity: 0;
+	</style>
+	
+<body>
+	<div id="app">
+		<button @click="current=!current">切换</button>
+		<transition name="slide-fade" appear>
+			<div v-if="current">显示内容</div>
+		</transition>
+	</div>
+	
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			current:true
+		}
+	});
+</script>
+</html>

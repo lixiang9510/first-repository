@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		.active{
+			background: #ff6700;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<p>我是第一行</p>
+			<p class="active error">class="active error"</p>
+			<p v-bind:class="{active:true}">:class="{active:true}"</p>
+			<p :class="{active:isActive,error:isError}">:class="{active:isActive,error:isError}"</p>
+
+		</table>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			isActive:true,
+			isError:true
+		}
+	});
+	console.log(vm)
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Car(name,price){
+		this.name = name;
+		this.price = price;
+		Car.prototype.sell = function(){
+			console.log('我是'+this.name+'我现在卖'+this.price+'万元')
+		}
+		}
+	var camary = new Car('凯美瑞',27);
+	console.log('Car',Car);
+	console.log('camary',camary);
+	camary.sell();
+</script>
+</html>

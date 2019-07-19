@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p v-once>{{message}}</p>
+		<p v-text="message"></p>
+		<p v-html="oHtml"></p>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:"hello vue",
+			oHtml:"<h1>我是标题</h1>"
+		}
+	});
+	console.log(vm)
+</script>
+</html>

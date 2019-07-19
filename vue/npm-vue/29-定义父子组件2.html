@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<ul>
+			<todo-item></todo-item>
+		</ul>
+	</div>
+	<template id="todo-item">
+		<div>
+			<task></task>
+			<dateline></dateline>
+		</div>
+	</template>
+	<template id="task">
+		<span>{{tag}}吃饭</span>
+	</template>
+	<template id="dateline">
+		<span>{{tag}}今天</span>
+	</template>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	// 全局定义，必须在实例之前
+	const task = Vue.extend({
+		template:'#task',
+		data(){
+			return {
+				tag:'任务:'
+			}
+		}	
+	})
+	const dateline = Vue.extend({
+		template:'#dateline',
+		data(){
+			return {
+				tag:'截至时间:'
+			}
+		}		
+	})
+	/*
+	const task = {
+		template:'#task',
+		data(){
+			return {
+				tag:'任务:'
+			}
+		}	
+	}
+	const dateline = {
+		template:'#dateline',
+		data(){
+			return {
+				tag:'截至时间:'
+			}
+		}		
+	}
+	*/
+	Vue.component('todo-item',{
+		template:'#todo-item',
+		components:{
+			task:task,
+			dateline:dateline
+		},
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+		}
+	});
+</script>
+</html>

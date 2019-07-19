@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		
+	</style>
+<body>
+	<div id="app">
+		<a @click="calculate($event)" href="https://wwww.taobao.com">去购物</a>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			count:0
+		},
+		methods:{
+			calculate(event){
+				event.preventDefault();
+			}
+
+		}
+	});
+</script>
+</html>

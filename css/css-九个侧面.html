@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+	body{
+		background-image: url("../img/backimg.jpg");
+	}
 		*{
 			margin: 0;
 			padding: 0;
@@ -15,7 +18,7 @@
 			margin:100px auto;
 			transform-style: preserve-3d;
 			transform: rotateX(-22deg) rotateY(0deg) rotateZ(0deg);
-			animation: sport 15s linear 0s infinite normal;
+			animation: sport 10ms linear 0s infinite normal;
 		}
 		@keyframes sport{
 			0%{
@@ -24,7 +27,7 @@
 			100%{
 				transform: rotateX(-22deg) rotateY(-360deg);
 			}
-			
+
 		}
 		ul li{
 			position: absolute;

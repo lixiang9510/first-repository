@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+<body>
+	<div id="app" :title="price | formatPrice">
+		{{price | formatPrice}}
+	</div>
+	<div id="app2" :title="price | formatPrice">
+		{{price | formatPrice}}
+	</div>
+	
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	Vue.filter('formatPrice',price=>{
+		return "$"+price.toFixed(2);
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			price:10
+		},
+		filters:{
+			formatPrice(price){
+				return "$"+price.toFixed(3);
+			}
+		}
+	});
+	let vm2 = new Vue({
+		el:"#app2",
+		data:{
+			price:88
+		},
+	});
+</script>
+</html>

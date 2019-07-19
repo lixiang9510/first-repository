@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tab-articles-wrap{
+			display: flex;
+			flex-direction: row;
+		}
+		.active{
+			color: red;
+		}
+		.content{
+			color: blue;
+		}
+	</style>
+	
+<body>
+	<div id="app">
+		<button 
+			v-for="tal in tals"
+			@click="currentTabal=tal"
+		>{{tal}}
+		</button>
+		<keep-alive>
+			<component :is="currentTabalComponent"></component>
+		</keep-alive>
+	</div>
+	<template id="tab-home" >
+		<div>home page</div>
+	</template>
+	<template id="tab-article" >
+		<div class="tab-articles-wrap">
+			<ul class="sider">
+				<li
+					v-for="article in articles"
+					@click="selectedArticle=article"
+					:class="{active:selectedArticle == article}"
+				>
+					{{article.title}}
+				</li>
+			</ul>
+			<div class="content">
+				<div v-if="selectedArticle">
+					{{selectedArticle.content}}
+				</div>
+			</div>
+		</div>
+	</template>
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	})
+	Vue.component('tab-article',{
+		template:'#tab-article',
+		data(){
+			return {
+				articles:[
+					{
+						id:1,
+						title:'vue的介绍',
+						content:'vue是一个前端视图层框架'
+					},
+					{
+						id:1,
+						title:'React的介绍',
+						content:'React也是一个前端视图层框架'
+					},
+				],
+				selectedArticle:null
+			}
+		}
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			currentTabal:'home',
+			tals:['home','article']
+		},
+		computed:{
+			currentTabalComponent(){
+				return 'tab-'+this.currentTabal
+			}
+		}
+	});
+</script>
+</html>

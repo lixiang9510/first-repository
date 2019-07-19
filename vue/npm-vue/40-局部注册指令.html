@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+<body>
+	<div id="app">
+		<input type="text" >
+	</div>
+	<div id="app2">
+		<input type="text" v-focus>
+	</div>
+	
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			
+		}
+	});
+	let vm2 = new Vue({
+		el:"#app2",
+		data:{
+			
+		},
+		directives:{
+			'focus':{
+				inserted:function(el){
+					el.focus();
+				}
+			}
+		}
+	});
+</script>
+</html>

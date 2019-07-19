@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large-box{
+			width: 500px;
+			height: 500px;
+			margin: 100px auto;
+			border:1px solid black;
+			background: #ccc;
+		}
+		.big-box{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			border:1px solid black;
+			background: #ff6700;
+		}
+		.small-box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background: red;
+		}
+	</style>
+;<body>
+	<div id="app">
+		<div @click="calculate" class="large-box">
+			<div @click="say" class="big-box">
+				<div @click="say1('hi',$event)" class="small-box"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			count:0
+		},
+		methods:{
+			calculate(){
+				console.log(this)
+			},
+			say(msg){
+				console.log(msg)
+			},
+			say1(hi,event){
+				event.stopPropagation();
+				console.log(this)
+			}
+
+		}
+	});
+</script>
+</html>

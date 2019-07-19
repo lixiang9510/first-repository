@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<button @click="currentTabal='tab-home'">home</button>
+		<button @click="currentTabal='tab-article'">article</button>
+		<component :is="currentTabal"></component>
+	</div>
+	<template id="tab-home" >
+		<div>home page</div>
+	</template>
+	<template id="tab-article" >
+		<div>article page</div>
+	</template>
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	})
+	Vue.component('tab-article',{
+		template:'#tab-article'
+	})
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			currentTabal:'tab-home'
+		}
+	});
+</script>
+</html>

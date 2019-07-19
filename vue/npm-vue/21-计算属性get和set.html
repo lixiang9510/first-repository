@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<p>{{firstName}}</p>
+		<p>{{lastName}}</p>
+		<p>{{fullName}}</p>
+		<input type="text" v-model="fullName">
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			firstName:'Li',
+			lastName:'xiang'
+		},
+		// computed:{
+		// 	fullName(){
+		// 		return this.firstName + ' ' +this.lastName;
+		// 	}
+		// },
+		computed:{
+			fullName:{
+				get(){
+					return this.firstName + ' ' +this.lastName
+				},
+				set(newName){
+					var name = newName.split(' ');
+					this.firstName = name[0];
+					this.lastName = name[1];
+				}
+			}
+		}
+	});
+</script>
+</html>

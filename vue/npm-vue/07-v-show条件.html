@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+</head>
+<body>
+	<div id="app">
+		
+		<input type="text" v-model="score">
+		<p>您的分数是{{score}}</p>
+		<p v-show="score>90">优秀</p>
+		<p v-show="score<=90">良好</p>
+		
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			score:0
+		}
+	});
+	console.log(vm)
+</script>
+</html>

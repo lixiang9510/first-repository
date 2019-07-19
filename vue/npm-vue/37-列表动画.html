@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		.slide-fade-enter-active {
+		  transition: all .3s ease;
+		}
+		.slide-fade-leave-active {
+		  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		.slide-fade-enter, .slide-fade-leave-to
+		/* .slide-fade-leave-active for below version 2.1.8 */ {
+		  transform: translateX(10px);
+		  opacity: 0;
+	</style>
+	
+<body>
+	<div id="app">
+		<div class="for-add-style">
+			<input type="text" v-model="newAdd">
+			<button @click="pushTask()">增加</button>
+			<transition-group name="slide-fade">
+				<li
+					v-for="(task,index) in tasks"
+					:key="''+index"
+					@click="del(index)"
+				>
+					{{task}}
+				</li>
+			</transition-group>
+		</div>
+	</div>
+	
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			tasks:[
+				'吃饭',
+				'睡觉'
+			],
+			newAdd:''
+		},
+		methods:{
+			pushTask(){
+				this.tasks.push(this.newAdd);
+				this.newAdd=''
+			},
+			del(index){
+				this.tasks.splice(index,1)
+			}
+		}
+	});
+</script>
+</html>

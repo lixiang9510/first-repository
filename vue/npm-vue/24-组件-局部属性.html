@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:"#app",
+		data:{
+		
+		},
+		components:{
+			'button-counter':{
+				data(){
+					return {
+						count:0
+					}
+				},
+				template:'<button @click="count++">我被点击了{{count}}次</button>'
+			}
+		}
+	});
+</script>
+</html>

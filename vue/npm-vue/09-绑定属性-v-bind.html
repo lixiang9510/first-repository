@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<a href="https://www.kuazhu.com">跨猪</a>
+			<a :href="taobao">淘宝</a>
+			<a v-bind:href="baidu">百度</a>
+		</table>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			taobao:"https://www.taobao.com",
+			baidu:"https://www.baidu.com"
+		}
+	});
+	console.log(vm)
+</script>
+</html>

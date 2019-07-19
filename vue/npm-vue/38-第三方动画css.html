@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<link rel="stylesheet" href="../css/animate-css.css">
+	
+<body>
+	<div id="app">
+		<button @click="current=!current">切换</button>
+		<transition 
+ 			name="custom-classes-transition"
+   			enter-active-class="animated tada"
+    		leave-active-class="animated bounceOutRight"
+		 	appear
+		 >
+			<div v-if="current">显示内容</div>
+		</transition>
+	</div>
+	
+	
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			current:true
+		}
+	});
+</script>
+</html>

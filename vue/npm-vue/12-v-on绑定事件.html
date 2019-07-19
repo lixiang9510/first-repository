@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue体验</title>
+	<style>
+		.active{
+			background: #ff6700;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="count++">我被点击了{{count}}次</button>
+		<button v-on:click="calculate">我被点击了{{count}}次</button>
+		<button v-on:click="say('hi')">say hi</button>
+		<button v-on:click="say('hellow')">say hellow</button>
+		<button @click="say('hellow')">say hellow</button>
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	//console.log(Vue)
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			count:0
+		},
+		methods:{
+			calculate(){
+				this.count++
+			},
+			say(msg){
+				console.log(msg)
+			}
+		}
+	});
+</script>
+</html>
