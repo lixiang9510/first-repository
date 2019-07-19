@@ -52,7 +52,6 @@ function animate(obj,options,decelerate,fnEnd){
 					obj.style[attr]=current+ispeed+'px';
 				}
 				console.log(ispeed,current);
-			}
-			
+			}	
 		},30)
-	}
+}
